@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="AutomatizationProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="AutomatizationProject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="AutomatizationProject:war exploded" />
+    </root>
+  </artifact>
+</component>
