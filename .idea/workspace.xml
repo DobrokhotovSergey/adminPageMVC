@@ -35,7 +35,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
               <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-              <folding />
+              <folding>
+                <element signature="e#214#215#0" expanded="false" />
+                <element signature="e#245#246#0" expanded="false" />
+                <element signature="e#293#294#0" expanded="false" />
+                <element signature="e#333#334#0" expanded="false" />
+                <element signature="e#359#360#0" expanded="false" />
+                <element signature="e#384#385#0" expanded="false" />
+                <element signature="e#417#418#0" expanded="false" />
+                <element signature="e#445#446#0" expanded="false" />
+                <element signature="e#480#481#0" expanded="false" />
+                <element signature="e#511#512#0" expanded="false" />
+                <element signature="e#559#560#0" expanded="false" />
+                <element signature="e#599#600#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +110,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="629">
               <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,8 +130,8 @@
       <file leaf-file-name="DataBaseConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="37" column="1" lean-forward="false" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="330">
+              <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -357,7 +372,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -712,8 +728,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1495,12 +1510,13 @@
       <workItem from="1490715340781" duration="18687000" />
       <workItem from="1490805287786" duration="2565000" />
       <workItem from="1490899647187" duration="4162000" />
-      <workItem from="1490933015541" duration="569000" />
+      <workItem from="1490933015541" duration="879000" />
+      <workItem from="1490979333679" duration="1502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325553000" />
+    <option name="totallyTimeSpent" value="327365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1386" height="788" extended-state="0" />
@@ -1508,7 +1524,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46255508" sideWeight="0.43430656" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30396476" sideWeight="0.43430656" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1833,7 +1849,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#214#215#0" expanded="false" />
+            <element signature="e#245#246#0" expanded="false" />
+            <element signature="e#293#294#0" expanded="false" />
+            <element signature="e#333#334#0" expanded="false" />
+            <element signature="e#359#360#0" expanded="false" />
+            <element signature="e#384#385#0" expanded="false" />
+            <element signature="e#417#418#0" expanded="false" />
+            <element signature="e#445#446#0" expanded="false" />
+            <element signature="e#480#481#0" expanded="false" />
+            <element signature="e#511#512#0" expanded="false" />
+            <element signature="e#559#560#0" expanded="false" />
+            <element signature="e#599#600#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1892,7 +1921,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1914,8 +1945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="37" column="1" lean-forward="false" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        <state relative-caret-position="330">
+          <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
