@@ -325,7 +325,7 @@ function format(callback, id) {
            // console.log(data);
 
 
-            callback($('<table style="width: 100%" class="table table-responsive table-striped  jambo_table bulk_action table-bordered"' +
+            callback($('<table class="table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-production-'+id+'">' +
                 '<thead>' +
                 '<th></th><th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>price</th><th>currency</th><th>type</th><th>variety</th><th>edit</th>' +

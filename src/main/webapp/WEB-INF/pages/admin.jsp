@@ -516,7 +516,7 @@
                     <p class="text-muted font-13 m-b-30">
                         Here you can see the names of farms
                     </p>
-                    <div class="table-responsive11">
+                    <div class="table-responsive">
 
                     <table id="farmTable" class="table table-striped table-responsive jambo_table bulk_action table-bordered">
                         <thead>
