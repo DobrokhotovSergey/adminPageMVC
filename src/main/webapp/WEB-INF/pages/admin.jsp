@@ -169,7 +169,7 @@
                 <h4 class="modal-title" id="myModalLabel">Create invoice from Farm</h4>
             </div>
             <div class="modal-body">
-            <table id="table-farm-invoice" class="table table-striped jambo_table bulk_action table-bordered">
+            <table id="table-farm-invoice" class="table table-responsive table-striped jambo_table bulk_action table-bordered">
                 <thead>
                 <tr>
                     <th style="width: 15%">product</th>
@@ -518,7 +518,7 @@
                     </p>
                     <div class="table-responsive11">
 
-                    <table id="farmTable" class="table table-striped jambo_table bulk_action table-bordered">
+                    <table id="farmTable" class="table table-striped table-responsive jambo_table bulk_action table-bordered">
                         <thead>
                         <tr>
                             <th style="width: 5%"></th>
