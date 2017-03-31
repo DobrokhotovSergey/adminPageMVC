@@ -18,26 +18,27 @@ import java.net.URISyntaxException;
 public class DataBaseConfig {
     @Bean
     public DriverManagerDataSource getMySQLDriverManagerDatasource() {
-        URI dbUri = null;
-        try {
-            dbUri = new URI(System.getenv("DATABASE_URL"));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+//        URI dbUri = null;
+//        try {
+//            dbUri = new URI(System.getenv("DATABASE_URL"));
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
 
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+//        String username = dbUri.getUserInfo().split(":")[0];
+//        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://ec2-54-235-181-120.compute-1.amazonaws.com:5432/d214mn7r53p1uk?sslmode=require";
 
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         try {
             dataSource.setUrl(dbUrl);
-            dataSource.setUsername(username);
-            dataSource.setPassword(password);
+            dataSource.setUsername("ygvcoviixumdga");
+            dataSource.setPassword("69bb3a4d772ef7546822b29f2405c437a10b0b49701801bf52cd27f31e036193");
         }catch (Exception ex){
             System.out.println(ex);
         }
+
 
         return dataSource;
     }
