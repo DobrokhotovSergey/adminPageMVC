@@ -156,7 +156,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         try{
             jdbcTemplate.update(sb.toString(), new Object[]{
                     production.getProduct(),production.getGrading(), production.getPrice(),
-                    production.getNumberStemsInBox(), production.getType(), production.getVariety(), production.getId()});
+                    production.getNumberStemsInBox(), production.getType(), production.getVariety(), production.getIdProduct()});
         }catch (Exception ex){
             System.out.println("--0-"+ex);
         }
@@ -171,7 +171,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         Production newProduction = null;
         try{
             newProduction = jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(),
-                    new Object[]{production.getId()});
+                    new Object[]{production.getIdProduct()});
         }catch (Exception ex){
             System.out.println("--1-"+ex);
         }

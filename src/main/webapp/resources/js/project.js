@@ -1,4 +1,47 @@
 
+function myCallbackFunction (updatedCell, updatedRow, oldValue) {
+    //console.log(updatedCell.columns().header().data());
+    //var title = tableFarmInvoice.column( idx ).header();
+    // console.log(title);
+    var idx = tableFarmInvoice.cell( this ).index().column;
+    console.log(idx);
+    var title = tableFarmInvoice.columns( idx ).header();
+    console.log(title);
+
+    //console.log(tableFarmInvoice.row($(updatedCell)).column().header());
+    var oldPrice = parseFloat(tableFarmInvoice.row($(updatedRow)).data()[3]).toFixed(10);
+    var discount = parseFloat(updatedCell.data()).toFixed(10);
+    var priceWithDiscount = oldPrice - oldPrice*discount/100;
+    var cross = parseFloat($('#invoiceFarm-crossCurs').val()).toFixed(10);
+    var priceDiscountCross = cross*priceWithDiscount;
+    tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
+    tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
+}
+var tableFarmInvoice = $('#table-farm-invoice').DataTable({
+    "footerCallback": function (row, data, start, end, display) {
+        var api = this.api(),
+            intVal = function (i) {
+                return typeof i === 'string' ?
+                    i.replace(/[, Rs]|(\.\d{2})/g,"")* 1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            },
+
+            total3 = api.column(3).data().reduce(function (a, b) {
+
+                return intVal(a) + intVal(b);}, 0),
+            total4 = api.column(4).data().reduce(function (a, b) {return intVal(a) + intVal(b);}, 0),
+            total6 = api.column(6).data().reduce(function (a, b) {return intVal(a) + intVal(b);}, 0),
+            total7 = api.column(7).data().reduce(function (a, b) {return intVal(a) + intVal(b);}, 0);
+        $(api.column(3).footer()).html('total price:  ' + total3 + ' ');
+        $(api.column(4).footer()).html('total with discount:  ' + total4 + ' ');
+        $(api.column(6).footer()).html('total cross:  ' + total6 + ' ');
+        $(api.column(7).footer()).html('total cross with discount:  ' + total7 + ' ');
+
+
+
+    },
+});
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
 function block_screen() {
@@ -87,8 +130,6 @@ $('#deleteProduct-submit').on('click', function(){
             }else{
                 notifyAfterAjax('error','Sorry, but Product is not deleted :(');
             }
-
-            //farmTable.cell(farmTable.row(pos).node(), 1).data($('#edit-farm-name').val()).draw();
         },
         beforeSend: function(xhr) {
             // here it is
@@ -222,40 +263,27 @@ $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
     $('#edit-farm-name').val(data[2]);
     $('#id-farm-edit').val(data[1]);
     $('input:radio[name="farmEditCurrency"][value="'+data[3]+'"]').iCheck('check');
-    $('#position-farm-edit').val(position);
-
-    //alert('edit row id = '+ data[0] );
 });
-// $('#farmTable tbody .deleteFarm').on('click', function(){
-//     console.log('ff');
-// });
 function getFarm(){
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
-
     $.ajax({
         type: "post",
         url: "getListFarm",
         dataType: 'json',
         mimeType: 'application/json',
         success: function (data) {
-            farmTable.clear().draw();
-            //console.log(JSON.stringify(data));
+           farmTable.clear().draw();
            $('#farmTableDiv').show();
            var rows = [];
-
            data.forEach(function(item, i, arr) {
                rows[i] = ['',item.id, item.farmName, item.currency,
                '<a class="btn btn-info editFarm btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                '<a class="btn btn-danger deleteFarm btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']
            });
-
             farmTable.rows.add(rows).draw();
-
         },
         beforeSend: function(xhr) {
-            // here it is
-
             xhr.setRequestHeader(header, token);
             beforeSend();
         },
@@ -288,28 +316,32 @@ function notifyAfterAjax(type, msg){
         styling: 'bootstrap3'
     });
 }
-
-// Add event listener for opening and closing details
 $('#farmTable').on('click', 'td.details-control', function () {
     var tr = $(this).closest('tr');
     var row = farmTable.row(tr);
     var id = row.data()[1];
+    var currency = row.data()[3];
     if (row.child.isShown()) {
-        // This row is already open - close it
         row.child.hide();
         tr.removeClass('shown');
     } else {
-        // Open this row
-       // console.log(row.child);
-        format(row.child, id);
+        format(row.child, id, currency);
         tr.addClass('shown');
-
     }
-
 });
-
-function format(callback, id) {
-
+$('#invoiceFarm-crossCurs').on('keyup', function(){
+    var cross = parseFloat($(this).val());
+    $('#table-farm-invoice').DataTable().rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+        var row = this.data();
+        var discount = parseFloat(row[5]);
+        var price =parseFloat(row[3]);
+        row[6] = (cross.toFixed(10)*price.toFixed(10));
+        row[7] = (price*cross-(isNaN(discount) ? 0 : discount)*cross*price/100);
+        this.invalidate(); // invalidate the data DataTables has cached for this row
+    } );
+    $('#table-farm-invoice').DataTable().draw();
+});
+function format(callback, id, currency) {
    $.ajax({
         type: "post",
         url: "getProduction",
@@ -317,42 +349,32 @@ function format(callback, id) {
         data:{id:id},
         mimeType: 'application/json',
         complete: function (response) {
-            //console.log(JSON.stringify(response));
             NProgress.done();
             unblock_screen();
-          //
-            var data = JSON.parse(response.responseText);
-           // console.log(data);
-
-
-            callback($('<table class="table table-striped table-responsive jambo_table bulk_action table-bordered"' +
+             var data = JSON.parse(response.responseText);
+             callback($('<table class="table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-production-'+id+'">' +
                 '<thead>' +
-                '<th></th><th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>price</th><th>currency</th><th>type</th><th>variety</th><th>edit</th>' +
+                '<th></th><th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>type</th><th>variety</th><th>edit</th>' +
                 '</thead>'+
                     '<tbody></tbody>'), 'child').show();
             var tableProduction = $('#table-production-'+id).DataTable({
                 order: [[ 1, 'asc' ]],
                 aoColumns: [
                     {orderable: false,
-
                         targets  : 'no-sort',
                         targets:   [0]},
                     {}, {}, {}, {}, {}, {}, {}, {}, {}, {
                     orderable: false,
-
                         targets  : 'no-sort',
                         targets:   [11]}],
-
                 dom: 'Bfrtip',
                 buttons: [
-                    {
-
-                        text: '<i class="fa fa-plus-circle" style="color:green"></i> product',
+                        {
+                       text: '<i class="fa fa-plus-circle" style="color:green"></i> product',
                         action: function ( e, dt, node, config ) {
                             $('#addProduction-modal').modal('show');
                             $('#id-farm-foradd').val(id);
-                            //   alert( 'farm add' );
                         }
                     },
                     {
@@ -363,44 +385,68 @@ function format(callback, id) {
                             });
                            var rows = [];
                             $.each(objRows, function (i, item) {
-                                console.log(item.a);
-                                rows[i] = [item.a[3], item.a[4], item.a[5], item.a[6], ''];
+                                rows[i] = [item.a[3], item.a[4], item.a[6], item.a[5], item.a[5],'0','',''];
                             });
-                           $('#farm-invoice-modal').modal('show');
-                           var table = $('#table-farm-invoice').DataTable();
-
-                           table.clear().draw();
-                           table.rows.add(rows).draw();
-                            console.log(objRows);
-                            function myCallbackFunction (updatedCell, updatedRow, oldValue) {
-                                console.log("The new value for the cell is: " + updatedCell.data());
-                                console.log("The values for each cell in that row are: " + updatedRow.data());
+                            if(currency=='USD'){
+                                $('#invoiceFarm-currencyOther').addClass('fa-eur');
+                                $('#invoiceFarm-currencyOther').removeClass('fa-usd');
+                                $('.farm-invoice-mainCurrency').addClass('fa-usd');
+                                $('.farm-invoice-mainCurrencyDiscount').addClass('fa-usd');
+                                $('.farm-invoice-mainCurrency').removeClass('fa-eur');
+                                $('.farm-invoice-mainCurrencyDiscount').removeClass('fa-eur');
+                                $('.farm-invoice-crossCurrency').addClass('fa-eur');
+                                $('.farm-invoice-crossCurrency').removeClass('fa-usd');
+                                $('.farm-invoice-crossCurrencyDiscount').addClass('fa-eur');
+                                $('.farm-invoice-crossCurrencyDiscount').removeClass('fa-usd');
+                            }else if(currency=='EUR'){
+                                $('#invoiceFarm-currencyOther').addClass('fa-usd');
+                                $('#invoiceFarm-currencyOther').removeClass('fa-eur');
+                                $('.farm-invoice-mainCurrency').addClass('fa-eur');
+                                $('.farm-invoice-mainCurrencyDiscount').addClass('fa-eur');
+                                $('.farm-invoice-mainCurrency').removeClass('fa-usd');
+                                $('.farm-invoice-mainCurrencyDiscount').removeClass('fa-usd');
+                                $('.farm-invoice-crossCurrency').addClass('fa-usd');
+                                $('.farm-invoice-crossCurrency').removeClass('fa-eur');
+                                $('.farm-invoice-crossCurrencyDiscount').addClass('fa-usd');
+                                $('.farm-invoice-crossCurrencyDiscount').removeClass('fa-eur');
                             }
-
-                            table.MakeCellsEditable({
+                           $('#farm-invoice-modal').modal('show');
+                           $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
+                           var faCurr = currency.toLowerCase();
+                           tableFarmInvoice.clear().draw();
+                           tableFarmInvoice.rows.add(rows).draw();
+                           console.log(objRows);
+                            $('#table-farm-invoice').DataTable().MakeCellsEditable({
                                 "onUpdate": myCallbackFunction,
                                 "inputCss":'input-discount',
-                                "columns": [4],
-                                "allowNulls": {
-                                    "columns": [1],
-                                    "errorClass": 'error'
-                                },
+                                "columns": [2,5],
+                                "inputTypes": [
+                                    {
+                                        "column":2,
+                                        "type": "number",
+                                        "options":null
+                                    },
+                                    {
+                                        "column":5,
+                                        "type": "discount",
+                                        "options":null
+                                    },
+                                ],
                                 "confirmationButton": {
                                     "confirmCss": 'btn btn-info btn-xs',
                                     "cancelCss": 'btn btn-danger btn-xs'
                                 },
-
                             });
                         }
                     }
-
                 ]
             }).draw();
             var rows = [];
             tableProduction.clear().draw();
+            console.log(data);
             $.each(data, function (i, item) {
                 rows[i] = ['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                    item.id, item.idFarm, item.product, item.grading, item.numberStemsInBox, item.price, item.currency, item.type, item.variety,
+                    item.idProduct, item.idFarm, item.product, item.grading, item.numberStemsInBox, item.price, item.currency, item.type, item.variety,
                     '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                     '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>'
                 ];
@@ -410,8 +456,6 @@ function format(callback, id) {
             tableProduction.on( 'draw.dt', function () {
                 drawIcheck();
             } );
-
-
         },
         beforeSend: function(xhr) {
             xhr.setRequestHeader(header, token);
@@ -419,7 +463,6 @@ function format(callback, id) {
         },
         error: function () {
             notifyAfterAjax('error','Sorry, Products can not be displayed :(');
-           // $('#output').html('Bummer: there was an error!');
         }
     });
 }
@@ -444,9 +487,7 @@ $('body').on('hidden.bs.modal', '.modal-form', function () {
     $("form#"+idForm)[0].reset();
 });
 function init_parsley() {
-
     if( typeof (parsley) === 'undefined'){ return; }
-
     $/*.listen*/('parsley:field:validate', function() {
         validateFront();
         validateFrontProduct();
@@ -484,12 +525,9 @@ function init_parsley() {
                     grading: $('#product-grading-edit').val(),
                     numberStemsInBox: $('#product-numberStemsInBox-edit').val(),
                     price: $('#product-price-edit').val(),
-
-                    //currency: $('#product-currency').val(),
                     type: $('#product-type-edit').val(),
                     variety: $('#product-variety-edit').val()
                 }),
-                //data:{"idFarm":$('#farm-name').val()},
                 success: function (data) {
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
                     tableProduction.row($('#position-product-edit').val()).data(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
@@ -500,9 +538,7 @@ function init_parsley() {
                     tableProduction.on( 'draw, draw.dt', function () {
                         drawIcheck();
                     } );
-
                     notifyAfterAjax('success','product was edited!');
-
                 },
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader(header, token);
@@ -514,7 +550,6 @@ function init_parsley() {
                 },
                 error: function (xhr, status, error) {
                     notifyAfterAjax('error','Sorry, but product not edit :(');
-
                 }
             });
         } else {
@@ -528,7 +563,6 @@ function init_parsley() {
             $('.bs-callout-warning').addClass('hidden');
             $('#addProduction-modal').modal('hide');
             var idFarm = $('#id-farm-foradd').val();
-
             $.ajax({
                 type: "post",
                 url: "addProduction",
@@ -541,17 +575,13 @@ function init_parsley() {
                     grading: $('#product-grading').val(),
                     numberStemsInBox: $('#product-numberStemsInBox').val(),
                     price: $('#product-price').val(),
-                    //currency : $("input:radio[name='currency']:checked").val(),
-                    //currency: $('#product-currency').val(),
                     type: $('#product-type').val(),
                     variety: $('#product-variety').val()
                 }),
-                //data:{"idFarm":$('#farm-name').val()},
                 success: function (data) {
-
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
                     tableProduction.row.add(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                        data.id, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
+                        data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
                         '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                         '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
                      notifyAfterAjax('success','new product added!');
@@ -559,7 +589,6 @@ function init_parsley() {
                     tableProduction.on( 'draw.dt', function () {
                         drawIcheck();
                     } );
-
                 },
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader(header, token);
@@ -587,7 +616,6 @@ function init_parsley() {
             $('.bs-callout-warning').addClass('hidden');
             var token = $("meta[name='_csrf']").attr("content");
             var header = $("meta[name='_csrf_header']").attr("content");
-            //console.log({"farmName":$('#farm-name').val()});
             $('#addFarm-modal').modal('hide');
             $.ajax({
                 type: "post",
@@ -631,8 +659,3 @@ function init_parsley() {
     } catch (err) {}
 
 };
-// $('#addFarm-form').on('submit',function(e){
-//     console.log('submit');
-//     event.preventDefault();
-//     return false;
-// });

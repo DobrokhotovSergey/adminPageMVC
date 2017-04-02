@@ -184,6 +184,12 @@ function getInputHtml(currentColumnIndex, settings, oldValue) {
 
 	        },100);
 	        break;
+        case "number-confirm": // text input w/ confirm
+            input.html = "<input id='ejbeatycelledit' type='number' min='1' step='1' class='" + inputCss + "' value='"+oldValue+"'></input>&nbsp;<a href='#' class='" + confirmCss + "' onclick='$(this).updateEditableCell(this)'>Confirm</a> <a href='#' class='" + cancelCss + "' onclick='$(this).cancelEditableCell(this)'>Cancel</a> ";
+            break;
+        case "discount-confirm": // text input w/ confirm
+            input.html = "<input id='ejbeatycelledit' type='number' min='0' max='100' step='0.01' class='" + inputCss + "' value='"+oldValue+"'></input>&nbsp;<a href='#' class='" + confirmCss + "' onclick='$(this).updateEditableCell(this)'>Confirm</a> <a href='#' class='" + cancelCss + "' onclick='$(this).cancelEditableCell(this)'>Cancel</a> ";
+            break;
         case "text-confirm": // text input w/ confirm
             input.html = "<input id='ejbeatycelledit' class='" + inputCss + "' value='"+oldValue+"'></input>&nbsp;<a href='#' class='" + confirmCss + "' onclick='$(this).updateEditableCell(this)'>Confirm</a> <a href='#' class='" + cancelCss + "' onclick='$(this).cancelEditableCell(this)'>Cancel</a> ";
             break;

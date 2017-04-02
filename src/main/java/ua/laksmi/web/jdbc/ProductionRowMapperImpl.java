@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class ProductionRowMapperImpl implements RowMapper<Production> {
     public Production mapRow(ResultSet rs, int rowNum) throws SQLException {
         Production production = new Production();
-        production.setId(rs.getInt("id"));
+        production.setIdProduct(rs.getInt("id"));
         production.setProduct(rs.getString("product"));
         production.setPrice(rs.getBigDecimal("price"));
         production.setCurrency(rs.getString("currency"));

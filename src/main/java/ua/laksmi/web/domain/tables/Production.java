@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * Created by Dobriks on 15.03.2017.
  */
 public class Production {
-   private int id;
+   private int idProduct;
    private int idFarm;
    private String product;
    private int grading;
@@ -56,12 +56,12 @@ public class Production {
         this.idFarm = idFarm;
     }
 
-    public int getId() {
-        return id;
+    public int getIdProduct() {
+        return idProduct;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
     }
 
     public String getProduct() {
@@ -91,13 +91,13 @@ public class Production {
     @Override
     public String toString() {
         return "Production{" +
-                "id=" + id +
+                "idProduct=" + idProduct +
                 ", idFarm=" + idFarm +
                 ", product='" + product + '\'' +
                 ", grading=" + grading +
                 ", numberStemsInBox=" + numberStemsInBox +
                 ", price=" + price +
-                ", currency=" + currency +
+                ", currency='" + currency + '\'' +
                 ", type='" + type + '\'' +
                 ", variety='" + variety + '\'' +
                 '}';
