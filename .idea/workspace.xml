@@ -2,37 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09ceb6d3-23ae-45b5-a8a2-8ecf0e09c750" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/fonts/icomoon.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/fonts/icomoon.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/fonts/icomoon.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/InvoiceFarm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/ProductionInvFarm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/bootstrap-datepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/sum().js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/Read Me.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/demo-files/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/demo-files/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/fonts/icomoon.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/selection.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/vendors/font-awesome/invoice/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Production.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Production.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/ProductionRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/ProductionRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/Production.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/Production.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/ProductionRowMapperImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/ProductionRowMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/project.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/project.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -74,15 +47,15 @@
       <file leaf-file-name="project.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="338">
+              <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
               <folding>
-                <marker date="1491134884654" expanded="true" signature="3327:3338" ph="..." />
-                <marker date="1491134884654" expanded="true" signature="3588:3599" ph="..." />
-                <marker date="1491134884654" expanded="true" signature="3819:3828" ph="..." />
-                <marker date="1491134884654" expanded="true" signature="4020:4030" ph="..." />
-                <marker date="1491134884654" expanded="true" signature="13781:13792" ph="..." />
-                <marker date="1491134884654" expanded="true" signature="14141:14152" ph="..." />
+                <marker date="1491148493986" expanded="true" signature="3406:3417" ph="..." />
+                <marker date="1491148493986" expanded="true" signature="3667:3678" ph="..." />
+                <marker date="1491148493986" expanded="true" signature="3898:3907" ph="..." />
+                <marker date="1491148493986" expanded="true" signature="4099:4109" ph="..." />
+                <marker date="1491148493986" expanded="true" signature="13860:13871" ph="..." />
+                <marker date="1491148493986" expanded="true" signature="14220:14231" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,8 +64,8 @@
       <file leaf-file-name="DataBaseConfig.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            <state relative-caret-position="102">
+              <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
               <folding>
                 <element signature="e#1511#1512#0" expanded="true" />
                 <element signature="e#1585#1586#0" expanded="true" />
@@ -126,15 +99,15 @@
       <file leaf-file-name="dataTables.cellEdit.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3145">
-              <caret line="187" column="74" lean-forward="false" selection-start-line="187" selection-start-column="74" selection-end-line="187" selection-end-column="74" />
+            <state relative-caret-position="141">
+              <caret line="67" column="66" lean-forward="false" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="66" />
               <folding>
-                <marker date="1491063139373" expanded="true" signature="6045:6051" ph="&amp;nbsp;" />
-                <marker date="1491063139373" expanded="true" signature="6868:6874" ph="&amp;nbsp;" />
-                <marker date="1491063139373" expanded="true" signature="8028:8034" ph="&amp;nbsp;" />
-                <marker date="1491063139373" expanded="true" signature="8452:8458" ph="&amp;nbsp;" />
-                <marker date="1491063139373" expanded="true" signature="8828:8834" ph="&amp;nbsp;" />
-                <marker date="1491063139373" expanded="true" signature="9213:9219" ph="&amp;nbsp;" />
+                <marker date="1491140065256" expanded="true" signature="6058:6064" ph="&amp;nbsp;" />
+                <marker date="1491140065256" expanded="true" signature="6881:6887" ph="&amp;nbsp;" />
+                <marker date="1491140065256" expanded="true" signature="8041:8047" ph="&amp;nbsp;" />
+                <marker date="1491140065256" expanded="true" signature="8465:8471" ph="&amp;nbsp;" />
+                <marker date="1491140065256" expanded="true" signature="8841:8847" ph="&amp;nbsp;" />
+                <marker date="1491140065256" expanded="true" signature="9226:9232" ph="&amp;nbsp;" />
               </folding>
             </state>
           </provider>
@@ -189,10 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;a&gt;</find>
-      <find>Invoice</find>
-      <find>client n</find>
-      <find>aug</find>
       <find>mm/dd</find>
       <find>datepick</find>
       <find>date</find>
@@ -217,8 +186,12 @@
       <find>addP</find>
       <find>Datatable</find>
       <find>voice-mainCurrency</find>
+      <find>colu</find>
+      <find>columnIndex</find>
       <find>table-farm-invoice</find>
       <find>myCallbackFunction</find>
+      <find>onUpdate</find>
+      <find>reduce</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -277,10 +250,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/datepicker.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/project.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/sum().js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/ProductionInvFarm.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" />
       </list>
@@ -1670,12 +1643,12 @@
       <workItem from="1490933015541" duration="879000" />
       <workItem from="1490979333679" duration="8568000" />
       <workItem from="1491026524789" duration="42636000" />
-      <workItem from="1491113174781" duration="17685000" />
+      <workItem from="1491113174781" duration="26530000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394752000" />
+    <option name="totallyTimeSpent" value="403597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="742" extended-state="6" />
@@ -2096,21 +2069,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3145">
-          <caret line="187" column="74" lean-forward="false" selection-start-line="187" selection-start-column="74" selection-end-line="187" selection-end-column="74" />
-          <folding>
-            <marker date="1491063139373" expanded="true" signature="6045:6051" ph="&amp;nbsp;" />
-            <marker date="1491063139373" expanded="true" signature="6868:6874" ph="&amp;nbsp;" />
-            <marker date="1491063139373" expanded="true" signature="8028:8034" ph="&amp;nbsp;" />
-            <marker date="1491063139373" expanded="true" signature="8452:8458" ph="&amp;nbsp;" />
-            <marker date="1491063139373" expanded="true" signature="8828:8834" ph="&amp;nbsp;" />
-            <marker date="1491063139373" expanded="true" signature="9213:9219" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/sum().js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -2153,25 +2111,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/dataTables.cellEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="67" column="66" lean-forward="false" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="66" />
+          <folding>
+            <marker date="1491140065256" expanded="true" signature="6058:6064" ph="&amp;nbsp;" />
+            <marker date="1491140065256" expanded="true" signature="6881:6887" ph="&amp;nbsp;" />
+            <marker date="1491140065256" expanded="true" signature="8041:8047" ph="&amp;nbsp;" />
+            <marker date="1491140065256" expanded="true" signature="8465:8471" ph="&amp;nbsp;" />
+            <marker date="1491140065256" expanded="true" signature="8841:8847" ph="&amp;nbsp;" />
+            <marker date="1491140065256" expanded="true" signature="9226:9232" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="338">
+          <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
           <folding>
-            <marker date="1491134884654" expanded="true" signature="3327:3338" ph="..." />
-            <marker date="1491134884654" expanded="true" signature="3588:3599" ph="..." />
-            <marker date="1491134884654" expanded="true" signature="3819:3828" ph="..." />
-            <marker date="1491134884654" expanded="true" signature="4020:4030" ph="..." />
-            <marker date="1491134884654" expanded="true" signature="13781:13792" ph="..." />
-            <marker date="1491134884654" expanded="true" signature="14141:14152" ph="..." />
+            <marker date="1491148493986" expanded="true" signature="3406:3417" ph="..." />
+            <marker date="1491148493986" expanded="true" signature="3667:3678" ph="..." />
+            <marker date="1491148493986" expanded="true" signature="3898:3907" ph="..." />
+            <marker date="1491148493986" expanded="true" signature="4099:4109" ph="..." />
+            <marker date="1491148493986" expanded="true" signature="13860:13871" ph="..." />
+            <marker date="1491148493986" expanded="true" signature="14220:14231" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        <state relative-caret-position="102">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
           <folding>
             <element signature="e#1511#1512#0" expanded="true" />
             <element signature="e#1585#1586#0" expanded="true" />

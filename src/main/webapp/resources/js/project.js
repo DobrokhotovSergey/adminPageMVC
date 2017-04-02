@@ -1,22 +1,16 @@
 
-function myCallbackFunction (updatedCell, updatedRow, oldValue) {
-    //console.log(updatedCell.columns().header().data());
-    //var title = tableFarmInvoice.column( idx ).header();
-    // console.log(title);
-    var idx = tableFarmInvoice.cell( this ).index().column;
-    console.log(idx);
-    var title = tableFarmInvoice.columns( idx ).header();
-    console.log(title);
+function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
+   if(columnIndex==5){//
+       var oldPrice = parseFloat(tableFarmInvoice.row($(updatedRow)).data()[3]).toFixed(10);
+       var discount = parseFloat(updatedCell.data()).toFixed(10);
+       var priceWithDiscount = oldPrice - oldPrice*discount/100;
+       var cross = parseFloat($('#invoiceFarm-crossCurs').val()).toFixed(10);
+       var priceDiscountCross = cross*priceWithDiscount;
+       tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
+       tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
 
-    //console.log(tableFarmInvoice.row($(updatedCell)).column().header());
-    var oldPrice = parseFloat(tableFarmInvoice.row($(updatedRow)).data()[3]).toFixed(10);
-    var discount = parseFloat(updatedCell.data()).toFixed(10);
-    var priceWithDiscount = oldPrice - oldPrice*discount/100;
-    var cross = parseFloat($('#invoiceFarm-crossCurs').val()).toFixed(10);
-    var priceDiscountCross = cross*priceWithDiscount;
-    tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
-    tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
-}
+   }
+   }
 var tableFarmInvoice = $('#table-farm-invoice').DataTable({
     "footerCallback": function (row, data, start, end, display) {
         var api = this.api(),
@@ -25,18 +19,30 @@ var tableFarmInvoice = $('#table-farm-invoice').DataTable({
                     i.replace(/[, Rs]|(\.\d{2})/g,"")* 1 :
                     typeof i === 'number' ?
                         i : 0;
-            },
+            };
 
-            total3 = api.column(3).data().reduce(function (a, b) {
-
-                return intVal(a) + intVal(b);}, 0),
-            total4 = api.column(4).data().reduce(function (a, b) {return intVal(a) + intVal(b);}, 0),
-            total6 = api.column(6).data().reduce(function (a, b) {return intVal(a) + intVal(b);}, 0),
-            total7 = api.column(7).data().reduce(function (a, b) {return intVal(a) + intVal(b);}, 0);
-        $(api.column(3).footer()).html('total price:  ' + total3 + ' ');
-        $(api.column(4).footer()).html('total with discount:  ' + total4 + ' ');
-        $(api.column(6).footer()).html('total cross:  ' + total6 + ' ');
-        $(api.column(7).footer()).html('total cross with discount:  ' + total7 + ' ');
+        var total3 = 0, total4=0, total6=0,total7=0;
+        api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+            var data = this.data();
+            total3 +=intVal(data[2])*intVal(data[3]);
+        });
+        api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+            var data = this.data();
+            total4 +=intVal(data[2])*intVal(data[4]);
+        });
+        api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+            var data = this.data();
+            total6 +=intVal(data[2])*intVal(data[6]);
+        });
+        api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+            var data = this.data();
+            total7 +=intVal(data[2])*intVal(data[7]);
+        });
+       // console.log(api.column(2).data());
+        $(api.column(3).footer()).html('total price:  <br>' + total3 + ' ');
+        $(api.column(4).footer()).html('total with discount:   <br>' + total4 + ' ');
+        $(api.column(6).footer()).html('total cross:   <br>' + total6 + ' ');
+        $(api.column(7).footer()).html('total cross with discount:   <br>' + total7 + ' ');
 
 
 

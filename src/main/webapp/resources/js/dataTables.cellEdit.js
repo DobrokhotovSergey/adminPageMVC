@@ -65,7 +65,7 @@ jQuery.fn.dataTable.Api.register('MakeCellsEditable()', function (settings) {
                 var oldValue = cell.data();
                 cell.data(newValue);
                 //Return cell & row.
-                settings.onUpdate(cell, row, oldValue);
+                settings.onUpdate(cell, row, oldValue, columnIndex);
             }
             // Get current page
             var currentPageIndex = table.page.info().page;
