@@ -148,6 +148,7 @@ public class DaoCRUDImpl implements DaoCRUD {
     }
 
     public Production editProduction(Production production) {
+        System.out.println(production);
         StringBuilder sb = new StringBuilder();
         sb.append("update \n");
         sb.append(Constants.TABLE_PRODUCTION);
@@ -160,6 +161,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         }catch (Exception ex){
             System.out.println("--0-"+ex);
         }
+        System.out.println(sb.toString());
         StringBuilder sb2 = new StringBuilder();
         sb2.append("select a.id, a.idFerm, a.product, a.grading, a.numberStemsInBox, b.currency, a.price, a.type, a.variety  from \n");
         sb2.append(Constants.TABLE_PRODUCTION);
@@ -169,6 +171,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb2.append("where a.id=?");
 
         Production newProduction = null;
+        System.out.println(sb2.toString());
         try{
             newProduction = jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(),
                     new Object[]{production.getIdProduct()});

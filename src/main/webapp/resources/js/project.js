@@ -525,7 +525,7 @@ function init_parsley() {
                 contentType: "application/json; charset=utf-8",
                 mimeType: 'application/json',
                 data: JSON.stringify({
-                    id: $('#id-product-edit').val(),
+                    idProduct: $('#id-product-edit').val(),
                     idFarm:idFarm,
                     product: $('#product-name-edit').val(),
                     grading: $('#product-grading-edit').val(),
@@ -537,7 +537,7 @@ function init_parsley() {
                 success: function (data) {
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
                     tableProduction.row($('#position-product-edit').val()).data(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                            data.id, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
+                            data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
                             '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                             '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
                     drawIcheck();
