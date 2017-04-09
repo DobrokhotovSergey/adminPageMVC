@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09ceb6d3-23ae-45b5-a8a2-8ecf0e09c750" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/Prices.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.tabletojson.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUD.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUD.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$1.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$2.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoRolesImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoRolesImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/InvoiceFarm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/InvoiceFarm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/ProductionInvFarm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/ProductionInvFarm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUD.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUD.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUDImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/utils/Constants.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/utils/Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/InvoiceFarm.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/InvoiceFarm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/ProductionInvFarm.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/ProductionInvFarm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,15 +38,15 @@
       <file leaf-file-name="project.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state relative-caret-position="459">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
-                <marker date="1491774106058" expanded="true" signature="8531:8542" ph="..." />
-                <marker date="1491774106058" expanded="true" signature="8792:8803" ph="..." />
-                <marker date="1491774106058" expanded="true" signature="9023:9032" ph="..." />
-                <marker date="1491774106058" expanded="true" signature="9224:9234" ph="..." />
-                <marker date="1491774106058" expanded="true" signature="17926:17937" ph="..." />
-                <marker date="1491774106058" expanded="true" signature="18286:18297" ph="..." />
+                <marker date="1491774986667" expanded="true" signature="8604:8615" ph="..." />
+                <marker date="1491774986667" expanded="true" signature="8865:8876" ph="..." />
+                <marker date="1491774986667" expanded="true" signature="9096:9105" ph="..." />
+                <marker date="1491774986667" expanded="true" signature="9297:9307" ph="..." />
+                <marker date="1491774986667" expanded="true" signature="17999:18010" ph="..." />
+                <marker date="1491774986667" expanded="true" signature="18359:18370" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1743,12 +1713,12 @@
       <workItem from="1491232579996" duration="19113000" />
       <workItem from="1491278545730" duration="1475000" />
       <workItem from="1491336129486" duration="3813000" />
-      <workItem from="1491747995116" duration="11740000" />
+      <workItem from="1491747995116" duration="12604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="448439000" />
+    <option name="totallyTimeSpent" value="449303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1054" extended-state="6" />
@@ -2201,15 +2171,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        <state relative-caret-position="459">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <marker date="1491774106058" expanded="true" signature="8531:8542" ph="..." />
-            <marker date="1491774106058" expanded="true" signature="8792:8803" ph="..." />
-            <marker date="1491774106058" expanded="true" signature="9023:9032" ph="..." />
-            <marker date="1491774106058" expanded="true" signature="9224:9234" ph="..." />
-            <marker date="1491774106058" expanded="true" signature="17926:17937" ph="..." />
-            <marker date="1491774106058" expanded="true" signature="18286:18297" ph="..." />
+            <marker date="1491774986667" expanded="true" signature="8604:8615" ph="..." />
+            <marker date="1491774986667" expanded="true" signature="8865:8876" ph="..." />
+            <marker date="1491774986667" expanded="true" signature="9096:9105" ph="..." />
+            <marker date="1491774986667" expanded="true" signature="9297:9307" ph="..." />
+            <marker date="1491774986667" expanded="true" signature="17999:18010" ph="..." />
+            <marker date="1491774986667" expanded="true" signature="18359:18370" ph="..." />
           </folding>
         </state>
       </provider>

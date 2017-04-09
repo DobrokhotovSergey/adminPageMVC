@@ -43,10 +43,11 @@ function ajaxFarm(){
         }
     });
 }
-if (window.location.href==("http://localhost:8080/admin#farm") ) {
+
+if (window.location.href==(window.location.protocol + "//" + window.location.host + "/admin#farm") ) {
     ajaxFarm();
 }
-if (window.location.href==("http://localhost:8080/admin#invoiceFromFarm") ) {
+if (window.location.href==(window.location.protocol + "//" + window.location.host + "/admin#invoiceFromFarm") ) {
     ajaxInvoiceFromFarm();
 }
 $(window).bind('hashchange', function() {
