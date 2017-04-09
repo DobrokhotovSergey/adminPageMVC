@@ -1,16 +1,50 @@
 package ua.laksmi.web.domain.tables;
 
-import java.math.BigDecimal;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Dobriks on 31.03.2017.
  */
-public class InvoiceFarm extends Production{
+public class InvoiceFarm{
 
-    private int idInvoice;
-    private BigDecimal priceAfterDiscount;
-    private double discount;
+    private int id;
+    private int idFarm;
+    private String currency;
+    private String invoiceName;
     private String clientName;
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+    private Date invoiceDate;
+    private Prices prices;
+    private List<ProductionInvFarm> listProduction;
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public int getIdFarm() {
+        return idFarm;
+    }
+
+    public void setIdFarm(int idFarm) {
+        this.idFarm = idFarm;
+    }
+
+    public Prices getPrices() {
+        return prices;
+    }
+
+    public void setPrices(Prices prices) {
+        this.prices = prices;
+    }
+
+
 
     public String getClientName() {
         return clientName;
@@ -20,37 +54,49 @@ public class InvoiceFarm extends Production{
         this.clientName = clientName;
     }
 
-    public BigDecimal getPriceAfterDiscount() {
-        return priceAfterDiscount;
+    public int getId() {
+        return id;
     }
 
-    public void setPriceAfterDiscount(BigDecimal priceAfterDiscount) {
-        this.priceAfterDiscount = priceAfterDiscount;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public double getDiscount() {
-        return discount;
+    public String getInvoiceName() {
+        return invoiceName;
     }
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
+    public void setInvoiceName(String invoiceName) {
+        this.invoiceName = invoiceName;
     }
 
-    public int getIdInvoice() {
-        return idInvoice;
+    public Date getInvoiceDate() {
+        return invoiceDate;
     }
 
-    public void setIdInvoice(int idInvoice) {
-        this.idInvoice = idInvoice;
+    public void setInvoiceDate(Date invoiceDate) {
+        this.invoiceDate = invoiceDate;
+    }
+
+    public List<ProductionInvFarm> getListProduction() {
+        return listProduction;
+    }
+
+    public void setListProduction(List<ProductionInvFarm> listProduction) {
+        this.listProduction = listProduction;
     }
 
     @Override
     public String toString() {
         return "InvoiceFarm{" +
-                "idInvoice=" + idInvoice +
-                ", priceAfterDiscount=" + priceAfterDiscount +
-                ", discount=" + discount +
+                "id=" + id +
+                ", idFarm=" + idFarm +
+                ", currency='" + currency + '\'' +
+                ", invoiceName='" + invoiceName + '\'' +
                 ", clientName='" + clientName + '\'' +
+                ", invoiceDate=" + invoiceDate +
+                ", prices=" + prices +
+                ", listProduction=" + listProduction +
                 '}';
     }
 }

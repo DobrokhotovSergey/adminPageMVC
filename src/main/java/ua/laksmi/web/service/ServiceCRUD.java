@@ -1,6 +1,7 @@
 package ua.laksmi.web.service;
 
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface ServiceCRUD {
     Production addProduction(Production production);
     Farm editFarm(Farm farm);
     Farm addFarm(Farm farm);
+
+    InvoiceFarm createInvoiceFarm(InvoiceFarm invoiceFarm);
 }

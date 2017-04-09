@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
 import ua.laksmi.web.service.ServiceCRUD;
 
@@ -28,6 +29,15 @@ public class CrudController {
         List<Production> list = serviceCRUD.getListProduction(id);
        // System.out.println(list);
         return list;
+    }
+
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/createInvoiceFarm", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public InvoiceFarm createInvoiceFarm(@RequestBody InvoiceFarm invoiceFarm){
+        System.out.println("---->"+invoiceFarm);
+        return serviceCRUD.createInvoiceFarm(invoiceFarm);
     }
 
     @Secured({"ROLE_ADMIN"})

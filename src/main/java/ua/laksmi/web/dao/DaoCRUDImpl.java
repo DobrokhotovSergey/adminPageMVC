@@ -2,13 +2,16 @@ package ua.laksmi.web.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
+import ua.laksmi.web.domain.tables.ProductionInvFarm;
 import ua.laksmi.web.jdbc.FarmRowMapperImpl;
 import ua.laksmi.web.jdbc.ProductionRowMapperImpl;
 import ua.laksmi.web.utils.Constants;
@@ -245,5 +248,73 @@ public class DaoCRUDImpl implements DaoCRUD {
             System.out.println(ex);
         }
         return newFarm;
+    }
+
+    public InvoiceFarm createInvoiceFarm(final InvoiceFarm invoiceFarm) {
+        StringBuilder sb = new StringBuilder("insert into\n");
+        sb.append(Constants.TABLE_INVOICE_FARM);
+        sb.append("\n(idFarm, invoiceName, clientName, invoiceDate, crossCurs, totalPrice, totalPriceDiscount, totalPriceCross, totalPriceDiscountCross)");
+        sb.append("values(?,?,?,?,?,?,?,?,?);\n");
+        InvoiceFarm newInvoiceFarm = null;
+        final String INSERT_SQL = sb.toString();
+        final KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        try {
+            jdbcTemplate.update(
+                    new PreparedStatementCreator() {
+                        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+                            PreparedStatement ps =
+                                    connection.prepareStatement(INSERT_SQL, new String[]{"id"});
+                            ps.setInt(1, invoiceFarm.getIdFarm());
+                            ps.setString(2, invoiceFarm.getInvoiceName());
+                            ps.setString(3,invoiceFarm.getClientName());
+                            ps.setDate(4, new java.sql.Date(invoiceFarm.getInvoiceDate().getTime()));
+                            ps.setBigDecimal(5,invoiceFarm.getPrices().getCrossCurs());
+                            ps.setBigDecimal(6, invoiceFarm.getPrices().getPrice());
+                            ps.setBigDecimal(7, invoiceFarm.getPrices().getPriceDiscount());
+                            ps.setBigDecimal(8, invoiceFarm.getPrices().getPriceCross());
+                            ps.setBigDecimal(9, invoiceFarm.getPrices().getPriceDiscountCross());
+                            //ps.setString(2, farm.getCurrency());
+                            return ps;
+                        }
+                    },
+                    keyHolder);
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append("insert into\n");
+        sb2.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
+        sb2.append("\n(idInvoiceFarm, idProduct, numberStemsInBox, price, priceDiscount, currency, priceCross, priceDiscountCross)");
+        sb2.append("values (?, ?, ?, ?, ?, ?, ?, ?)\n");
+        System.out.println("key--> "+keyHolder.getKey().intValue());
+        final List<ProductionInvFarm> listProduction = invoiceFarm.getListProduction();
+        try{
+            jdbcTemplate.batchUpdate(sb2.toString(), new BatchPreparedStatementSetter(){
+
+                public void setValues(PreparedStatement ps, int i) throws SQLException {
+                    ProductionInvFarm productionInvFarm = listProduction.get(i);
+                    ps.setInt(1,keyHolder.getKey().intValue());
+                    ps.setInt(2,productionInvFarm.getIdProduct());
+                    ps.setInt(3,productionInvFarm.getNumberStemsInBox());
+                    ps.setBigDecimal(4,productionInvFarm.getPrices().getPrice());
+                    ps.setBigDecimal(5, productionInvFarm.getPrices().getPriceDiscount());
+                    ps.setString(6, invoiceFarm.getCurrency());
+                    ps.setBigDecimal(7, productionInvFarm.getPrices().getPriceCross());
+                    ps.setBigDecimal(8, productionInvFarm.getPrices().getPriceDiscountCross());
+
+                }
+
+                public int getBatchSize() {
+                    return listProduction.size();
+                }
+            } );
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+
+//        sb.append();
+        return newInvoiceFarm;
     }
 }

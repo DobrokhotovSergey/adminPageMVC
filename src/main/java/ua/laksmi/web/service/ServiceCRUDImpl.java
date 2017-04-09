@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.laksmi.web.dao.DaoCRUD;
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
 
 import java.util.List;
@@ -47,5 +48,9 @@ public class ServiceCRUDImpl implements ServiceCRUD{
 
     public Farm addFarm(Farm farm) {
         return daoCRUD.addFarm(farm);
+    }
+
+    public InvoiceFarm createInvoiceFarm(InvoiceFarm invoiceFarm) {
+        return daoCRUD.createInvoiceFarm(invoiceFarm);
     }
 }

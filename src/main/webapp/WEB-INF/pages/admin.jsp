@@ -170,8 +170,9 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel">Create invoice from Farm</h4>
             </div>
+            <div id="curr-invoiceFarm" style="display: none"></div>
             <div class="modal-body">
-
+            <div id="farm-invoice-modal-id" style="display: none"></div>
                 <form class="form-horizontal">
                     <div class="well" style="overflow: auto">
                     <div class="col-md-3 col-sm-3 col-xs-12">
@@ -204,7 +205,7 @@
                                     <div class="control-group">
                                         <div class="controls">
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                                <input type="text" class="form-control has-feedback-left" id="invoiceFarm-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">
                                                 <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                                 <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                                             </div>
@@ -228,6 +229,7 @@
                     <div class="clearfix"></div>
                     </div>
                     <div class="ln_solid"></div>
+
                     <table id="table-farm-invoice" class="table table-responsive table-striped jambo_table bulk_action table-bordered">
 
                         <thead>
@@ -240,18 +242,29 @@
                             <th style="width: 12%">discount, %</th>
                             <th style="width: 12%">price(cross), <span class="fa farm-invoice-crossCurrency"></span></th>
                             <th style="width: 12%">price(discount cross), <span class="fa farm-invoice-crossCurrencyDiscount"></span></th>
+                            <th>idProduct</th>
+                            <th>idFerm</th>
                         </tr>
                         </thead>
-                        <tfoot style="color:white; border-width: 4px; border: thick; background: #374A5E"; >
-                        <th style="width: 12%">product</th>
-                        <th style="width: 12%">grading</th>
-                        <th style="width: 12%">number stems in Box</th>
-                        <th style="width: 12%">price, <span class="fa farm-invoice-mainCurrency"></span></th>
-                        <th style="width: 12%">price(discount), <span class="fa farm-invoice-mainCurrencyDiscount"></span></th>
-                        <th style="width: 12%">discount, %</th>
-                        <th style="width: 12%">price(cross), <span class="fa farm-invoice-crossCurrency"></span></th>
-                        <th style="width: 12%">price(discount cross), <span class="fa farm-invoice-crossCurrencyDiscount"></span></th>
-                        </tfoot>
+                    </table>
+                    <div class="ln_solid"></div>
+                    <table class="col-md-4 col-sm-4 col-xs-12 table table-responsive table-bordered" id="farm-invoice-totalPrice" style="float:right">
+                        <tr>
+                            <th>total Price, <span class="fa farm-invoice-mainCurrency"></span>:</th>
+                            <td style='font-weight:bold;'></td>
+                        </tr>
+                        <tr>
+                            <th>total Price with discount, <span class="fa farm-invoice-mainCurrencyDiscount"></span> :</th>
+                            <td style='font-weight:bold;'></td>
+                        </tr>
+                        <tr>
+                            <th>total Price(cross), <span class="fa farm-invoice-crossCurrency"></span>:</th>
+                            <td style='font-weight:bold;'></td>
+                        </tr>
+                        <tr>
+                            <th>total Price(cross) with discount, <span class="fa farm-invoice-crossCurrencyDiscount"></span>:</th>
+                            <td style='font-weight:bold;'></td>
+                        </tr>
                     </table>
                 </form>
 
@@ -259,7 +272,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" id="createInvoiceFarm-btn-save">Save changes</button>
             </div>
 
         </div>
@@ -490,7 +503,7 @@
                             <li><a><i class="fa fa-list"></i> Invoices <span
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a>from Farm</a></li>
+                                    <li><a onclick="invoiceFromFarm();">from Farm</a></li>
                                     <li><a>to Client</a></li>
                                 </ul>
                             </li>
@@ -758,7 +771,39 @@
 
 
 
+            <div id="invoiceFarmDiv" class="x_panel" style="display: none">
+                <div class="x_title">
+                    <h2>Invoices from Farm</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                        Here you can see the Invoices from Farm
+                    </p>
+                    <div class="table-responsive">
 
+
+                    </div>
+
+
+                </div>
+            </div>
             <div id="farmTableDiv" class="x_panel" style="display: none">
                 <div class="x_title">
                     <h2>Table Farms </h2>
@@ -898,6 +943,7 @@
 <script src="resources/js/project.js"></script>
 <script src="resources/js/dataTables.cellEdit.js"></script>
 <script src="resources/js/sum().js"></script>
+<script src="resources/js/jquery.tabletojson.js"></script>
 <%--<script type="text/javascript" src="resources/js/bootstrap-datepicker.js"></script>--%>
 <script type="text/javascript" language="javascript">
 

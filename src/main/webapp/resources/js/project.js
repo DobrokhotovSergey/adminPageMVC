@@ -1,10 +1,146 @@
+var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+$(".nav-header li a").click(function(e){
+    console.log('df');
+    e.preventDefault(); //To prevent the default anchor tag behaviour
+    var url = this.href;
+    $(".main").load(url);
+//  return false;
+});
+function ajaxInvoiceFromFarm(){
+    $('#invoiceFarmDiv');
+}
+function ajaxFarm(){
+    $.ajax({
+        type: "post",
+        url: "getListFarm",
+        dataType: 'json',
+        mimeType: 'application/json',
+        success: function (data) {
+            farmTable.clear().draw();
+            $('#farmTableDiv').show();
+            var rows = [];
+            data.forEach(function(item, i, arr) {
+                rows[i] = ['',item.id, item.farmName, item.currency,
+                    '<a class="btn btn-info editFarm btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
+                    '<a class="btn btn-danger deleteFarm btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']
+            });
+            farmTable.rows.add(rows).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but not retrieve list of Farms :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
+if (window.location.href==("http://localhost:8080/admin#farm") ) {
+    ajaxFarm();
+}
+if (window.location.href==("http://localhost:8080/admin#invoiceFromFarm") ) {
+    ajaxInvoiceFromFarm();
+}
+$(window).bind('hashchange', function() {
+    var newhash = window.location.hash.substring(1) // it gets id of clicked element
+    if(newhash=='farm'){
+        ajaxFarm();
+    }else if(newhash=='invoiceFromFarm'){
+        ajaxInvoiceFromFarm();
+    }
+
+});
+$(".alert").addClass("in").fadeOut(4500);
+
+/* swap open/close side menu icons */
+$('[data-toggle=collapse]').click(function(){
+    // toggle icon
+    $(this).find("i").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
+});
+
+
+var intVal = function (i) {
+    return typeof i === 'string' ?
+        i.replace(/[, Rs]|(\.\d{2})/g,"")* 1 :
+        typeof i === 'number' ?
+            i : 0;
+};
+$('#createInvoiceFarm-btn-save').on('click', function () {
+    // var table = $('#table-farm-invoice').tableToJSON({
+    //     ignoreColumns : [1]
+    // });
+    var data = $('#table-farm-invoice').DataTable().rows().data().toArray();
+    var tempListObj = [];
+    //  private BigDecimal totalPrice;
+    //  private BigDecimal totalPriceDiscount;
+    //  private BigDecimal totalPriceCross;
+    //  private BigDecimal totalPriceDiscountCross;
+    data.forEach(function(item, i, arr) {
+        console.log(item[9]);
+        tempListObj[i] = {"idProduct":item[8],"idFarm":item[9],"product":item[0], "grading":item[1],
+            "numberStemsInBox":item[2], "prices":{"price":item[3], "priceDiscount":item[4], "discount":item[5], "priceCross":item[6],
+            "priceDiscountCross":item[7]}};
+    });
+    $('#farm-invoice-modal').modal('hide');
+    $.ajax({
+        type: "post",
+        url: "createInvoiceFarm",
+        //dataType: 'json',
+        data:JSON.stringify({
+            id:0,
+            currency: $('#curr-invoiceFarm').val(),
+            clientName: $('#invoiceFarm-clientName').val(),
+            invoiceName:$('#invoiceFarm-name').val(),
+            invoiceDate:$('#invoiceFarm-date').val(),
+
+            listProduction:tempListObj,
+            prices: {
+                crossCurs:$('#invoiceFarm-crossCurs').text(),
+                price: $('#totalPrice').text(),
+                priceDiscount: $('#totalPriceDiscount').text(),
+                priceCross: $('#totalPriceCross').text(),
+                priceDiscountCross: $('#totalPriceDiscountCross').text(),
+                }
+            }),
+        contentType: "application/json; charset=utf-8",
+        //mimeType: 'application/json',
+        success: function (data) {
+            notifyAfterAjax('success','Invoice from Farm is created!');
+        },
+        beforeSend: function(xhr) {
+            // here it is
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but Invoice from Farm is not created :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+});
+
+
 
 function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
    if(columnIndex==5){//
-       var oldPrice = parseFloat(tableFarmInvoice.row($(updatedRow)).data()[3]).toFixed(10);
-       var discount = parseFloat(updatedCell.data()).toFixed(10);
+       var oldPrice = intVal(tableFarmInvoice.row($(updatedRow)).data()[3]);
+       var discount = intVal(updatedCell.data());
        var priceWithDiscount = oldPrice - oldPrice*discount/100;
-       var cross = parseFloat($('#invoiceFarm-crossCurs').val()).toFixed(10);
+       var cross = intVal($('#invoiceFarm-crossCurs').val());
        var priceDiscountCross = cross*priceWithDiscount;
        tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
        tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
@@ -12,14 +148,20 @@ function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
    }
    }
 var tableFarmInvoice = $('#table-farm-invoice').DataTable({
+   "columnDefs": [{
+        "targets": [ 8 ],
+        "visible": false,
+        "searchable": false
+        },
+        {
+            "targets": [ 9 ],
+            "visible": false,
+            "searchable": false
+        }
+    ],
     "footerCallback": function (row, data, start, end, display) {
-        var api = this.api(),
-            intVal = function (i) {
-                return typeof i === 'string' ?
-                    i.replace(/[, Rs]|(\.\d{2})/g,"")* 1 :
-                    typeof i === 'number' ?
-                        i : 0;
-            };
+        var api = this.api();
+
 
         var total3 = 0, total4=0, total6=0,total7=0;
         api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
@@ -38,18 +180,23 @@ var tableFarmInvoice = $('#table-farm-invoice').DataTable({
             var data = this.data();
             total7 +=intVal(data[2])*intVal(data[7]);
         });
+
        // console.log(api.column(2).data());
-        $(api.column(3).footer()).html('total price:  <br>' + total3 + ' ');
-        $(api.column(4).footer()).html('total with discount:   <br>' + total4 + ' ');
-        $(api.column(6).footer()).html('total cross:   <br>' + total6 + ' ');
-        $(api.column(7).footer()).html('total cross with discount:   <br>' + total7 + ' ');
+        $('#farm-invoice-totalPrice td').eq(0).html('<span id="totalPrice">'+total3+'</span>');
+        $('#farm-invoice-totalPrice td').eq(1).html('<span id="totalPriceDiscount">'+total4+'</span>');
+        $('#farm-invoice-totalPrice td').eq(2).html('<span id="totalPriceCross">'+total6+'</span>');
+        $('#farm-invoice-totalPrice td').eq(3).html('<span id="totalPriceDiscountCross">'+total7+'</span>');
+        // $(api.column(3).footer()).html('total price:  <br><span id="totalPrice">' + total3 + '</span> ');
+        // $(api.column(4).footer()).html('total with discount:   <br><span id="totalPriceDiscount">' + total4 + '</span> ');
+        // $(api.column(6).footer()).html('total cross:   <br><span id="totalPriceCross">' + total6 + '</span> ');
+        // $(api.column(7).footer()).html('total cross with discount:   <br><span id="totalPriceDiscountCross">' + total7 + '</span> ');
 
 
 
     },
 });
-var token = $("meta[name='_csrf']").attr("content");
-var header = $("meta[name='_csrf_header']").attr("content");
+
+
 function block_screen() {
     $('<div id="screenBlock"></div>').appendTo('#main');
     $('#screenBlock').css( { opacity: 0.1, width: $(document).width(), height: $(document).height() } );
@@ -270,40 +417,15 @@ $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
     $('#id-farm-edit').val(data[1]);
     $('input:radio[name="farmEditCurrency"][value="'+data[3]+'"]').iCheck('check');
 });
+function invoiceFromFarm(){
+    $('#farmTableDiv').hide();
+    window.location.hash = 'invoiceFromFarm';
+}
+
 function getFarm(){
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
-    $.ajax({
-        type: "post",
-        url: "getListFarm",
-        dataType: 'json',
-        mimeType: 'application/json',
-        success: function (data) {
-           farmTable.clear().draw();
-           $('#farmTableDiv').show();
-           var rows = [];
-           data.forEach(function(item, i, arr) {
-               rows[i] = ['',item.id, item.farmName, item.currency,
-               '<a class="btn btn-info editFarm btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
-               '<a class="btn btn-danger deleteFarm btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']
-           });
-            farmTable.rows.add(rows).draw();
-        },
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader(header, token);
-            beforeSend();
-        },
-        complete: function () {
-            NProgress.done();
-            unblock_screen();
-        },
-        error: function (xhr, status, error) {
-            notifyAfterAjax('error','Sorry, but not retrieve list of Farms :(');
-            console.log(xhr);
-            console.log(status);
-            console.log(error);
-        }
-    });
+    $('#invoiceFarmDiv').hide();
+    window.location.hash = 'farm'; // it appends id to url without refresh
+
 }
 $("button").click(function () {
     $(".hidden").show();
@@ -336,12 +458,13 @@ $('#farmTable').on('click', 'td.details-control', function () {
     }
 });
 $('#invoiceFarm-crossCurs').on('keyup', function(){
-    var cross = parseFloat($(this).val());
+    var cross = intVal($(this).val());
     $('#table-farm-invoice').DataTable().rows().every( function ( rowIdx, tableLoop, rowLoop ) {
         var row = this.data();
-        var discount = parseFloat(row[5]);
-        var price =parseFloat(row[3]);
-        row[6] = (cross.toFixed(10)*price.toFixed(10));
+        var discount = intVal(row[5]);
+        var price =intVal(row[3]);
+
+        row[6] = (cross*price);
         row[7] = (price*cross-(isNaN(discount) ? 0 : discount)*cross*price/100);
         this.invalidate(); // invalidate the data DataTables has cached for this row
     } );
@@ -391,8 +514,9 @@ function format(callback, id, currency) {
                             });
                            var rows = [];
                             $.each(objRows, function (i, item) {
-                                rows[i] = [item.a[3], item.a[4], item.a[6], item.a[5], item.a[5],'0','',''];
+                                rows[i] = [item.a[3], item.a[4], item.a[6], item.a[5], item.a[5],'0','','',item.a[1], item.a[2]];
                             });
+                            $('#curr-invoiceFarm').val(currency);
                             if(currency=='USD'){
                                 $('#invoiceFarm-currencyOther').addClass('fa-eur');
                                 $('#invoiceFarm-currencyOther').removeClass('fa-usd');
@@ -417,11 +541,13 @@ function format(callback, id, currency) {
                                 $('.farm-invoice-crossCurrencyDiscount').removeClass('fa-eur');
                             }
                            $('#farm-invoice-modal').modal('show');
+                           $('#farm-invoice-modal-id').val(id);
                            $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
                            var faCurr = currency.toLowerCase();
                            tableFarmInvoice.clear().draw();
                            tableFarmInvoice.rows.add(rows).draw();
                            console.log(objRows);
+
                             $('#table-farm-invoice').DataTable().MakeCellsEditable({
                                 "onUpdate": myCallbackFunction,
                                 "inputCss":'input-discount',
