@@ -1,5 +1,6 @@
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
+
 $(".nav-header li a").click(function(e){
     console.log('df');
     e.preventDefault(); //To prevent the default anchor tag behaviour
@@ -8,7 +9,7 @@ $(".nav-header li a").click(function(e){
 //  return false;
 });
 function ajaxInvoiceFromFarm(){
-    $('#invoiceFarmDiv');
+    $('#invoiceFarmDiv').show();
 }
 function ajaxFarm(){
     $.ajax({
@@ -51,7 +52,7 @@ if (window.location.href==(window.location.protocol + "//" + window.location.hos
     ajaxInvoiceFromFarm();
 }
 $(window).bind('hashchange', function() {
-    var newhash = window.location.hash.substring(1) // it gets id of clicked element
+    var newhash = window.location.hash.substring(1); // it gets id of clicked element
     if(newhash=='farm'){
         ajaxFarm();
     }else if(newhash=='invoiceFromFarm'){
@@ -601,7 +602,7 @@ function format(callback, id, currency) {
 }
 function drawIcheck(){
     $('.icheckbox1').iCheck({
-        checkboxClass: 'icheckbox_flat-green'
+        checkboxClass: 'icheckbox_flat-blue'
     });
     $('.bulk_action input').on('ifChecked', function () {
         checkState = '';
@@ -619,6 +620,7 @@ $('body').on('hidden.bs.modal', '.modal-form', function () {
     $("form#"+idForm).parsley().reset();
     $("form#"+idForm)[0].reset();
 });
+
 function init_parsley() {
     if( typeof (parsley) === 'undefined'){ return; }
     $/*.listen*/('parsley:field:validate', function() {
@@ -645,6 +647,7 @@ function init_parsley() {
             $('#editProduction-modal').modal('hide');
             var idFarm = $('#id-farmOfProduct-edit').val();
             $('#editProduct-modal').modal('hide');
+
             $.ajax({
                 type: "post",
                 url: "editProduction",

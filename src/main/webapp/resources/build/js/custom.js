@@ -4988,14 +4988,14 @@ if (typeof NProgress != 'undefined') {
 	   
 	$(document).ready(function() {
 				
-		init_sparklines();
-		init_flot_chart();
-		init_sidebar();
-		init_wysiwyg();
+		// init_sparklines();
+		// init_flot_chart();
+		// init_sidebar();
+		// init_wysiwyg();
 		init_InputMask();
-		init_JQVmap();
-		init_cropper();
-		init_knob();
+		// init_JQVmap();
+		// init_cropper();
+		// init_knob();
 		init_IonRangeSlider();
 		init_ColorPicker();
 		init_TagsInput();
