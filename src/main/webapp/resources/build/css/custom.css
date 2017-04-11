@@ -1,19 +1,32 @@
+.blockDiv {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FFF;
+    width: 0px;
+    height: 0px;
+    z-index: 10;
+}
 
+.spinner {
+    left: 50%;
+    margin-left: -4em;
+}
 html , body{
 
- height:100%;
+    height:100%;
 
 }
 
 .full-width {
 
- width:100%;
+    width:100%;
 
- }
+}
 
 .full-height{
- height:100%;
- }
+    height:100%;
+}
 
 .daterangepicker .ranges li {
     color: #73879C
@@ -1667,7 +1680,7 @@ span.right {
     position: fixed;
     width: 230px;
     background: #2A3F54;
-	z-index:999;
+    z-index:999;
 }
 .sidebar-footer a {
     padding: 7px 0 3px;
@@ -4180,7 +4193,7 @@ ul.notifications {
 
 
 @media (max-width: 767px) {
-   .dataTables_length { float:none; }
+    .dataTables_length { float:none; }
 }
 
 
@@ -4238,5 +4251,5 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 .daterangepicker.xdisplay { width:228px; }
 
 .dataTables_wrapper > .row{
-  overflow:auto !important; /*prevent datatables overflowing its container*/
+    overflow:auto !important; /*prevent datatables overflowing its container*/
 }

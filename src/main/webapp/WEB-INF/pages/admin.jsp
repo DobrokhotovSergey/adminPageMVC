@@ -22,6 +22,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="resources/adminLTE/dist/css/skins/_all-skins.min.css">
     <!-- iCheck -->
+    <%--<link href="resources/vendors/iCheck/skins/flat/green.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="resources/adminLTE/plugins/iCheck/flat/blue.css">
 
     <!-- jvectormap -->
@@ -41,31 +42,8 @@
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <link href="resources/build/css/custom.css" rel="stylesheet">
-    <link href="resources/css/project.css" rel="stylesheet">
-    <style type="text/css">
-        .blockDiv {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            background-color: #FFF;
-            width: 0px;
-            height: 0px;
-            z-index: 10;
-        }
 
-        .spinner {
-            left: 50%;
-            margin-left: -4em;
-        }
-        td.details-control {
-            background: url('/resources/images/chevron-circle-right.png') no-repeat center!important;
-            cursor: pointer;
-        }
-        tr.shown td.details-control {
-            background: url('/resources/images/chevron-circle-down.png') no-repeat center!important;
-        }
-    </style>
+
     <![endif]-->
 
 </head>
@@ -153,7 +131,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a onclick="getFarm();"><i class="fa fa-circle-o text-red"></i> Farms</a></li>
+                        <li><a style=" cursor: pointer;" onclick="getFarm();"><i class="fa fa-circle-o text-red"></i> Farms</a></li>
 
                     </ul>
                 </li>
@@ -162,6 +140,7 @@
     </aside>
 
     <div class="content-wrapper"  role="main" id="main">
+
         <div class="right_col">
             <div class="modal modal-form fade bs-example-modal-nm" id="deleteProduct-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-nm">
@@ -285,54 +264,77 @@
                                 <div class="well" style="overflow: auto">
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Invoice Name
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <div class="col-md-12 ">
-                                                    <input type="text" class="form-control has-feedback-left" id="invoiceFarm-name" placeholder="Invoice Name">
-                                                    <span class="fa fa-list-alt form-control-feedback left" aria-hidden="true"></span>
-                                                </div>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="ion ion-clipboard"></i>
                                             </div>
+                                            <input type="text" class="form-control has-feedback-left" id="invoiceFarm-name" placeholder="Invoice Name">
                                         </div>
+                                        <%--<div class="control-group">--%>
+                                            <%--<div class="controls">--%>
+                                                <%--<div class="col-md-12 ">--%>
+                                                    <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-name" placeholder="Invoice Name">--%>
+                                                    <%--<span class="fa fa-list-alt form-control-feedback left" aria-hidden="true"></span>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Client Name
-
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <div class="col-md-12">
-                                                    <input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">
-                                                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                                                </div>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user"></i>
                                             </div>
+                                            <input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">
                                         </div>
+                                        <%--<div class="control-group">--%>
+                                            <%--<div class="controls">--%>
+                                                <%--<div class="col-md-12">--%>
+                                                    <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">--%>
+                                                    <%--<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
 
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Invoice Date
-                                        <fieldset>
-                                            <div class="control-group">
-                                                <div class="controls">
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control has-feedback-left" id="invoiceFarm-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">
-                                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                        <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                                                    </div>
-                                                </div>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
                                             </div>
-                                        </fieldset>
+                                            <input type="text" class="form-control has-feedback-left" id="invoiceFarm-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                        </div>
+                                        <%--<fieldset>--%>
+                                            <%--<div class="control-group">--%>
+                                                <%--<div class="controls">--%>
+                                                    <%--<div class="col-md-12">--%>
+                                                        <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">--%>
+                                                        <%--<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>--%>
+                                                        <%--<span id="inputSuccess2Status4" class="sr-only">(success)</span>--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</fieldset>--%>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Cross Curs
-                                        <fieldset>
-                                            <div class="control-group">
-                                                <div class="controls">
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" placeholder="Cross Curs">
-                                                        <span class="fa form-control-feedback left" id="invoiceFarm-currencyOther" aria-hidden="true"></span>
-                                                    </div>
-                                                </div>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa" id="invoiceFarm-currencyOther"></i>
                                             </div>
-                                        </fieldset>
+                                            <input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" placeholder="Cross Curs">
+                                        </div>
+                                        <%--<fieldset>--%>
+                                            <%--<div class="control-group">--%>
+                                                <%--<div class="controls">--%>
+                                                    <%--<div class="col-md-12">--%>
+                                                        <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" placeholder="Cross Curs">--%>
+                                                        <%--<span class="fa form-control-feedback left" id="invoiceFarm-currencyOther" aria-hidden="true"></span>--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</fieldset>--%>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -603,8 +605,12 @@
             <br/>
         </div>
         <!-- Main content -->
+
         <section class="content">
+
+
             <div class="row">
+
                 <div class="box box-primary" id="farmTableDiv" class="x_panel" style="display: none">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
@@ -617,18 +623,22 @@
 
                         <div class="x_content">
 
+
                             <div class="table-responsive">
 
-                                <table id="farmTable" class="table table-striped table-responsive jambo_table bulk_action table-bordered">
+                                <table id="farmTable" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
                                     <thead>
                                     <tr>
                                         <th style="width: 5%"></th>
                                         <th style="width: 5%">Id</th>
-                                        <th style="width: 75%">Farm</th>
-                                        <th style="width: 75%">Currency</th>
-                                        <th style="min-width: 15%">Edit</th>
+                                        <th style="width: 5%">Farm</th>
+                                        <th style="width: 5%">Currency</th>
+                                        <th style="min-width: 25%">Edit</th>
                                     </tr>
                                     </thead>
+                                    <tbody>
+
+                                    </tbody>
                                 </table>
                             </div>
 
@@ -656,115 +666,12 @@
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-            <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
+
         <!-- Tab panes -->
         <div class="tab-content">
             <!-- Home tab content -->
             <div class="tab-pane" id="control-sidebar-home-tab">
-                <h3 class="control-sidebar-heading">Recent Activity</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                <p>Will be 23 on April 24th</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                <p>New phone +1(800)555-1234</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                <p>nora@example.com</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                            <div class="menu-info">
-                                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                <p>Execution time 5 seconds</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
-
-                <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                <ul class="control-sidebar-menu">
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Custom Template Design
-                                <span class="label label-danger pull-right">70%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Update Resume
-                                <span class="label label-success pull-right">95%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Laravel Integration
-                                <span class="label label-warning pull-right">50%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <h4 class="control-sidebar-subheading">
-                                Back End Framework
-                                <span class="label label-primary pull-right">68%</span>
-                            </h4>
-
-                            <div class="progress progress-xxs">
-                                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.control-sidebar-menu -->
 
             </div>
             <!-- /.tab-pane -->
@@ -773,71 +680,7 @@
             <!-- /.tab-pane -->
             <!-- Settings tab content -->
             <div class="tab-pane" id="control-sidebar-settings-tab">
-                <form method="post">
-                    <h3 class="control-sidebar-heading">General Settings</h3>
 
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Allow mail redirect
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Other sets of options are available
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Expose author name in posts
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-
-                        <p>
-                            Allow the user to show his name in blog posts
-                        </p>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Show me as online
-                            <input type="checkbox" class="pull-right" checked>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Turn off notifications
-                            <input type="checkbox" class="pull-right">
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-
-                    <div class="form-group">
-                        <label class="control-sidebar-subheading">
-                            Delete chat history
-                            <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                        </label>
-                    </div>
-                    <!-- /.form-group -->
-                </form>
             </div>
             <!-- /.tab-pane -->
         </div>
@@ -913,6 +756,32 @@
 <script src="resources/js/dataTables.cellEdit.js"></script>
 <script src="resources/js/sum().js"></script>
 <script src="resources/js/jquery.tabletojson.js"></script>
+<style type="text/css">
+    .blockDiv {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: #FFF;
+        width: 0px;
+        height: 0px;
+        z-index: 10;
+    }
+
+    .spinner {
+        left: 50%;
+        margin-left: -4em;
+        color: red;
+    }
+    td.details-control {
+        background: url('/resources/images/chevron-circle-right.png') no-repeat center!important;
+        cursor: pointer;
+    }
+    tr.shown td.details-control {
+        background: url('/resources/images/chevron-circle-down.png') no-repeat center!important;
+    }
+</style>
+
+<link href="resources/css/project.css" rel="stylesheet">
 </body>
 </html>
 

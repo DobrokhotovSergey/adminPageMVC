@@ -89,7 +89,7 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
         console.log(item[9]);
         tempListObj[i] = {"idProduct":item[8],"idFarm":item[9],"product":item[0], "grading":item[1],
             "numberStemsInBox":item[2], "prices":{"price":item[3], "priceDiscount":item[4], "discount":item[5], "priceCross":item[6],
-            "priceDiscountCross":item[7]}};
+                "priceDiscountCross":item[7]}};
     });
     $('#farm-invoice-modal').modal('hide');
     $.ajax({
@@ -110,8 +110,8 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
                 priceDiscount: $('#totalPriceDiscount').text(),
                 priceCross: $('#totalPriceCross').text(),
                 priceDiscountCross: $('#totalPriceDiscountCross').text(),
-                }
-            }),
+            }
+        }),
         contentType: "application/json; charset=utf-8",
         //mimeType: 'application/json',
         success: function (data) {
@@ -138,23 +138,23 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
 
 
 function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
-   if(columnIndex==5){//
-       var oldPrice = intVal(tableFarmInvoice.row($(updatedRow)).data()[3]);
-       var discount = intVal(updatedCell.data());
-       var priceWithDiscount = oldPrice - oldPrice*discount/100;
-       var cross = intVal($('#invoiceFarm-crossCurs').val());
-       var priceDiscountCross = cross*priceWithDiscount;
-       tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
-       tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
+    if(columnIndex==5){//
+        var oldPrice = intVal(tableFarmInvoice.row($(updatedRow)).data()[3]);
+        var discount = intVal(updatedCell.data());
+        var priceWithDiscount = oldPrice - oldPrice*discount/100;
+        var cross = intVal($('#invoiceFarm-crossCurs').val());
+        var priceDiscountCross = cross*priceWithDiscount;
+        tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
+        tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
 
-   }
-   }
+    }
+}
 var tableFarmInvoice = $('#table-farm-invoice').DataTable({
-   "columnDefs": [{
+    "columnDefs": [{
         "targets": [ 8 ],
         "visible": false,
         "searchable": false
-        },
+    },
         {
             "targets": [ 9 ],
             "visible": false,
@@ -183,7 +183,7 @@ var tableFarmInvoice = $('#table-farm-invoice').DataTable({
             total7 +=intVal(data[2])*intVal(data[7]);
         });
 
-       // console.log(api.column(2).data());
+        // console.log(api.column(2).data());
         $('#farm-invoice-totalPrice td').eq(0).html('<span id="totalPrice">'+total3+'</span>');
         $('#farm-invoice-totalPrice td').eq(1).html('<span id="totalPriceDiscount">'+total4+'</span>');
         $('#farm-invoice-totalPrice td').eq(2).html('<span id="totalPriceCross">'+total6+'</span>');
@@ -203,7 +203,7 @@ function block_screen() {
     $('<div id="screenBlock"></div>').appendTo('#main');
     $('#screenBlock').css( { opacity: 0.1, width: $(document).width(), height: $(document).height() } );
     $('#screenBlock').addClass('blockDiv');
-   // $('#screenBlock').animate({opacity: 0.1}, 100);
+    // $('#screenBlock').animate({opacity: 0.1}, 100);
 }
 
 function unblock_screen() {
@@ -215,6 +215,7 @@ function beforeSend(){
     block_screen();
     NProgress.start();
 }
+
 
 var farmTable = $('#farmTable').DataTable({
     autoWidth: false,
@@ -238,7 +239,7 @@ var farmTable = $('#farmTable').DataTable({
             text: '<i class="fa fa-plus-circle" style="color:green"></i> farm',
             action: function ( e, dt, node, config ) {
                 $('#addFarm-modal').modal('show');
-             //   alert( 'farm add' );
+                //   alert( 'farm add' );
             }
         },
         {
@@ -250,7 +251,7 @@ var farmTable = $('#farmTable').DataTable({
         },
         'csvHtml5',
         {
-           text: '<i class="fa fa-file-pdf-o" style="color:red"></i> pdf',
+            text: '<i class="fa fa-file-pdf-o" style="color:red"></i> pdf',
             extend: 'pdfHtml5',
             exportOptions: {
                 columns: [ 1, 2 ]
@@ -263,6 +264,11 @@ var farmTable = $('#farmTable').DataTable({
 
     ]
 } );
+
+
+
+
+
 
 $('#deleteProduct-submit').on('click', function(){
     var pos = $('#position-product-delete').val();
@@ -304,8 +310,8 @@ $('#deleteProduct-submit').on('click', function(){
     });
 });
 $('#deleteFarm-submit').on('click', function(){
-   var pos = $('#position-farm-delete').val();
-   var id = $('#id-farm-delete').val();
+    var pos = $('#position-farm-delete').val();
+    var id = $('#id-farm-delete').val();
     $.ajax({
         type: "post",
         url: "deleteFarm",
@@ -446,6 +452,7 @@ function notifyAfterAjax(type, msg){
         styling: 'bootstrap3'
     });
 }
+
 $('#farmTable').on('click', 'td.details-control', function () {
     var tr = $(this).closest('tr');
     var row = farmTable.row(tr);
@@ -473,7 +480,7 @@ $('#invoiceFarm-crossCurs').on('keyup', function(){
     $('#table-farm-invoice').DataTable().draw();
 });
 function format(callback, id, currency) {
-   $.ajax({
+    $.ajax({
         type: "post",
         url: "getProduction",
         dataType: 'json',
@@ -482,13 +489,13 @@ function format(callback, id, currency) {
         complete: function (response) {
             NProgress.done();
             unblock_screen();
-             var data = JSON.parse(response.responseText);
-             callback($('<table class="table table-striped table-responsive jambo_table bulk_action table-bordered"' +
+            var data = JSON.parse(response.responseText);
+            callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-production-'+id+'">' +
                 '<thead>' +
                 '<th></th><th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>type</th><th>variety</th><th>edit</th>' +
                 '</thead>'+
-                    '<tbody></tbody>'), 'child').show();
+                '<tbody></tbody>'), 'child').show();
             var tableProduction = $('#table-production-'+id).DataTable({
                 order: [[ 1, 'asc' ]],
                 aoColumns: [
@@ -496,13 +503,13 @@ function format(callback, id, currency) {
                         targets  : 'no-sort',
                         targets:   [0]},
                     {}, {}, {}, {}, {}, {}, {}, {}, {}, {
-                    orderable: false,
+                        orderable: false,
                         targets  : 'no-sort',
                         targets:   [11]}],
                 dom: 'Bfrtip',
                 buttons: [
-                        {
-                       text: '<i class="fa fa-plus-circle" style="color:green"></i> product',
+                    {
+                        text: '<i class="fa fa-plus-circle" style="color:green"></i> product',
                         action: function ( e, dt, node, config ) {
                             $('#addProduction-modal').modal('show');
                             $('#id-farm-foradd').val(id);
@@ -511,10 +518,10 @@ function format(callback, id, currency) {
                     {
                         text: '<i class="fa fa-file-text-o" style="color:green"></i> convert to invoice',
                         action: function ( e, dt, node, config ) {
-                           var objRows = $.map(dt.rows('.selected').data(), function (item) {
+                            var objRows = $.map(dt.rows('.selected').data(), function (item) {
                                 return {a:item};
                             });
-                           var rows = [];
+                            var rows = [];
                             $.each(objRows, function (i, item) {
                                 rows[i] = [item.a[3], item.a[4], item.a[6], item.a[5], item.a[5],'0','','',item.a[1], item.a[2]];
                             });
@@ -542,13 +549,13 @@ function format(callback, id, currency) {
                                 $('.farm-invoice-crossCurrencyDiscount').addClass('fa-usd');
                                 $('.farm-invoice-crossCurrencyDiscount').removeClass('fa-eur');
                             }
-                           $('#farm-invoice-modal').modal('show');
-                           $('#farm-invoice-modal-id').val(id);
-                           $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
-                           var faCurr = currency.toLowerCase();
-                           tableFarmInvoice.clear().draw();
-                           tableFarmInvoice.rows.add(rows).draw();
-                           console.log(objRows);
+                            $('#farm-invoice-modal').modal('show');
+                            $('#farm-invoice-modal-id').val(id);
+                            $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
+                            var faCurr = currency.toLowerCase();
+                            tableFarmInvoice.clear().draw();
+                            tableFarmInvoice.rows.add(rows).draw();
+                            console.log(objRows);
 
                             $('#table-farm-invoice').DataTable().MakeCellsEditable({
                                 "onUpdate": myCallbackFunction,
@@ -667,9 +674,9 @@ function init_parsley() {
                 success: function (data) {
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
                     tableProduction.row($('#position-product-edit').val()).data(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                            data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
-                            '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
-                            '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
+                        data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
+                        '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
+                        '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
                     drawIcheck();
                     tableProduction.on( 'draw, draw.dt', function () {
                         drawIcheck();
@@ -720,7 +727,7 @@ function init_parsley() {
                         data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
                         '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                         '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
-                     notifyAfterAjax('success','new product added!');
+                    notifyAfterAjax('success','new product added!');
                     drawIcheck();
                     tableProduction.on( 'draw.dt', function () {
                         drawIcheck();
@@ -767,7 +774,7 @@ function init_parsley() {
                     farmTable.row.add(['',data.id,data.farmName, data.currency,
                         '<a class="btn btn-info editFarm btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                         '<a class="btn btn-danger deleteFarm btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
-                  notifyAfterAjax('success','new farm added!');
+                    notifyAfterAjax('success','new farm added!');
                 },
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader(header, token);
