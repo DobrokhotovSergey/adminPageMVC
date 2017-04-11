@@ -723,7 +723,7 @@
 <!-- FastClick -->
 <script src="resources/adminLTE/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<%--<script src="resources/adminLTE/dist/js/app.min.js"></script>--%>
+<script src="resources/adminLTE/dist/js/app.min.js"></script>
 
 <!-- AdminLTE for demo purposes -->
 <script src="resources/adminLTE/dist/js/demo.js"></script>
