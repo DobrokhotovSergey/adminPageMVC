@@ -723,7 +723,7 @@
 <!-- FastClick -->
 <script src="resources/adminLTE/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="resources/adminLTE/dist/js/app.min.js"></script>
+<%--<script src="resources/adminLTE/dist/js/app.min.js"></script>--%>
 
 <!-- AdminLTE for demo purposes -->
 <script src="resources/adminLTE/dist/js/demo.js"></script>
@@ -736,6 +736,9 @@
 <script src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="resources/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
 <script src="resources/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
 <script src="resources/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
 <script src="resources/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
