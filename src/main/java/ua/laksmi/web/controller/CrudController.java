@@ -62,6 +62,13 @@ public class CrudController {
     }
 
     @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/getListInvoicesFarm", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<InvoiceFarm> getListInvoicesFarm(){
+        return serviceCRUD.getListInvoicesFarm();
+    }
+
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/getListFarm", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<Farm> getListFarm(){

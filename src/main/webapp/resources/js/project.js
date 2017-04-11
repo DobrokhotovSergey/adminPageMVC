@@ -8,8 +8,43 @@ $(".nav-header li a").click(function(e){
     $(".main").load(url);
 //  return false;
 });
+var invoiceFarmTable = $('#invoiceFarm-table').DataTable({
+
+});
 function ajaxInvoiceFromFarm(){
-    $('#invoiceFarmDiv').show();
+    // $('#invoiceFarmDiv').show();
+    $.ajax({
+        type: "post",
+        url: "getListInvoicesFarm",
+        dataType: 'json',
+        mimeType: 'application/json',
+        success: function (data) {
+            console.log(data);
+            invoiceFarmTable.clear().draw();
+            $('#invoiceFarmDiv').show();
+            // farmTable.clear().draw();
+            // $('#farmTableDiv').show();
+            var rows = [];
+            data.forEach(function(item, i, arr) {
+                rows[i] = ['',item.id, item.invoiceName, item.clientName, item.invoiceDate]
+            });
+            invoiceFarmTable.rows.add(rows).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but not retrieve list of Invoices for Farms :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
 }
 function ajaxFarm(){
     $.ajax({
@@ -98,6 +133,7 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
         //dataType: 'json',
         data:JSON.stringify({
             id:0,
+            idFarm: $('#farm-invoice-modal-id').val(),
             currency: $('#curr-invoiceFarm').val(),
             clientName: $('#invoiceFarm-clientName').val(),
             invoiceName:$('#invoiceFarm-name').val(),
@@ -233,7 +269,7 @@ var farmTable = $('#farmTable').DataTable({
         targets:   [3],
     }
     ],
-    dom: 'Bfrtip',
+    dom: '<lBf<t>ip>',
     buttons: [
         {
             text: '<i class="fa fa-plus-circle" style="color:green"></i> farm',
@@ -425,7 +461,7 @@ $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
     $('#id-farm-edit').val(data[1]);
     $('input:radio[name="farmEditCurrency"][value="'+data[3]+'"]').iCheck('check');
 });
-function invoiceFromFarm(){
+function getInvoiceFromFarm(){
     $('#farmTableDiv').hide();
     window.location.hash = 'invoiceFromFarm';
 }

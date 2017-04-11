@@ -14,6 +14,7 @@ D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\config\core\Spring
 D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\config\SecurityConfig.java
 D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\config\core\SpringSecurityInitializer.java
 D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\web\domain\tables\ProductionInvFarm.java
+D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\web\jdbc\InvoiceFarmRowMapperImpl.java
 D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\web\domain\tables\Production.java
 D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\web\jdbc\FarmRowMapperImpl.java
 D:\IdeaProjects\AutomatizationProject\src\main\java\ua\laksmi\web\service\ServiceCRUDImpl.java

@@ -20,4 +20,6 @@ public interface DaoCRUD {
     Farm addFarm(Farm farm);
 
     InvoiceFarm createInvoiceFarm(InvoiceFarm invoiceFarm);
+
+    List<InvoiceFarm> getListInvoicesFarm();
 }

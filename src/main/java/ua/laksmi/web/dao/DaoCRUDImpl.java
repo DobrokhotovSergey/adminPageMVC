@@ -13,6 +13,7 @@ import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
 import ua.laksmi.web.domain.tables.ProductionInvFarm;
 import ua.laksmi.web.jdbc.FarmRowMapperImpl;
+import ua.laksmi.web.jdbc.InvoiceFarmRowMapperImpl;
 import ua.laksmi.web.jdbc.ProductionRowMapperImpl;
 import ua.laksmi.web.utils.Constants;
 
@@ -316,5 +317,19 @@ public class DaoCRUDImpl implements DaoCRUD {
 
 //        sb.append();
         return newInvoiceFarm;
+    }
+
+    public List<InvoiceFarm> getListInvoicesFarm() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("select id, idFarm, invoiceName, clientName, invoiceDate, crossCurs, totalPrice, totalPriceDiscount, totalPriceCross, totalPriceDiscountCross from\n");
+        sb.append(Constants.TABLE_INVOICE_FARM);
+        sb.append("\n");
+        List<InvoiceFarm> list = null;
+        try{
+            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmRowMapperImpl());
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        return list;
     }
 }

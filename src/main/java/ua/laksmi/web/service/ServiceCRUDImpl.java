@@ -53,4 +53,8 @@ public class ServiceCRUDImpl implements ServiceCRUD{
     public InvoiceFarm createInvoiceFarm(InvoiceFarm invoiceFarm) {
         return daoCRUD.createInvoiceFarm(invoiceFarm);
     }
+
+    public List<InvoiceFarm> getListInvoicesFarm() {
+        return daoCRUD.getListInvoicesFarm();
+    }
 }

@@ -135,6 +135,18 @@
 
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="ion ion-clipboard"></i> <span>Invoices</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a style=" cursor: pointer;" onclick="getInvoiceFromFarm();"><i class="fa fa-circle-o text-red"></i> from client</a></li>
+
+                    </ul>
+                </li>
             </ul>
         </section>
     </aside>
@@ -569,39 +581,43 @@
             </div>
 
 
-            <div id="invoiceFarmDiv" class="x_panel" style="display: none">
-                <div class="x_title">
-                    <h2>Invoices from Farm</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
+            <div class="box box-primary" id="invoiceFarmDiv" class="x_panel" style="display: none">
+                <div class="box-header">
+                    <i class="ion ion-clipboard"></i>
+                    <h3 class="box-title">Invoices from Farm</h3>
+
                 </div>
-                <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        Here you can see the Invoices from Farm
-                    </p>
-                    <div class="table-responsive">
+                <!-- /.box-header -->
+                <div class="box-body">
+
+
+                    <div class="x_content">
+
+
+                        <div class="table-responsive">
+
+                            <table id="invoiceFarm-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="width: 5%"></th>
+                                    <th style="width: 5%">Id</th>
+                                    <th style="width: 5%">Farm</th>
+                                    <th style="width: 5%">Client</th>
+                                    <th style="width: 5%">Currency</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
                     </div>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                </div>
-            </div>
+
             <br/>
         </div>
         <!-- Main content -->
