@@ -12,6 +12,17 @@ public class Prices {
     private BigDecimal priceCross;
     private BigDecimal priceDiscountCross;
 
+    public Prices() {
+    }
+
+    public Prices(BigDecimal crossCurs, BigDecimal price, BigDecimal priceDiscount, BigDecimal priceCross, BigDecimal priceDiscountCross) {
+        this.crossCurs = crossCurs;
+        this.price = price;
+        this.priceDiscount = priceDiscount;
+        this.priceCross = priceCross;
+        this.priceDiscountCross = priceDiscountCross;
+    }
+
     public BigDecimal getCrossCurs() {
         return crossCurs;
     }

@@ -65,7 +65,7 @@ public class RoleController {
 
     }
     @Secured({"ROLE_ADMIN"})
-    @RequestMapping(value = {"/admin**"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/admin**", "/admin/getListFarm**",  "/admin/getListInvoicesFarm**"}, method = RequestMethod.GET)
     public ModelAndView adminPage(Authentication authentication) throws NoSuchAlgorithmException, InvalidKeySpecException, IllegalBlockSizeException, BadPaddingException, ShortBufferException, InvalidKeyException {
         System.out.println(authentication.getName());
 //		Collection<? extends GrantedAuthority> grantedAuthorities = authentication.getAuthorities();

@@ -3,9 +3,11 @@ package ua.laksmi.web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.laksmi.web.dao.DaoCRUD;
+import ua.laksmi.web.domain.searchingForm.InvoiceFarmSearch;
 import ua.laksmi.web.domain.tables.Farm;
 import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
+import ua.laksmi.web.domain.tables.ProductionInvFarm;
 
 import java.util.List;
 
@@ -54,7 +56,11 @@ public class ServiceCRUDImpl implements ServiceCRUD{
         return daoCRUD.createInvoiceFarm(invoiceFarm);
     }
 
-    public List<InvoiceFarm> getListInvoicesFarm() {
-        return daoCRUD.getListInvoicesFarm();
+    public List<InvoiceFarm> getListInvoicesFarm(InvoiceFarmSearch invoiceFarmSearch) {
+        return daoCRUD.getListInvoicesFarm(invoiceFarmSearch);
+    }
+
+    public List<ProductionInvFarm> getListInvoiceFarmProduction(int id) {
+        return daoCRUD.getListInvoiceFarmProduction(id);
     }
 }

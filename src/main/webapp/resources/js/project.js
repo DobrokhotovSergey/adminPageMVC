@@ -9,24 +9,53 @@ $(".nav-header li a").click(function(e){
 //  return false;
 });
 var invoiceFarmTable = $('#invoiceFarm-table').DataTable({
-
+    autoWidth: false,
+    order: [[ 1, 'asc' ]],
+    columnDefs: [ {
+        orderable: false,
+        targets  : 'no-sort',
+        //className: 'select-checkbox',
+        targets:   [0],
+        class:"details-control"
+    },{
+        targets  : 'no-sort',
+        visible: false,
+        searchable: false,
+        targets:   [1],
+    },
+        {
+        orderable: false,
+        targets  : 'no-sort',
+        //className: 'select-checkbox',
+        targets:   [3],
+    },
+        {
+            orderable: false,
+            targets  : 'no-sort',
+            //className: 'select-checkbox',
+            targets:   [4],
+        }
+    ]
 });
-function ajaxInvoiceFromFarm(){
+function ajaxInvoiceFromFarm(start,end){
     // $('#invoiceFarmDiv').show();
     $.ajax({
         type: "post",
         url: "getListInvoicesFarm",
         dataType: 'json',
         mimeType: 'application/json',
+        contentType: "application/json; charset=utf-8",
+        data:JSON.stringify({start:start, end:end}),
         success: function (data) {
-            console.log(data);
+            //console.log(data[0].invoiceDate);
             invoiceFarmTable.clear().draw();
             $('#invoiceFarmDiv').show();
+            $('#farmTableDiv').hide();
             // farmTable.clear().draw();
             // $('#farmTableDiv').show();
             var rows = [];
             data.forEach(function(item, i, arr) {
-                rows[i] = ['',item.id, item.invoiceName, item.clientName, item.invoiceDate]
+                rows[i] = ['',item.id, item.farmName, item.clientName,item.invoiceName, item.invoiceDate,item.currency]
             });
             invoiceFarmTable.rows.add(rows).draw();
         },
@@ -80,21 +109,21 @@ function ajaxFarm(){
     });
 }
 
-if (window.location.href==(window.location.protocol + "//" + window.location.host + "/admin#farm") ) {
-    ajaxFarm();
-}
-if (window.location.href==(window.location.protocol + "//" + window.location.host + "/admin#invoiceFromFarm") ) {
-    ajaxInvoiceFromFarm();
-}
-$(window).bind('hashchange', function() {
-    var newhash = window.location.hash.substring(1); // it gets id of clicked element
-    if(newhash=='farm'){
-        ajaxFarm();
-    }else if(newhash=='invoiceFromFarm'){
-        ajaxInvoiceFromFarm();
-    }
-
-});
+// if (window.location.href==(window.location.protocol + "//" + window.location.host + "/admin#farm") ) {
+//     ajaxFarm();
+// }
+// if (window.location.href==(window.location.protocol + "//" + window.location.host + "/admin#invoiceFromFarm") ) {
+//     ajaxInvoiceFromFarm();
+// }
+// $(window).bind('hashchange', function() {
+//     var newhash = window.location.hash.substring(1); // it gets id of clicked element
+//     if(newhash=='farm'){
+//         ajaxFarm();
+//     }else if(newhash=='invoiceFromFarm'){
+//         ajaxInvoiceFromFarm();
+//     }
+//
+// });
 $(".alert").addClass("in").fadeOut(4500);
 
 /* swap open/close side menu icons */
@@ -461,14 +490,41 @@ $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
     $('#id-farm-edit').val(data[1]);
     $('input:radio[name="farmEditCurrency"][value="'+data[3]+'"]').iCheck('check');
 });
-function getInvoiceFromFarm(){
-    $('#farmTableDiv').hide();
-    window.location.hash = 'invoiceFromFarm';
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+        return null;
+    }
+    else{
+        return results[1] || 0;
+    }
 }
+function getInvoiceFromFarm(){
+    $('#searchInvoicesFarm-modal').modal('show');
+    // history.pushState(null, null, '/admin/getListInvoicesFarm');
+    // ajaxInvoiceFromFarm();
 
+}
+$('#searchInvoicesFarm-submit').on('click', function(){
+    $('#searchInvoicesFarm-modal').modal('hide');
+    var start = $('#invoiceFarm-search-start').text();
+    var end = $('#invoiceFarm-search-end').text();
+    history.pushState(null, null, '/admin/getListInvoicesFarm?start='+start+'&end='+end);
+
+    ajaxInvoiceFromFarm(start,end);
+});
+if(window.location.pathname=='/admin/getListFarm'){
+    ajaxFarm();
+}else if(window.location.pathname.indexOf('/admin/getListInvoicesFarm') == 0){
+    var start = $.urlParam('start');
+    var end = $.urlParam('end');
+    ajaxInvoiceFromFarm(start, end);
+}
 function getFarm(){
+    history.pushState(null, null, '/admin/getListFarm');
+    ajaxFarm();
     $('#invoiceFarmDiv').hide();
-    window.location.hash = 'farm'; // it appends id to url without refresh
+    // window.location.hash = 'farm'; // it appends id to url without refresh
 
 }
 $("button").click(function () {
@@ -489,6 +545,19 @@ function notifyAfterAjax(type, msg){
     });
 }
 
+$('#invoiceFarm-table').on('click', 'td.details-control', function () {
+    var tr = $(this).closest('tr');
+    var row = invoiceFarmTable.row(tr);
+    var id = row.data()[1];
+    var currency = row.data()[6];
+    if (row.child.isShown()) {
+        row.child.hide();
+        tr.removeClass('shown');
+    } else {
+        formatInvoiceFarm(row.child, id, currency);
+        tr.addClass('shown');
+    }
+});
 $('#farmTable').on('click', 'td.details-control', function () {
     var tr = $(this).closest('tr');
     var row = farmTable.row(tr);
@@ -515,6 +584,62 @@ $('#invoiceFarm-crossCurs').on('keyup', function(){
     } );
     $('#table-farm-invoice').DataTable().draw();
 });
+function formatInvoiceFarm(callback, id, currency) {
+    $.ajax({
+        type: "post",
+        url: "getInvoiceFarmProduction",
+        dataType: 'json',
+        data:{id:id},
+        mimeType: 'application/json',
+        complete: function (response) {
+            NProgress.done();
+            unblock_screen();
+            var data = JSON.parse(response.responseText);
+            callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
+                ' id="table-invoiceFarm-production-'+id+'">' +
+                '<thead>' +
+                '<th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>currency</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>total Price Discount</th><th>cross Curs</th><th>total price cross</th><th>total price cross discount</th><th>type</th><th>variety</th><th>edit</th>' +
+                '</thead>'+
+                '<tbody></tbody>'), 'child').show();
+            var tableProduction = $('#table-invoiceFarm-production-'+id).DataTable({
+                order: [[ 1, 'asc' ]],
+                aoColumns: [
+                    {orderable: false,
+                        visible: false,
+                        searchable:false,
+                        targets:   [0]},
+                    {
+                        visible: false,
+                        targets: [1],
+                        searchable:false
+                    },
+                    {}, {}, {}, {}, {}, {}, {},{},{},{},{}, {
+                        orderable: false,
+                        targets  : 'no-sort',
+                        targets:   [11]}],
+               // dom: 'frtip',
+            }).draw();
+            var rows = [];
+            tableProduction.clear().draw();
+
+            $.each(data, function (i, item) {
+                // console.log(item);
+                rows[i] = [
+                    item.idProduct, item.idFarm, item.product, item.grading, item.numberStemsInBox,item.currency, item.prices.price, item.prices.priceDiscount, item.prices.crossCurs, item.prices.priceCross,item.prices.priceDiscountCross, item.type, item.variety,
+                    '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>'
+                ];
+            });
+            tableProduction.rows.add(rows).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        error: function () {
+            notifyAfterAjax('error','Sorry, InvoiceFarm Products can not be displayed :(');
+        }
+    });
+}
 function format(callback, id, currency) {
     $.ajax({
         type: "post",
@@ -838,3 +963,21 @@ function init_parsley() {
     } catch (err) {}
 
 };
+$('#daterange-btn').daterangepicker(
+    {
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate: moment()
+    },
+    function (start, end) {
+        $('#daterange-btn span').html('from <span id="invoiceFarm-search-start" style="font-weight: bold;">'+start.format('DD-MM-YYYY') + '</span> to <span id="invoiceFarm-search-end" style="font-weight: bold;">' + end.format('DD-MM-YYYY')+'</span>');
+      //  $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+);

@@ -1,8 +1,10 @@
 package ua.laksmi.web.dao;
 
+import ua.laksmi.web.domain.searchingForm.InvoiceFarmSearch;
 import ua.laksmi.web.domain.tables.Farm;
 import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
+import ua.laksmi.web.domain.tables.ProductionInvFarm;
 
 import java.util.List;
 
@@ -21,5 +23,7 @@ public interface DaoCRUD {
 
     InvoiceFarm createInvoiceFarm(InvoiceFarm invoiceFarm);
 
-    List<InvoiceFarm> getListInvoicesFarm();
+    List<InvoiceFarm> getListInvoicesFarm(InvoiceFarmSearch invoiceFarmSearch);
+
+    List<ProductionInvFarm> getListInvoiceFarmProduction(int id);
 }

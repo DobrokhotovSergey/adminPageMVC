@@ -19,6 +19,15 @@ public class InvoiceFarm{
     private Date invoiceDate;
     private Prices prices;
     private List<ProductionInvFarm> listProduction;
+    private String farmName;
+
+    public String getFarmName() {
+        return farmName;
+    }
+
+    public void setFarmName(String farmName) {
+        this.farmName = farmName;
+    }
 
     public String getCurrency() {
         return currency;
@@ -70,6 +79,7 @@ public class InvoiceFarm{
         this.invoiceName = invoiceName;
     }
 
+    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     public Date getInvoiceDate() {
         return invoiceDate;
     }
@@ -97,6 +107,7 @@ public class InvoiceFarm{
                 ", invoiceDate=" + invoiceDate +
                 ", prices=" + prices +
                 ", listProduction=" + listProduction +
+                ", farmName='" + farmName + '\'' +
                 '}';
     }
 }

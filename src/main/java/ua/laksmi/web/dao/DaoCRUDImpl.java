@@ -8,11 +8,13 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import ua.laksmi.web.domain.searchingForm.InvoiceFarmSearch;
 import ua.laksmi.web.domain.tables.Farm;
 import ua.laksmi.web.domain.tables.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Production;
 import ua.laksmi.web.domain.tables.ProductionInvFarm;
 import ua.laksmi.web.jdbc.FarmRowMapperImpl;
+import ua.laksmi.web.jdbc.InvoiceFarmProductionRowMapperImpl;
 import ua.laksmi.web.jdbc.InvoiceFarmRowMapperImpl;
 import ua.laksmi.web.jdbc.ProductionRowMapperImpl;
 import ua.laksmi.web.utils.Constants;
@@ -142,7 +144,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb2.append("\n as b on a.idFerm=b.id\n");
         sb2.append("where a.id=?");
         try{
-            newProduction = jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(), new Object[]{keyHolder.getKey()});
+            newProduction = (Production) jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(), new Object[]{keyHolder.getKey()});
             System.out.println(newProduction);
         }catch (Exception ex){
             System.out.println(ex);
@@ -177,7 +179,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         Production newProduction = null;
         System.out.println(sb2.toString());
         try{
-            newProduction = jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(),
+            newProduction = (Production) jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(),
                     new Object[]{production.getIdProduct()});
         }catch (Exception ex){
             System.out.println("--1-"+ex);
@@ -319,15 +321,40 @@ public class DaoCRUDImpl implements DaoCRUD {
         return newInvoiceFarm;
     }
 
-    public List<InvoiceFarm> getListInvoicesFarm() {
+    public List<InvoiceFarm> getListInvoicesFarm(InvoiceFarmSearch invoiceFarmSearch) {
         StringBuilder sb = new StringBuilder();
-        sb.append("select id, idFarm, invoiceName, clientName, invoiceDate, crossCurs, totalPrice, totalPriceDiscount, totalPriceCross, totalPriceDiscountCross from\n");
+        sb.append("select a.id,b.farmName,b.currency, a.idFarm, a.invoiceName, a.clientName, a.invoiceDate, \n" +
+                "a.crossCurs, a.totalPrice, a.totalPriceDiscount, a.totalPriceCross, a.totalPriceDiscountCross from\n");
         sb.append(Constants.TABLE_INVOICE_FARM);
-        sb.append("\n");
+        sb.append("\n a join \n");
+        sb.append(Constants.TABLE_FARM);
+        sb.append("\n b\n");
+        sb.append("on a.idFarm = b.id\n");
+        sb.append("where a.invoiceDate between ? and ? \n");
         List<InvoiceFarm> list = null;
         try{
-            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmRowMapperImpl());
+            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmRowMapperImpl(), new Object[]{invoiceFarmSearch.getStart(), invoiceFarmSearch.getEnd()});
         }catch(Exception ex){
+            System.out.println(ex);
+        }
+        return list;
+    }
+
+    public List<ProductionInvFarm> getListInvoiceFarmProduction(int id) {
+        List<ProductionInvFarm> list = null;
+        StringBuilder sb = new StringBuilder();
+        sb.append("select a.idInvoiceFarm,b.product,b.idFerm,b.grading,b.variety,b.type, a.idProduct as id,c.crossCurs, a.numberStemsInBox, a.price, a.priceDiscount, a.currency, a.priceCross, a.priceDiscountCross from\n");
+        sb.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
+        sb.append("\n as a left join \n");
+        sb.append(Constants.TABLE_PRODUCTION);
+        sb.append("\n as b on a.idProduct=b.id\n");
+        sb.append("join \n");
+        sb.append(Constants.TABLE_INVOICE_FARM);
+        sb.append("\n as c on a.idInvoiceFarm = c.id\n");
+        sb.append("where a.idInvoiceFarm = ?");
+        try{
+            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmProductionRowMapperImpl(), new Object[]{id});
+        }catch (Exception ex){
             System.out.println(ex);
         }
         return list;

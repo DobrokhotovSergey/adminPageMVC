@@ -2,7 +2,9 @@ package ua.laksmi.web.jdbc;
 
 import org.springframework.jdbc.core.RowMapper;
 import ua.laksmi.web.domain.tables.InvoiceFarm;
+import ua.laksmi.web.domain.tables.Prices;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -15,7 +17,10 @@ public class InvoiceFarmRowMapperImpl implements RowMapper<InvoiceFarm> {
         invoiceFarm.setClientName(rs.getString("clientName"));
         invoiceFarm.setIdFarm(rs.getInt("idFarm"));
         invoiceFarm.setId(rs.getInt("id"));
-       // invoiceFarm.setCurrency(rs.getString("currency"));
+        invoiceFarm.setPrices(new Prices(rs.getBigDecimal("crosscurs"), rs.getBigDecimal("totalprice"),
+                rs.getBigDecimal("totalPriceDiscount"), rs.getBigDecimal("totalPriceCross"), rs.getBigDecimal("totalPriceDiscountCross")));
+        invoiceFarm.setCurrency(rs.getString("currency"));
+        invoiceFarm.setFarmName(rs.getString("farmName"));
         invoiceFarm.setInvoiceDate(rs.getDate("invoiceDate"));
         invoiceFarm.setInvoiceName(rs.getString("invoiceName"));
 
