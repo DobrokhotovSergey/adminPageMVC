@@ -63,4 +63,8 @@ public class ServiceCRUDImpl implements ServiceCRUD{
     public List<ProductionInvFarm> getListInvoiceFarmProduction(int id) {
         return daoCRUD.getListInvoiceFarmProduction(id);
     }
+
+    public List<String> searchClientName(String searchClientName) {
+        return daoCRUD.searchClientName(searchClientName);
+    }
 }

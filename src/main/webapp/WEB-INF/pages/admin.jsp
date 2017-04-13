@@ -10,6 +10,7 @@
     <title>admin page</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="resources/adminLTE/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -47,6 +48,55 @@
     <![endif]-->
 
 </head>
+<div class="modal modal-form fade bs-example-modal-nm" id="searchInvoicesFarm-modal"  role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-nm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel3">Search invoices from Farm</h4>
+            </div>
+            <div class="modal-body">
+                <form id="searchInvoicesFarm-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn">Date range button:<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn">
+                                                    <span>
+                                                      <i class="fa fa-calendar"></i> Date range picker
+                                                    </span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <%--<input type="text" id="farm-name" required="required" class="form-control col-md-7 col-xs-12">--%>
+                        </div>
+                    </div>
+                    <%--<div class="form-group">--%>
+                        <%--<label class="control-label col-md-4 col-sm-4 col-xs-12" for="client-name">client Name</label>--%>
+                        <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+
+                                <%--<select class="js-data-example-ajax" id="client-name">--%>
+                                    <%--&lt;%&ndash;<option value="Test"> Test </option>&ndash;%&gt;--%>
+                                        <%--<option value="3620194" selected="selected">Select a value......</option>--%>
+                            <%--&lt;%&ndash;<select class="form-control col-md-7 col-xs-12" id="product-name-edit1">&ndash;%&gt;--%>
+
+                            <%--</select>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="searchInvoicesFarm-submit">Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -156,6 +206,7 @@
     <div class="content-wrapper"  role="main" id="main">
 
         <div class="right_col">
+
             <div class="modal modal-form fade bs-example-modal-nm" id="deleteProduct-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-nm">
                     <div class="modal-content">
@@ -539,42 +590,31 @@
                     </div>
                 </div>
             </div>
-            <div class="modal modal-form fade bs-example-modal-nm" id="searchInvoicesFarm-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-                <div class="modal-dialog modal-nm">
-                    <div class="modal-content">
 
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel3">Search invoices from Farm</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="searchInvoicesFarm-form" data-parsley-validate class="form-horizontal form-label-left">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn">Date range button:<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn">
-                                                    <span>
-                                                      <i class="fa fa-calendar"></i> Date range picker
-                                                    </span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </button>
-                                        <%--<input type="text" id="farm-name" required="required" class="form-control col-md-7 col-xs-12">--%>
-                                    </div>
-                                </div>
+            <%--<div class="example-modal fade" id="searchInvoicesFarm-modal">--%>
+                <%--<div class="modal">--%>
+                    <%--<div class="modal-dialog">--%>
+                        <%--<div class="modal-content">--%>
+                            <%--<div class="modal-header">--%>
+                                <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+                                    <%--<span aria-hidden="true">&times;</span></button>--%>
+                                <%--<h4 class="modal-title">Default Modal</h4>--%>
+                            <%--</div>--%>
+                            <%--<div class="modal-body">--%>
+                                <%--<p>One fine body&hellip;</p>--%>
+                            <%--</div>--%>
+                            <%--<div class="modal-footer">--%>
+                                <%--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>--%>
+                                <%--<button type="button" class="btn btn-primary">Save changes</button>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<!-- /.modal-content -->--%>
+                    <%--</div>--%>
+                    <%--<!-- /.modal-dialog -->--%>
+                <%--</div>--%>
+                <%--<!-- /.modal -->--%>
+            <%--</div>--%>
 
-
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success" id="searchInvoicesFarm-submit">Search</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 
             <div class="modal modal-form fade bs-example-modal-nm" id="addFarm-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-nm">
@@ -663,7 +703,7 @@
         </div>
         <!-- Main content -->
 
-        <section class="content">
+        <section class="content" id="content-main">
 
 
             <div class="row">
@@ -757,6 +797,7 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
+
 <!-- Bootstrap 3.3.6 -->
 <script src="resources/adminLTE/bootstrap/js/bootstrap.min.js"></script>
 
@@ -789,6 +830,7 @@
 <link href="resources/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
 <link href="resources/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
 <link href="resources/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+<link href="resources/vendors/select2/dist/css/select2.css" rel="stylesheet">
 
 <script src="resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -812,10 +854,14 @@
 <script src="resources/vendors/pnotify/dist/pnotify.js"></script>
 <script src="resources/vendors/pnotify/dist/pnotify.buttons.js"></script>
 <script src="resources/build/js/custom.js"></script>
+
 <script src="resources/js/project.js"></script>
 <script src="resources/js/dataTables.cellEdit.js"></script>
 <script src="resources/js/sum().js"></script>
 <script src="resources/js/jquery.tabletojson.js"></script>
+<script src="resources/vendors/select2/dist/js/select2.js"></script>
+<%--<script src="resources/vendors/select2/dist/js/select2.js"></script>--%>
+
 <style type="text/css">
     .blockDiv {
         position: absolute;
@@ -826,7 +872,29 @@
         height: 0px;
         z-index: 10;
     }
-
+    .modal {
+        /*position: relative;*/
+        /*top: auto;*/
+        /*bottom: auto;*/
+        /*right: auto;*/
+        /*left: auto;*/
+        /*display: block;*/
+        z-index: 100000000;
+    }
+    .daterangepicker{
+        /*overflow-x: scroll;*/
+        overflow: visible;
+        position:absolute;
+        height: 350px;
+        max-height: 500px;
+        /*width: 100%;*/
+        overflow-y: scroll;
+        -webkit-overflow-scrolling:touch;
+        z-index: 1000000000 !important;
+    }
+    /*.modal {*/
+        /*background: transparent !important;*/
+    /*}*/
     .spinner {
         left: 50%;
         margin-left: -4em;

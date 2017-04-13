@@ -1,8 +1,80 @@
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
-
+// function formatRepo (repo) {
+//     // console.log(repo);
+//     if (repo.loading) return repo;
+// // <option value="3620194" selected="selected">select2/select2</option>
+//     var markup = '';
+//     markup +='<div class="clearfix">'+repo+'</div>';
+//     // var markup = '<div class="clearfix">' +
+//     //     '<div class="col-sm-1">' +
+//     //     '<img src="' + repo.owner.avatar_url + '" style="max-width: 100%" />' +
+//     //     '</div>' +
+//     //     '<div clas="col-sm-10">' +
+//     //     '<div class="clearfix">' +
+//     //     '<div class="col-sm-6">' + repo.full_name + '</div>' +
+//     //     '<div class="col-sm-3"><i class="fa fa-code-fork"></i> ' + repo.forks_count + '</div>' +
+//     //     '<div class="col-sm-2"><i class="fa fa-star"></i> ' + repo.stargazers_count + '</div>' +
+//     //     '</div>';
+//
+//     // if (repo.description) {
+//     //     markup += '<div>' + repo.description + '</div>';
+//     // }
+//     //
+//     // markup += '</div></div>';
+//
+//     return markup;
+// }
+//
+// function formatRepoSelection (repo) {
+//
+//     return repo;
+// }
+// $(document).ready(function(){
+//
+//     $("#client-name").select2({
+//         dropdownParent: $("#searchInvoicesFarm-modal"),
+//         width: '100%',
+//         ajax: {
+//             type: "post",
+//             url: "/admin/searchClientName",
+//            // dataType: 'json',
+//             delay: 250,
+//             data: function (params) {
+//                 return {
+//                     searchClientName: params.term, // search term
+//                     page: params.page
+//                 };
+//             },
+//             beforeSend: function(xhr) {
+//                 xhr.setRequestHeader(header, token);
+//                 beforeSend();
+//             },
+//             complete: function () {
+//                 NProgress.done();
+//                 //unblock_screen();
+//             },
+//             processResults: function (data, page) {
+//                 console.log(data);
+//                 // parse the results into the format expected by Select2.
+//                 // since we are using custom formatting functions we do not need to
+//                 // alter the remote JSON data
+//                 return {
+//                     results: data,
+//
+//                 };
+//             },
+//             cache: true
+//         },
+//         escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+//         minimumInputLength: 1,
+//         templateResult: formatRepo, // omitted for brevity, see the source of this page
+//         // templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+//
+//     });
+// });
 $(".nav-header li a").click(function(e){
-    console.log('df');
+
     e.preventDefault(); //To prevent the default anchor tag behaviour
     var url = this.href;
     $(".main").load(url);
@@ -265,8 +337,8 @@ var tableFarmInvoice = $('#table-farm-invoice').DataTable({
 
 
 function block_screen() {
-    $('<div id="screenBlock"></div>').appendTo('#main');
-    $('#screenBlock').css( { opacity: 0.1, width: $(document).width(), height: $(document).height() } );
+    $('<div id="screenBlock"></div>').appendTo('#content-main');
+    $('#screenBlock').css( { opacity: 0.6, width: $(document).width(), height: $(document).height() } );
     $('#screenBlock').addClass('blockDiv');
     // $('#screenBlock').animate({opacity: 0.1}, 100);
 }

@@ -359,4 +359,19 @@ public class DaoCRUDImpl implements DaoCRUD {
         }
         return list;
     }
+
+    public List<String> searchClientName(String searchClientName) {
+        StringBuilder sb= new StringBuilder();
+        sb.append("select distinct clientName from\n");
+        sb.append(Constants.TABLE_INVOICE_FARM);
+        sb.append("\n where clientName like ?");
+        List<String> finded = null;
+        try{
+            finded = jdbcTemplate.queryForList(sb.toString(), String.class, new Object[]{"%"+searchClientName+"%"});
+            System.out.println("finded--"+finded);
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+        return finded;
+    }
 }

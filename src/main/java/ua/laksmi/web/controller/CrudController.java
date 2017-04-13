@@ -50,6 +50,13 @@ public class CrudController {
     }
 
     @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/searchClientName", method =  RequestMethod.POST)
+    @ResponseBody
+    public List<String> searchClientName(@RequestParam String searchClientName){
+        return serviceCRUD.searchClientName(searchClientName);
+    }
+
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/addProduction", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
     consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
