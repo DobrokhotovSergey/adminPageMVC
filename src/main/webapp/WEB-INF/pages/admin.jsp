@@ -539,42 +539,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal modal-form fade bs-example-modal-nm" id="searchInvoicesFarm-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-                <div class="modal-dialog modal-nm">
-                    <div class="modal-content">
 
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel3">Search invoices from Farm</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form id="searchInvoicesFarm-form" data-parsley-validate class="form-horizontal form-label-left">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn">Date range button:<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn">
-                                                    <span>
-                                                      <i class="fa fa-calendar"></i> Date range picker
-                                                    </span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </button>
-                                        <%--<input type="text" id="farm-name" required="required" class="form-control col-md-7 col-xs-12">--%>
-                                    </div>
-                                </div>
-
-
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success" id="searchInvoicesFarm-submit">Search</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 
             <div class="modal modal-form fade bs-example-modal-nm" id="addFarm-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-nm">
@@ -746,6 +711,42 @@
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
+    <div class="modal modal-form fade bs-example-modal-nm" id="searchInvoicesFarm-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-nm">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel3">Search invoices from Farm</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="searchInvoicesFarm-form" data-parsley-validate class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn">Date range button:<span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn">
+                                                    <span>
+                                                      <i class="fa fa-calendar"></i> Date range picker
+                                                    </span>
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <%--<input type="text" id="farm-name" required="required" class="form-control col-md-7 col-xs-12">--%>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" id="searchInvoicesFarm-submit">Search</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 <!-- ./wrapper -->
 
