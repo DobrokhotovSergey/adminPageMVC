@@ -6,6 +6,24 @@ package ua.laksmi.web.domain.tables;
 public class ProductionInvFarm extends Production{
     private int idInvoiceFarm;
     private Prices prices;
+    private String farmName;
+    private String clientName;
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public String getFarmName() {
+        return farmName;
+    }
+
+    public void setFarmName(String farmName) {
+        this.farmName = farmName;
+    }
 
     public int getIdInvoiceFarm() {
         return idInvoiceFarm;
@@ -28,6 +46,8 @@ public class ProductionInvFarm extends Production{
         return "ProductionInvFarm{" +
                 "idInvoiceFarm=" + idInvoiceFarm +
                 ", prices=" + prices +
-                '}';
+                ", farmName='" + farmName + '\'' +
+                ", clientName='" + clientName + '\'' +
+                "} " + super.toString();
     }
 }

@@ -84,19 +84,7 @@ function ajaxGraphicsFarm(){
         success: function (data) {
             console.log(data);
             $('#graphics-content').show();
-            /* ChartJS
-             * -------
-             * Here we will create a few charts using ChartJS
-             */
 
-            //--------------
-            //- AREA CHART -
-            //--------------
-
-            // Get context with jQuery - using jQuery's .get() method.
-            // var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
-            // // This will get the first returned node in the jQuery collection.
-            // var areaChart = new Chart(areaChartCanvas);
 
             var areaChartData = {
                 labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -110,16 +98,6 @@ function ajaxGraphicsFarm(){
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(220,220,220,1)",
                         data: [65, 59, 80, 81, 56, 55, 40]
-                    },
-                    {
-                        label: "Digital Goods",
-                        fillColor: "rgba(60,141,188,0.9)",
-                        strokeColor: "rgba(60,141,188,0.8)",
-                        pointColor: "#3b8bba",
-                        pointStrokeColor: "rgba(60,141,188,1)",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(60,141,188,1)",
-                        data: [28, 48, 40, 19, 86, 27, 90]
                     }
                 ]
             };
@@ -203,12 +181,15 @@ function ajaxGraphicsFarm(){
                 responsive: true,
                 // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
                 maintainAspectRatio: true,
+
                 //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+              legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%>: <%}%><%= segments[i].value%> invoices</li><%}%></ul>"
             };
             //Create pie or douhnut chart
             // You can switch between pie and douhnut using the method below.
-            pieChart.Doughnut(PieData, pieOptions);
+
+            var myChart  = pieChart.Doughnut(PieData, pieOptions);
+            document.getElementById('legend').innerHTML = myChart.generateLegend();
 
 
         },
@@ -243,28 +224,115 @@ var invoiceFarmTable = $('#invoiceFarm-table').DataTable({
         orderable: false,
         targets  : 'no-sort',
         //className: 'select-checkbox',
-        targets:   [0],
+        targets:   [1],
         class:"details-control"
     },{
         targets  : 'no-sort',
         visible: false,
         searchable: false,
-        targets:   [1],
+        targets:   [2],
     },
         {
         orderable: false,
         targets  : 'no-sort',
         //className: 'select-checkbox',
-        targets:   [3],
+        targets:   [4],
     },
         {
             orderable: false,
             targets  : 'no-sort',
             //className: 'select-checkbox',
-            targets:   [4],
+            targets:   [5],
         }
-    ]
+    ],
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            text: '<i class="fa fa-file-text-o" style="color:green"></i> convert to shipment ',
+            action: function ( e, dt, node, config ) {
+                var ids = $.map(dt.rows('.selected').data(), function (item) {
+                    return item[2];
+                });
+                shipmentInvoicesModal(ids);
+
+            }}]
 });
+
+function shipmentInvoicesModal(ids){
+    $('#shipment-invoice-modal').modal('show');
+
+    // // $('#farm-invoice-modal-id').val(id);
+    // $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
+    // // var faCurr = currency.toLowerCase();
+    // tableFarmInvoice.clear().draw();
+    // tableFarmInvoice.rows.add(rows).draw();
+    // console.log(objRows);
+
+    tableShipmentInvoice.clear().draw();
+// <th>Farm Name</th>
+//     <th>Box</th>
+//     <th>Sort</th>
+//     <th>Label Client</th>
+//     <th>Type</th>
+//     <th>Date</th>
+//     <th>number stems in Box</th>
+//     <th>price for stem</th>
+//                   <th>price for Box</th>
+    $.ajax({
+        type: "post",
+        url: "getInvoiceFarmProduction",
+        dataType: 'json',
+        data:{"id":ids},
+        mimeType: 'application/json',
+        complete: function (response) {
+            NProgress.done();
+            unblock_screen();
+            var data = JSON.parse(response.responseText);
+            console.log(data);
+            var rows = [];
+
+
+            $.each(data, function (i, item) {
+                // console.log(item);
+                rows[i] = [
+                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,''
+                    // item.idProduct, item.idFarm, item.product, item.grading, item.numberStemsInBox,item.currency, item.prices.price, item.prices.priceDiscount, item.prices.crossCurs, item.prices.priceCross,item.prices.priceDiscountCross, item.type, item.variety,
+                    // '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>'
+                ];
+            });
+            tableShipmentInvoice.rows.add(rows).draw();
+            $('#table-shipment-invoice').DataTable().MakeCellsEditable({
+                "onUpdate": callBackEditableShipmentTable,
+                "inputCss":'input-discount',
+                "columns": [1,7],
+                "inputTypes": [
+                    {
+                        "column":1,
+                        "type": "number",
+                        "options":null
+                    },
+                    {
+                        "column":7,
+                        "type": "discount",
+                        "options":null
+                    },
+                ],
+                "confirmationButton": {
+                    "confirmCss": 'btn btn-info btn-xs',
+                    "cancelCss": 'btn btn-danger btn-xs'
+                },
+            });
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        error: function () {
+            notifyAfterAjax('error','Sorry, InvoiceFarm Products can not be displayed :(');
+        }
+    });
+}
+
 function ajaxInvoiceFromFarm(start,end){
     // $('#invoiceFarmDiv').show();
     $.ajax({
@@ -283,9 +351,13 @@ function ajaxInvoiceFromFarm(start,end){
             // $('#farmTableDiv').show();
             var rows = [];
             data.forEach(function(item, i, arr) {
-                rows[i] = ['',item.id, item.farmName, item.clientName,item.invoiceName, item.invoiceDate,item.currency]
+                rows[i] = ['<input type="checkbox" class="flat icheckbox1" name="table_records">','',item.id, item.farmName, item.clientName,item.invoiceName, item.invoiceDate,item.currency]
             });
             invoiceFarmTable.rows.add(rows).draw();
+            drawIcheck();
+            invoiceFarmTable.on( 'draw.dt', function () {
+                drawIcheck();
+            } );
         },
         beforeSend: function(xhr) {
             xhr.setRequestHeader(header, token);
@@ -371,7 +443,9 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
     // var table = $('#table-farm-invoice').tableToJSON({
     //     ignoreColumns : [1]
     // });
-    var data = $('#table-farm-invoice').DataTable().rows().data().toArray();
+    var data = $('#table-farm-invoice').DataTable({
+
+    }).rows().data().toArray();
     var tempListObj = [];
     //  private BigDecimal totalPrice;
     //  private BigDecimal totalPriceDiscount;
@@ -428,7 +502,9 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
     });
 });
 
+function callBackEditableShipmentTable(){
 
+}
 
 function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
     if(columnIndex==5){//
@@ -442,6 +518,58 @@ function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
 
     }
 }
+//shipment-invoice-USD_EUR
+$('#shipment-invoice-USD_EUR').on('keyup', function(){
+    var cross = intVal($(this).val());
+    $('#table-shipment-invoice').DataTable().rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+        var row = this.data();
+        if(row[8]=='USD'){
+            var price =intVal(row[6]);
+            row[9] = (cross*price);
+            this.invalidate(); // invalidate the data DataTables has cached for this row
+        }
+    } );
+    $('#table-farm-invoice').DataTable().draw();
+});
+$('#shipment-invoice-EUR_USD').on('keyup', function(){
+    var cross = intVal($(this).val());
+    $('#table-shipment-invoice').DataTable().rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+        var row = this.data();
+        if(row[8]=='EUR'){
+            var price =intVal(row[6]);
+            row[9] = (cross*price);
+            this.invalidate(); // invalidate the data DataTables has cached for this row
+        }
+    } );
+    $('#table-farm-invoice').DataTable().draw();
+});
+
+
+var tableShipmentInvoice = $('#table-shipment-invoice').DataTable({
+    "footerCallback": function (row, data, start, end, display) {
+        var api = this.api();
+        var USD_EUR = intVal($('#shipment-invoice-USD_EUR').text());
+        var EUR_USD = intVal($('#shipment-invoice-EUR_USD').text());
+
+        var total3 = 0, total4=0, total6=0,total7=0;
+        api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+            var data = this.data();
+            total3 +=intVal(data[5])*intVal(data[6])+intVal(data[7]);
+        });
+        api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+            var data = this.data();
+            if(data[8]=='USD'){
+                total6 += USD_EUR * intVal(data[5])*intVal(data[6])+intVal(data[7]);
+            }else if (data[8]=='EUR'){
+                total6 += EUR_USD * intVal(data[5])*intVal(data[6])+intVal(data[7]);
+            }
+
+        });
+        $('#shipment-invoice-totalPrice td').eq(0).html('<span id="totalPrice">'+total3+'</span>');
+        $('#shipment-invoice-totalPrice td').eq(1).html('<span id="totalPriceCross">'+total6+'</span>');
+    },
+});
+// var tableShipmentInvoice = table-shipment-invoice
 var tableFarmInvoice = $('#table-farm-invoice').DataTable({
     "columnDefs": [{
         "targets": [ 8 ],
@@ -783,8 +911,8 @@ function notifyAfterAjax(type, msg){
 $('#invoiceFarm-table').on('click', 'td.details-control', function () {
     var tr = $(this).closest('tr');
     var row = invoiceFarmTable.row(tr);
-    var id = row.data()[1];
-    var currency = row.data()[6];
+    var id = row.data()[2];
+    var currency = row.data()[7];
     if (row.child.isShown()) {
         row.child.hide();
         tr.removeClass('shown');
@@ -824,7 +952,7 @@ function formatInvoiceFarm(callback, id, currency) {
         type: "post",
         url: "getInvoiceFarmProduction",
         dataType: 'json',
-        data:{id:id},
+        data:{"id":[id]},
         mimeType: 'application/json',
         complete: function (response) {
             NProgress.done();
@@ -946,6 +1074,7 @@ function format(callback, id, currency) {
                                 $('.farm-invoice-crossCurrencyDiscount').removeClass('fa-eur');
                             }
                             $('#farm-invoice-modal').modal('show');
+                            tableFarmInvoice.columns.adjust().responsive.recalc();
                             $('#farm-invoice-modal-id').val(id);
                             $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
                             var faCurr = currency.toLowerCase();

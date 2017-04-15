@@ -60,7 +60,7 @@ public class ServiceCRUDImpl implements ServiceCRUD{
         return daoCRUD.getListInvoicesFarm(invoiceFarmSearch);
     }
 
-    public List<ProductionInvFarm> getListInvoiceFarmProduction(int id) {
+    public List<ProductionInvFarm> getListInvoiceFarmProduction(int[] id) {
         return daoCRUD.getListInvoiceFarmProduction(id);
     }
 

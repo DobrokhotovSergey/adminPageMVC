@@ -333,7 +333,130 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade bs-example-modal-lg" id="shipment-invoice-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
 
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel1">Create invoice for Shipment</h4>
+                        </div>
+                        <%--<div id="curr-invoiceFarm" style="display: none"></div>--%>
+                        <div class="modal-body">
+                            <div id="shipment-invoice-modal-id" style="display: none"></div>
+                            <form class="form-horizontal">
+                                <div class="well" style="overflow: auto">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        Invoice Name
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="ion ion-clipboard"></i>
+                                            </div>
+                                            <input type="text" class="form-control has-feedback-left" id="shipment-invoice" placeholder="Invoice Name">
+                                        </div>
+                                    </div>
+                                    <%--<div class="col-md-3 col-sm-3 col-xs-12">--%>
+                                        <%--Client Name--%>
+                                        <%--<div class="input-group">--%>
+                                            <%--<div class="input-group-addon">--%>
+                                                <%--<i class="fa fa-user"></i>--%>
+                                            <%--</div>--%>
+                                            <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        Invoice Date
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" class="form-control has-feedback-left" id="shipment-invoice-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        Cross Curs USD->EUR
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-eur"></i>
+                                            </div>
+                                            <input type="text" class="form-control has-feedback-left" id="shipment-invoice-USD_EUR" placeholder="USD->EUR">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        Cross Curs EUR->USD
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-usd"></i>
+                                            </div>
+                                            <input type="text" class="form-control has-feedback-left" id="shipment-invoice-EUR_USD" placeholder="EUR->USD">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div style="overflow:auto;">
+                                    <table id="table-shipment-invoice" class="table table-responsive table-striped  table-bordered">
+
+                                        <thead>
+                                        <tr>
+                                            <th>Farm Name</th>
+                                            <th>Box</th>
+                                            <th>Sort</th>
+                                            <th>Label Client</th>
+                                            <th>Type</th>
+                                            <%--<th>Date</th>--%>
+                                            <th>number stems in Box</th>
+                                            <th>price for stem</th>
+                                            <th>price for Box</th>
+                                            <th>Currency</th>
+                                            <th>price (cross)</th>
+                                            <%--<th style="width: 12%">product</th>--%>
+                                            <%--<th style="width: 12%">grading</th>--%>
+                                            <%--<th style="width: 12%">number stems in Box</th>--%>
+                                            <%--<th style="width: 12%">price, <span class="fa farm-invoice-mainCurrency"></span></th>--%>
+                                            <%--<th style="width: 12%">price(discount), <span class="fa farm-invoice-mainCurrencyDiscount"></span></th>--%>
+                                            <%--<th style="width: 12%">discount, %</th>--%>
+                                            <%--<th style="width: 12%">price(cross), <span class="fa farm-invoice-crossCurrency"></span></th>--%>
+                                            <%--<th style="width: 12%">price(discount cross), <span class="fa farm-invoice-crossCurrencyDiscount"></span></th>--%>
+                                            <%--<th>idProduct</th>--%>
+                                            <%--<th>idFerm</th>--%>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+
+                                <%--<div class="ln_solid"></div>--%>
+                                <table class="col-md-4 col-sm-4 col-xs-12 table table-responsive table-bordered" id="shipment-invoice-totalPrice" style="float:right">
+                                    <tr>
+                                        <th>total Price, <span class="fa farm-invoice-mainCurrency"></span>:</th>
+                                        <td style='font-weight:bold;'></td>
+                                    </tr>
+                                    <%--<tr>--%>
+                                        <%--<th>total Price with discount, <span class="fa farm-invoice-mainCurrencyDiscount"></span> :</th>--%>
+                                        <%--<td style='font-weight:bold;'></td>--%>
+                                    <%--</tr>--%>
+                                    <tr>
+                                        <th>total Price(cross), <span class="fa farm-invoice-crossCurrency"></span>:</th>
+                                        <td style='font-weight:bold;'></td>
+                                    </tr>
+                                    <%--<tr>--%>
+                                        <%--<th>total Price(cross) with discount, <span class="fa farm-invoice-crossCurrencyDiscount"></span>:</th>--%>
+                                        <%--<td style='font-weight:bold;'></td>--%>
+                                    <%--</tr>--%>
+                                </table>
+                            </form>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="create-shipment-invoice-btn-save">Save changes</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             <div class="modal fade bs-example-modal-lg" id="farm-invoice-modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -356,14 +479,6 @@
                                             </div>
                                             <input type="text" class="form-control has-feedback-left" id="invoiceFarm-name" placeholder="Invoice Name">
                                         </div>
-                                        <%--<div class="control-group">--%>
-                                            <%--<div class="controls">--%>
-                                                <%--<div class="col-md-12 ">--%>
-                                                    <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-name" placeholder="Invoice Name">--%>
-                                                    <%--<span class="fa fa-list-alt form-control-feedback left" aria-hidden="true"></span>--%>
-                                                <%--</div>--%>
-                                            <%--</div>--%>
-                                        <%--</div>--%>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Client Name
@@ -373,15 +488,6 @@
                                             </div>
                                             <input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">
                                         </div>
-                                        <%--<div class="control-group">--%>
-                                            <%--<div class="controls">--%>
-                                                <%--<div class="col-md-12">--%>
-                                                    <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">--%>
-                                                    <%--<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>--%>
-                                                <%--</div>--%>
-                                            <%--</div>--%>
-                                        <%--</div>--%>
-
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Invoice Date
@@ -391,17 +497,6 @@
                                             </div>
                                             <input type="text" class="form-control has-feedback-left" id="invoiceFarm-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">
                                         </div>
-                                        <%--<fieldset>--%>
-                                            <%--<div class="control-group">--%>
-                                                <%--<div class="controls">--%>
-                                                    <%--<div class="col-md-12">--%>
-                                                        <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-date" placeholder="First Name" aria-describedby="inputSuccess2Status4">--%>
-                                                        <%--<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>--%>
-                                                        <%--<span id="inputSuccess2Status4" class="sr-only">(success)</span>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-                                            <%--</div>--%>
-                                        <%--</fieldset>--%>
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Cross Curs
@@ -411,38 +506,30 @@
                                             </div>
                                             <input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" placeholder="Cross Curs">
                                         </div>
-                                        <%--<fieldset>--%>
-                                            <%--<div class="control-group">--%>
-                                                <%--<div class="controls">--%>
-                                                    <%--<div class="col-md-12">--%>
-                                                        <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" placeholder="Cross Curs">--%>
-                                                        <%--<span class="fa form-control-feedback left" id="invoiceFarm-currencyOther" aria-hidden="true"></span>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-                                            <%--</div>--%>
-                                        <%--</fieldset>--%>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="ln_solid"></div>
+                                <div style="overflow:auto;">
+                                    <table id="table-farm-invoice" class="table table-responsive table-striped  table-bordered">
 
-                                <table id="table-farm-invoice" class="table table-responsive table-striped jambo_table bulk_action table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 12%">product</th>
+                                            <th style="width: 12%">grading</th>
+                                            <th style="width: 12%">number stems in Box</th>
+                                            <th style="width: 12%">price, <span class="fa farm-invoice-mainCurrency"></span></th>
+                                            <th style="width: 12%">price(discount), <span class="fa farm-invoice-mainCurrencyDiscount"></span></th>
+                                            <th style="width: 12%">discount, %</th>
+                                            <th style="width: 12%">price(cross), <span class="fa farm-invoice-crossCurrency"></span></th>
+                                            <th style="width: 12%">price(discount cross), <span class="fa farm-invoice-crossCurrencyDiscount"></span></th>
+                                            <th>idProduct</th>
+                                            <th>idFerm</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
 
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 12%">product</th>
-                                        <th style="width: 12%">grading</th>
-                                        <th style="width: 12%">number stems in Box</th>
-                                        <th style="width: 12%">price, <span class="fa farm-invoice-mainCurrency"></span></th>
-                                        <th style="width: 12%">price(discount), <span class="fa farm-invoice-mainCurrencyDiscount"></span></th>
-                                        <th style="width: 12%">discount, %</th>
-                                        <th style="width: 12%">price(cross), <span class="fa farm-invoice-crossCurrency"></span></th>
-                                        <th style="width: 12%">price(discount cross), <span class="fa farm-invoice-crossCurrencyDiscount"></span></th>
-                                        <th>idProduct</th>
-                                        <th>idFerm</th>
-                                    </tr>
-                                    </thead>
-                                </table>
                                 <div class="ln_solid"></div>
                                 <table class="col-md-4 col-sm-4 col-xs-12 table table-responsive table-bordered" id="farm-invoice-totalPrice" style="float:right">
                                     <tr>
@@ -701,6 +788,7 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 5%"></th>
+                                    <th style="width: 5%"></th>
                                     <th style="width: 5%">Id</th>
                                     <th style="width: 5%">Farm</th>
                                     <th style="width: 5%">Client</th>
@@ -741,6 +829,7 @@
                         </div>
                         <div class="box-body">
                             <canvas id="pieChart" style="height:250px"></canvas>
+                            <div id="legend" class="chart-legend"></div>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -763,6 +852,7 @@
                         <div class="box-body">
                             <div class="chart">
                                 <canvas id="lineChart" style="height:250px"></canvas>
+
                             </div>
                         </div>
                         <!-- /.box-body -->
@@ -930,8 +1020,9 @@
 <script src="resources/vendors/nprogress/nprogress.js"></script>
 <script src="resources/vendors/pnotify/dist/pnotify.js"></script>
 <script src="resources/vendors/pnotify/dist/pnotify.buttons.js"></script>
-<script src="resources/build/js/custom.js"></script>
 <script src="resources/adminLTE/plugins/chartjs/Chart.js"></script>
+<script src="resources/build/js/custom.js"></script>
+
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>--%>
 
 <script src="resources/js/project.js"></script>
@@ -991,7 +1082,18 @@
 </style>
 
 <link href="resources/css/project.css" rel="stylesheet">
+<style>
 
+    .doughnut-legend li span{
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+    }
+    .doughnut-legend {
+        list-style: none;
+    }
+</style>
 </body>
 </html>
 

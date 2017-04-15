@@ -1711,7 +1711,17 @@ function init_daterangepicker_single_call() {
 
         singleClasses: "picker_4"
     }, function(start, end, label) {
-        console.log(start.toISOString(), end.toISOString(), label);
+        // console.log(start.toISOString(), end.toISOString(), label);
+    });
+    $('#shipment-invoice-date').daterangepicker({
+        locale: {
+            format: 'DD-MM-YYYY'
+        },
+        singleDatePicker: true,
+
+        singleClasses: "picker_4"
+    }, function(start, end, label) {
+        // console.log(start.toISOString(), end.toISOString(), label);
     });
 
 
@@ -5005,8 +5015,8 @@ $(document).ready(function() {
     init_daterangepicker_single_call();
     init_daterangepicker_reservation();
     init_SmartWizard();
-    init_EasyPieChart();
-    init_charts();
+    // init_EasyPieChart();
+    // init_charts();
     init_echarts();
     init_morris_charts();
     init_skycons();

@@ -25,7 +25,7 @@ public interface ServiceCRUD {
 
     List<InvoiceFarm> getListInvoicesFarm(InvoiceFarmSearch invoiceFarmSearch);
 
-    List<ProductionInvFarm> getListInvoiceFarmProduction(int id);
+    List<ProductionInvFarm> getListInvoiceFarmProduction(int[] id);
 
     List<String> searchClientName(String searchClientName);
 }

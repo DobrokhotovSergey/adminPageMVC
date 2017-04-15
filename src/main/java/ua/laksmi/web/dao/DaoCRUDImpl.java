@@ -5,6 +5,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
@@ -23,8 +24,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Dobriks on 16.03.2017.
@@ -340,10 +340,11 @@ public class DaoCRUDImpl implements DaoCRUD {
         return list;
     }
 
-    public List<ProductionInvFarm> getListInvoiceFarmProduction(int id) {
+    public List<ProductionInvFarm> getListInvoiceFarmProduction(int[] id) {
+
         List<ProductionInvFarm> list = null;
         StringBuilder sb = new StringBuilder();
-        sb.append("select a.idInvoiceFarm,b.product,b.idFerm,b.grading,b.variety,b.type, a.idProduct as id,c.crossCurs, a.numberStemsInBox, a.price, a.priceDiscount, a.currency, a.priceCross, a.priceDiscountCross from\n");
+        sb.append("select d.farmName,c.clientName, a.idInvoiceFarm,b.product,b.idFerm,b.grading,b.variety,b.type, a.idProduct as id,c.crossCurs, a.numberStemsInBox, a.price, a.priceDiscount, a.currency, a.priceCross, a.priceDiscountCross from\n");
         sb.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
         sb.append("\n as a left join \n");
         sb.append(Constants.TABLE_PRODUCTION);
@@ -351,9 +352,21 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb.append("join \n");
         sb.append(Constants.TABLE_INVOICE_FARM);
         sb.append("\n as c on a.idInvoiceFarm = c.id\n");
-        sb.append("where a.idInvoiceFarm = ?");
+
+        sb.append("join ");
+        sb.append(Constants.TABLE_FARM);
+        sb.append(" as d on b.idFerm = d.id\n");
+
+//        sb.append(Constants.TABLE_PRODUCTION);
+//        sb.append("\n as a left join \n");
+//
+//        sb.append("\n as b on a.idFerm=b.id\n");
+//        sb.append("where a.idFerm = ?");
+
+        sb.append("where a.idInvoiceFarm in ");
+        sb.append(Arrays.toString(id).replace("[","(").replace("]",")"));
         try{
-            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmProductionRowMapperImpl(), new Object[]{id});
+            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmProductionRowMapperImpl());
         }catch (Exception ex){
             System.out.println(ex);
         }

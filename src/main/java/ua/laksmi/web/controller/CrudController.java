@@ -35,7 +35,8 @@ public class CrudController {
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/getInvoiceFarmProduction", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<ProductionInvFarm> getInvoiceFarmProduction(@RequestParam int id){
+    public List<ProductionInvFarm> getInvoiceFarmProduction(@RequestParam(value = "id[]") int[] id){
+        System.out.println(id);
         List<ProductionInvFarm> list = serviceCRUD.getListInvoiceFarmProduction(id);
         // System.out.println(list);
         return list;
