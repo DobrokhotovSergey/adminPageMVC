@@ -3,10 +3,7 @@ package ua.laksmi.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import ua.laksmi.web.dao.DaoCRUD;
-import ua.laksmi.web.dao.DaoCRUDImpl;
-import ua.laksmi.web.dao.DaoRoles;
-import ua.laksmi.web.dao.DaoRolesImpl;
+import ua.laksmi.web.dao.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -60,7 +57,7 @@ import java.net.URISyntaxException;
 @Configuration
 public class DataBaseConfig {
     @Bean
-    public DriverManagerDataSource getMySQLDriverManagerDatasource() {
+    public DriverManagerDataSource getDriverManagerDatasource() {
 //        URI dbUri = null;
 //        try {
 //            dbUri = new URI(System.getenv("DATABASE_URL"));
@@ -87,12 +84,15 @@ public class DataBaseConfig {
     }
     @Bean("daoRoles")
 	public DaoRoles getDaoRoles() {
-		return new DaoRolesImpl(getMySQLDriverManagerDatasource());
+		return new DaoRolesImpl(getDriverManagerDatasource());
 	}
 
     @Bean("daoCRUD")
     public DaoCRUD getDaoCRUD() {
-        return new DaoCRUDImpl(getMySQLDriverManagerDatasource());
+        return new DaoCRUDImpl(getDriverManagerDatasource());
     }
+
+    @Bean("daoCharts")
+    public DaoCharts getDaoCharts() { return new DaoChartsImpl(getDriverManagerDatasource());}
 
 }

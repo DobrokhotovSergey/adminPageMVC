@@ -184,6 +184,10 @@
                         <li><a style=" cursor: pointer;" onclick="getFarm();"><i class="fa fa-circle-o text-red"></i> Farms</a></li>
 
                     </ul>
+                    <%--<ul class="treeview-menu">--%>
+                        <%--<li><a style=" cursor: pointer;"><i class="fa fa-pie-chart text-red"></i> Charts</a></li>--%>
+
+                    <%--</ul>--%>
                 </li>
                 <li class="treeview">
                     <a href="#">
@@ -198,6 +202,23 @@
                         <li><a style=" cursor: pointer;"><i class="fa fa-circle-o text-red"></i>commercial</a></li>
 
                     </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i> <span>Charts</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a style=" cursor: pointer;" onclick="getGraphicsFarm();">
+                            <i class="fa fa-circle-o text-red"></i> graphics farms</a></li>
+
+                    </ul>
+                    <%--<ul class="treeview-menu">--%>
+                    <%--<li><a style=" cursor: pointer;"><i class="fa fa-pie-chart text-red"></i> Charts</a></li>--%>
+
+                    <%--</ul>--%>
                 </li>
             </ul>
         </section>
@@ -702,6 +723,60 @@
 
             <br/>
         </div>
+        <section class="content" id="graphics-content" style="display: none">
+            <div class="row">
+                <div class="col-md-6">
+
+
+                    <!-- DONUT CHART -->
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Donut Chart</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <canvas id="pieChart" style="height:250px"></canvas>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                </div>
+                <!-- /.col (LEFT) -->
+                <div class="col-md-6">
+                    <!-- LINE CHART -->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Line Chart</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart">
+                                <canvas id="lineChart" style="height:250px"></canvas>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+
+
+                </div>
+                <!-- /.col (RIGHT) -->
+            </div>
+            <!-- /.row -->
+
+        </section>
         <!-- Main content -->
 
         <section class="content" id="content-main">
@@ -856,12 +931,16 @@
 <script src="resources/vendors/pnotify/dist/pnotify.js"></script>
 <script src="resources/vendors/pnotify/dist/pnotify.buttons.js"></script>
 <script src="resources/build/js/custom.js"></script>
+<script src="resources/adminLTE/plugins/chartjs/Chart.js"></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>--%>
 
 <script src="resources/js/project.js"></script>
 <script src="resources/js/dataTables.cellEdit.js"></script>
 <script src="resources/js/sum().js"></script>
 <script src="resources/js/jquery.tabletojson.js"></script>
 <script src="resources/vendors/select2/dist/js/select2.js"></script>
+
+<%--<script src="resources/adminLTE/plugins/chartjs/dist/Chart.js"></script>--%>
 <%--<script src="resources/vendors/select2/dist/js/select2.js"></script>--%>
 
 <style type="text/css">
@@ -912,6 +991,7 @@
 </style>
 
 <link href="resources/css/project.css" rel="stylesheet">
+
 </body>
 </html>
 
