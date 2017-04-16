@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Dobriks on 13.04.2017.
  */
-public class InvoiceFarmSearch {
+public class InvoiceSearch {
 
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private Date start;
@@ -33,7 +33,7 @@ public class InvoiceFarmSearch {
 
     @Override
     public String toString() {
-        return "InvoiceFarmSearch{" +
+        return "InvoiceSearch{" +
                 "start=" + start +
                 ", end=" + end +
                 '}';

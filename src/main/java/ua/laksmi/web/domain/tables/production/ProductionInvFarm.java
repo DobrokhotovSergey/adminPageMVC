@@ -1,9 +1,11 @@
-package ua.laksmi.web.domain.tables;
+package ua.laksmi.web.domain.tables.production;
+
+import ua.laksmi.web.domain.tables.Prices;
 
 /**
  * Created by Dobriks on 02.04.2017.
  */
-public class ProductionInvFarm extends Production{
+public class ProductionInvFarm extends Production {
     private int idInvoiceFarm;
     private Prices prices;
     private String farmName;

@@ -217,6 +217,18 @@ $(".nav-header li a").click(function(e){
     $(".main").load(url);
 //  return false;
 });
+var invoiceShipmentTable = $('#invoiceShipment-table').DataTable({
+    autoWidth: false,
+    order: [[ 1, 'asc' ]],
+    columnDefs: [ {
+        orderable: false,
+        targets  : 'no-sort',
+        //className: 'select-checkbox',
+        targets:   [0],
+        class:"details-control"
+    },
+    ],
+});
 var invoiceFarmTable = $('#invoiceFarm-table').DataTable({
     autoWidth: false,
     order: [[ 1, 'asc' ]],
@@ -262,22 +274,13 @@ function shipmentInvoicesModal(ids){
     $('#shipment-invoice-modal').modal('show');
 
     // // $('#farm-invoice-modal-id').val(id);
-    // $( tableFarmInvoice.table().footer() ).addClass( 'highlight' );
+    $( tableShipmentInvoice.table().footer() ).addClass( 'highlight' );
     // // var faCurr = currency.toLowerCase();
     // tableFarmInvoice.clear().draw();
     // tableFarmInvoice.rows.add(rows).draw();
     // console.log(objRows);
 
     tableShipmentInvoice.clear().draw();
-// <th>Farm Name</th>
-//     <th>Box</th>
-//     <th>Sort</th>
-//     <th>Label Client</th>
-//     <th>Type</th>
-//     <th>Date</th>
-//     <th>number stems in Box</th>
-//     <th>price for stem</th>
-//                   <th>price for Box</th>
     $.ajax({
         type: "post",
         url: "getInvoiceFarmProduction",
@@ -290,14 +293,9 @@ function shipmentInvoicesModal(ids){
             var data = JSON.parse(response.responseText);
             console.log(data);
             var rows = [];
-
-
-            $.each(data, function (i, item) {
-                // console.log(item);
+           $.each(data, function (i, item) {
                 rows[i] = [
-                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,''
-                    // item.idProduct, item.idFarm, item.product, item.grading, item.numberStemsInBox,item.currency, item.prices.price, item.prices.priceDiscount, item.prices.crossCurs, item.prices.priceCross,item.prices.priceDiscountCross, item.type, item.variety,
-                    // '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>'
+                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm
                 ];
             });
             tableShipmentInvoice.rows.add(rows).draw();
@@ -332,9 +330,51 @@ function shipmentInvoicesModal(ids){
         }
     });
 }
+function ajaxInvoicesShipment(start, end){
+    $('#invoiceFarmDiv').hide();
+    $('#farmTableDiv').hide();
+    $.ajax({
+        type: "post",
+        url: "getListInvoicesShipment",
+        dataType: 'json',
+        mimeType: 'application/json',
+        contentType: "application/json; charset=utf-8",
+        data:JSON.stringify({start:start, end:end}),
+        success: function (data) {
+            console.log(data);
+            invoiceShipmentTable.clear().draw();
 
+            $('#invoiceShipmentDiv').show();
+
+            var rows = [];
+            data.forEach(function(item, i, arr) {
+                rows[i] = ['',item.id, item.invoiceName, item.invoiceDate,item.crossUSD_EUR, item.crossEUR_USD,item.totalPrice_USD, item.totalPrice_EUR]
+            });
+            invoiceShipmentTable.rows.add(rows).draw();
+            // drawIcheck();
+            // invoiceFarmTable.on( 'draw.dt', function () {
+            //     drawIcheck();
+            // } );
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but not retrieve list of Invoices for Farms :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
 function ajaxInvoiceFromFarm(start,end){
-    // $('#invoiceFarmDiv').show();
+    $('#farmTableDiv').hide();
+    $('#invoiceShipmentDiv').hide();
     $.ajax({
         type: "post",
         url: "getListInvoicesFarm",
@@ -343,12 +383,9 @@ function ajaxInvoiceFromFarm(start,end){
         contentType: "application/json; charset=utf-8",
         data:JSON.stringify({start:start, end:end}),
         success: function (data) {
-            //console.log(data[0].invoiceDate);
             invoiceFarmTable.clear().draw();
             $('#invoiceFarmDiv').show();
-            $('#farmTableDiv').hide();
-            // farmTable.clear().draw();
-            // $('#farmTableDiv').show();
+
             var rows = [];
             data.forEach(function(item, i, arr) {
                 rows[i] = ['<input type="checkbox" class="flat icheckbox1" name="table_records">','',item.id, item.farmName, item.clientName,item.invoiceName, item.invoiceDate,item.currency]
@@ -376,6 +413,8 @@ function ajaxInvoiceFromFarm(start,end){
     });
 }
 function ajaxFarm(){
+    $('#invoiceFarmDiv').hide();
+    $('#invoiceShipmentDiv').hide();
     $.ajax({
         type: "post",
         url: "getListFarm",
@@ -383,6 +422,7 @@ function ajaxFarm(){
         mimeType: 'application/json',
         success: function (data) {
             farmTable.clear().draw();
+
             $('#farmTableDiv').show();
             var rows = [];
             data.forEach(function(item, i, arr) {
@@ -439,18 +479,55 @@ var intVal = function (i) {
         typeof i === 'number' ?
             i : 0;
 };
-$('#createInvoiceFarm-btn-save').on('click', function () {
-    // var table = $('#table-farm-invoice').tableToJSON({
-    //     ignoreColumns : [1]
-    // });
-    var data = $('#table-farm-invoice').DataTable({
-
-    }).rows().data().toArray();
+$('#create-shipment-invoice-btn-save').on('click', function () {
+    var data = $('#table-shipment-invoice').DataTable().rows().data().toArray();
     var tempListObj = [];
-    //  private BigDecimal totalPrice;
-    //  private BigDecimal totalPriceDiscount;
-    //  private BigDecimal totalPriceCross;
-    //  private BigDecimal totalPriceDiscountCross;
+    data.forEach(function(item, i, arr) {
+        tempListObj[i] = {"farmName": item[0], "box": item[1],
+            "priceForStem":item[6], "priceForBox": item[7],
+            "priceCross": item[9], "priceWithBoxCross": item[10], "idInvoiceFarm":item[11]};
+    });
+    $('#shipment-invoice-modal').modal('hide');
+
+    $.ajax({
+        type: "post",
+        url: "createInvoiceShipment",
+        //dataType: 'json',
+        data:JSON.stringify({
+            id:0,
+            invoiceName:$('#shipment-invoice').val(),
+            invoiceDate:$('#invoiceFarm-date').val(),
+            crossUSD_EUR: $('#shipment-invoice-USD_EUR').val(),
+            crossEUR_USD: $('#shipment-invoice-EUR_USD').val(),
+            totalPrice_USD: $('#shipment-totalPrice_USD').text(),
+            totalPrice_EUR: $('#shipment-totalPrice_EUR').text(),
+            productionShipmentList:tempListObj,
+
+        }),
+        contentType: "application/json; charset=utf-8",
+        //mimeType: 'application/json',
+        success: function (data) {
+            notifyAfterAjax('success','Invoice for Shipment is created!');
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but Invoice for Shipment is not created :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+});
+$('#createInvoiceFarm-btn-save').on('click', function () {
+    var data = $('#table-farm-invoice').DataTable().rows().data().toArray();
+    var tempListObj = [];
     data.forEach(function(item, i, arr) {
         console.log(item[9]);
         tempListObj[i] = {"idProduct":item[8],"idFarm":item[9],"product":item[0], "grading":item[1],
@@ -502,8 +579,20 @@ $('#createInvoiceFarm-btn-save').on('click', function () {
     });
 });
 
-function callBackEditableShipmentTable(){
-
+function callBackEditableShipmentTable(updatedCell, updatedRow, oldValue, columnIndex){
+    if(columnIndex==7){//
+        var oldPrice = intVal(tableShipmentInvoice.row($(updatedRow)).data()[6]);
+        if(tableShipmentInvoice.row($(updatedRow)).data()[8] == 'USD'){
+            var USD_EUR = intVal($('#shipment-invoice-USD_EUR').val());
+            var priceWithBox = USD_EUR*intVal(updatedCell.data())+oldPrice;
+            tableShipmentInvoice.cell( tableShipmentInvoice.row($(updatedRow)).node(),10).data(isNaN(priceWithBox) ? 0 : priceWithBox).draw();
+        }
+        else if(tableShipmentInvoice.row($(updatedRow)).data()[8] == 'EUR'){
+            var EUR_USD = intVal($('#shipment-invoice-EUR_USD').val());
+            var priceWithBox = EUR_USD*intVal(updatedCell.data())+oldPrice;
+            tableShipmentInvoice.cell( tableShipmentInvoice.row($(updatedRow)).node(),10).data(isNaN(priceWithBox) ? 0 : priceWithBox).draw();
+        }
+    }
 }
 
 function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
@@ -525,11 +614,13 @@ $('#shipment-invoice-USD_EUR').on('keyup', function(){
         var row = this.data();
         if(row[8]=='USD'){
             var price =intVal(row[6]);
+            var priceBox = intVal(row[7]);
             row[9] = (cross*price);
+            row[10] = (cross*(price+priceBox));
             this.invalidate(); // invalidate the data DataTables has cached for this row
         }
     } );
-    $('#table-farm-invoice').DataTable().draw();
+    $('#table-shipment-invoice').DataTable().draw();
 });
 $('#shipment-invoice-EUR_USD').on('keyup', function(){
     var cross = intVal($(this).val());
@@ -537,15 +628,24 @@ $('#shipment-invoice-EUR_USD').on('keyup', function(){
         var row = this.data();
         if(row[8]=='EUR'){
             var price =intVal(row[6]);
+            var priceBox = intVal(row[7]);
             row[9] = (cross*price);
+            row[10] = (cross*(price+priceBox));
             this.invalidate(); // invalidate the data DataTables has cached for this row
         }
     } );
-    $('#table-farm-invoice').DataTable().draw();
+    $('#table-shipment-invoice').DataTable().draw();
 });
 
 
 var tableShipmentInvoice = $('#table-shipment-invoice').DataTable({
+    "columnDefs": [
+        {
+            "targets": [ 11 ],
+            "visible": false,
+            "searchable": false
+        }
+    ],
     "footerCallback": function (row, data, start, end, display) {
         var api = this.api();
         var USD_EUR = intVal($('#shipment-invoice-USD_EUR').text());
@@ -556,17 +656,13 @@ var tableShipmentInvoice = $('#table-shipment-invoice').DataTable({
             var data = this.data();
             total3 +=intVal(data[5])*intVal(data[6])+intVal(data[7]);
         });
+
         api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
             var data = this.data();
-            if(data[8]=='USD'){
-                total6 += USD_EUR * intVal(data[5])*intVal(data[6])+intVal(data[7]);
-            }else if (data[8]=='EUR'){
-                total6 += EUR_USD * intVal(data[5])*intVal(data[6])+intVal(data[7]);
-            }
-
+            total6 +=intVal(data[5])*intVal(data[9])+intVal(data[7]);
         });
-        $('#shipment-invoice-totalPrice td').eq(0).html('<span id="totalPrice">'+total3+'</span>');
-        $('#shipment-invoice-totalPrice td').eq(1).html('<span id="totalPriceCross">'+total6+'</span>');
+        $('#shipment-invoice-totalPrice td').eq(0).html('<span id="shipment-totalPrice_USD">'+total3+'</span>');
+        $('#shipment-invoice-totalPrice td').eq(1).html('<span id="shipment-totalPrice_EUR">'+total6+'</span>');
     },
 });
 // var tableShipmentInvoice = table-shipment-invoice
@@ -609,14 +705,7 @@ var tableFarmInvoice = $('#table-farm-invoice').DataTable({
         $('#farm-invoice-totalPrice td').eq(1).html('<span id="totalPriceDiscount">'+total4+'</span>');
         $('#farm-invoice-totalPrice td').eq(2).html('<span id="totalPriceCross">'+total6+'</span>');
         $('#farm-invoice-totalPrice td').eq(3).html('<span id="totalPriceDiscountCross">'+total7+'</span>');
-        // $(api.column(3).footer()).html('total price:  <br><span id="totalPrice">' + total3 + '</span> ');
-        // $(api.column(4).footer()).html('total with discount:   <br><span id="totalPriceDiscount">' + total4 + '</span> ');
-        // $(api.column(6).footer()).html('total cross:   <br><span id="totalPriceCross">' + total6 + '</span> ');
-        // $(api.column(7).footer()).html('total cross with discount:   <br><span id="totalPriceDiscountCross">' + total7 + '</span> ');
-
-
-
-    },
+     },
 });
 
 
@@ -855,6 +944,9 @@ $.urlParam = function(name){
         return results[1] || 0;
     }
 }
+function getInvoiceShipment(){
+    $('#searchInvoicesShipment-modal').modal('show');
+}
 function getInvoiceFromFarm(){
     $('#searchInvoicesFarm-modal').modal('show');
     // history.pushState(null, null, '/admin/getListInvoicesFarm');
@@ -865,6 +957,14 @@ function getGraphicsFarm(){
     history.pushState(null, null, '/admin/getGraphicsFarm');
     ajaxGraphicsFarm();
 }
+$('#searchInvoicesShipment-submit').on('click', function(){
+    $('#searchInvoicesShipment-modal').modal('hide');
+    var start = $('#invoiceShipment-search-start').text();
+    var end = $('#invoiceShipment-search-end').text();
+    history.pushState(null, null, '/admin/getListInvoicesShipment?start='+start+'&end='+end);
+
+    ajaxInvoicesShipment(start,end);
+});
 $('#searchInvoicesFarm-submit').on('click', function(){
     $('#searchInvoicesFarm-modal').modal('hide');
     var start = $('#invoiceFarm-search-start').text();
@@ -882,6 +982,11 @@ else if(window.location.pathname.indexOf('/admin/getListInvoicesFarm') == 0){
     var start = $.urlParam('start');
     var end = $.urlParam('end');
     ajaxInvoiceFromFarm(start, end);
+}
+else if(window.location.pathname.indexOf('/admin/getListInvoicesShipment') == 0){
+    var start = $.urlParam('start');
+    var end = $.urlParam('end');
+    ajaxInvoicesShipment(start, end);
 }
 function getFarm(){
     history.pushState(null, null, '/admin/getListFarm');
@@ -907,7 +1012,20 @@ function notifyAfterAjax(type, msg){
         styling: 'bootstrap3'
     });
 }
-
+$('#invoiceShipment-table').on('click', 'td.details-control', function () {
+    var tr = $(this).closest('tr');
+    var row = invoiceShipmentTable.row(tr);
+    var id = row.data()[1];
+    // var currency = row.data()[7];
+    if (row.child.isShown()) {
+        row.child.hide();
+        tr.removeClass('shown');
+    } else {
+        formatShipment(row.child, id);
+        // formatInvoiceFarm(row.child, id, currency);
+        tr.addClass('shown');
+    }
+});
 $('#invoiceFarm-table').on('click', 'td.details-control', function () {
     var tr = $(this).closest('tr');
     var row = invoiceFarmTable.row(tr);
@@ -947,6 +1065,59 @@ $('#invoiceFarm-crossCurs').on('keyup', function(){
     } );
     $('#table-farm-invoice').DataTable().draw();
 });
+function formatShipment(callback, id){
+    $.ajax({
+        type: "post",
+        url: "getInvoiceProductionShipment",
+        dataType: 'json',
+        data:{"id":id},
+        mimeType: 'application/json',
+        complete: function (response) {
+            NProgress.done();
+            unblock_screen();
+            console.log(response);
+            var data = JSON.parse(response.responseText);
+            callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
+                ' id="table-invoiceShipment-production-'+id+'">' +
+                '<thead>' +
+                '<th>id Shipment</th><th>id Product</th><th>price for stem</th><th>price for box</th><th>price cross</th><th>price with box cross</th><th>box</th>' +
+                '</thead>'+
+                '<tbody></tbody>'), 'child').show();
+            var tableProduction = $('#table-invoiceShipment-production-'+id).DataTable({
+                order: [[ 1, 'asc' ]],
+                aoColumns: [
+                    {orderable: false,
+                        visible: false,
+                        searchable:false,
+                        targets:   [0]},
+                    {
+                        visible: false,
+                        targets: [1],
+                        searchable:false
+                    },
+                    {}, {}, {}, {}, {},]
+                // dom: 'frtip',
+            }).draw();
+            var rows = [];
+            tableProduction.clear().draw();
+            // console.log();
+            $.each(data, function (i, item) {
+                // console.log(item);
+                rows[i] = [
+                    item.idInvoiceFarm, item.idProduct, item.priceForStem, item.priceForBox, item.priceCross,item.priceWithBoxCross, item.box
+                ];
+            });
+            tableProduction.rows.add(rows).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        error: function () {
+            notifyAfterAjax('error','Sorry, InvoiceFarm Products can not be displayed :(');
+        }
+    });
+}
 function formatInvoiceFarm(callback, id, currency) {
     $.ajax({
         type: "post",
@@ -1327,6 +1498,23 @@ function init_parsley() {
     } catch (err) {}
 
 };
+$('#daterange-btn2').daterangepicker(
+    {
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate: moment()
+    },
+    function (start, end) {
+        $('#daterange-btn2 span').html('from <span id="invoiceShipment-search-start" style="font-weight: bold;">'+start.format('DD-MM-YYYY') + '</span> to <span id="invoiceShipment-search-end" style="font-weight: bold;">' + end.format('DD-MM-YYYY')+'</span>');
+    }
+);
 $('#daterange-btn').daterangepicker(
     {
         ranges: {

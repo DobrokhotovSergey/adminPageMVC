@@ -1,7 +1,7 @@
 package ua.laksmi.web.jdbc;
 
 import ua.laksmi.web.domain.tables.Prices;
-import ua.laksmi.web.domain.tables.ProductionInvFarm;
+import ua.laksmi.web.domain.tables.production.ProductionInvFarm;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

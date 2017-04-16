@@ -1,7 +1,6 @@
 package ua.laksmi.web.jdbc;
 
-import org.springframework.jdbc.core.RowMapper;
-import ua.laksmi.web.domain.tables.Production;
+import ua.laksmi.web.domain.tables.production.Production;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

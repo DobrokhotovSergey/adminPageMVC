@@ -6,11 +6,13 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import ua.laksmi.web.domain.searchingForm.InvoiceFarmSearch;
+import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
-import ua.laksmi.web.domain.tables.InvoiceFarm;
-import ua.laksmi.web.domain.tables.Production;
-import ua.laksmi.web.domain.tables.ProductionInvFarm;
+import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
+import ua.laksmi.web.domain.tables.invoices.InvoiceShipment;
+import ua.laksmi.web.domain.tables.production.Production;
+import ua.laksmi.web.domain.tables.production.ProductionInvFarm;
+import ua.laksmi.web.domain.tables.production.ProductionShipment;
 import ua.laksmi.web.service.ServiceCRUD;
 
 import java.util.List;
@@ -29,17 +31,30 @@ public class CrudController {
     @ResponseBody
     public List<Production> getProduction(@RequestParam int id){
         List<Production> list = serviceCRUD.getListProduction(id);
-       // System.out.println(list);
+        return list;
+    }
+    //getInvoiceShipment
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/getInvoiceProductionShipment", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<ProductionShipment> getInvoiceProductionShipment(@RequestParam int id){
+        List<ProductionShipment> list = serviceCRUD.getListInvoiceProductionShipment(id);
         return list;
     }
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/getInvoiceFarmProduction", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<ProductionInvFarm> getInvoiceFarmProduction(@RequestParam(value = "id[]") int[] id){
-        System.out.println(id);
         List<ProductionInvFarm> list = serviceCRUD.getListInvoiceFarmProduction(id);
-        // System.out.println(list);
         return list;
+    }
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/createInvoiceShipment", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public InvoiceShipment createInvoiceShipment(@RequestBody InvoiceShipment invoiceShipment){
+        System.out.println("---->"+invoiceShipment);
+        return serviceCRUD.createInvoiceShipment(invoiceShipment);
     }
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/createInvoiceFarm", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
@@ -78,12 +93,17 @@ public class CrudController {
         return serviceCRUD.deleteProduction(idProduct);
     }
 
-
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/getListInvoicesShipment", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<InvoiceShipment> getListInvoicesShipment(@RequestBody InvoiceSearch invoiceSearch){
+        return serviceCRUD.getListInvoicesShipment(invoiceSearch);
+    }
 
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/getListInvoicesFarm", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<InvoiceFarm> getListInvoicesFarm(@RequestBody InvoiceFarmSearch invoiceFarmSearch){
+    public List<InvoiceFarm> getListInvoicesFarm(@RequestBody InvoiceSearch invoiceFarmSearch){
         return serviceCRUD.getListInvoicesFarm(invoiceFarmSearch);
     }
 

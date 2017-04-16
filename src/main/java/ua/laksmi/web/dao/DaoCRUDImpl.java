@@ -5,19 +5,18 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
-import ua.laksmi.web.domain.searchingForm.InvoiceFarmSearch;
+
+import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
-import ua.laksmi.web.domain.tables.InvoiceFarm;
-import ua.laksmi.web.domain.tables.Production;
-import ua.laksmi.web.domain.tables.ProductionInvFarm;
-import ua.laksmi.web.jdbc.FarmRowMapperImpl;
-import ua.laksmi.web.jdbc.InvoiceFarmProductionRowMapperImpl;
-import ua.laksmi.web.jdbc.InvoiceFarmRowMapperImpl;
-import ua.laksmi.web.jdbc.ProductionRowMapperImpl;
+import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
+import ua.laksmi.web.domain.tables.invoices.InvoiceShipment;
+import ua.laksmi.web.domain.tables.production.Production;
+import ua.laksmi.web.domain.tables.production.ProductionInvFarm;
+import ua.laksmi.web.domain.tables.production.ProductionShipment;
+import ua.laksmi.web.jdbc.*;
 import ua.laksmi.web.utils.Constants;
 
 import javax.sql.DataSource;
@@ -252,6 +251,65 @@ public class DaoCRUDImpl implements DaoCRUD {
         }
         return newFarm;
     }
+    public InvoiceShipment createInvoiceShipment(final InvoiceShipment invoiceShipment) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("insert into\n");
+        sb.append(Constants.TABLE_INVOICE_SHIPMENT);
+        sb.append("\n(shipmentName, shipmentDate, cross_usd_eur, cross_eur_usd, totalPrice_usd, totalPrice_eur)\n");
+        sb.append("values(?,?,?,?,?,?)");
+        InvoiceShipment newInvoiceShipment = null;
+        final String INSERT_SQL = sb.toString();
+        final KeyHolder keyHolder = new GeneratedKeyHolder();
+        System.out.println(INSERT_SQL);
+        try {
+            jdbcTemplate.update(
+                    new PreparedStatementCreator() {
+                        public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+                            PreparedStatement ps =
+                                    connection.prepareStatement(INSERT_SQL, new String[]{"idshipment"});
+                            ps.setString(1, invoiceShipment.getInvoiceName());
+                            ps.setDate(2, new java.sql.Date(invoiceShipment.getInvoiceDate().getTime()));
+                            ps.setBigDecimal(3, invoiceShipment.getCrossUSD_EUR());
+                            ps.setBigDecimal(4, invoiceShipment.getCrossEUR_USD());
+                            ps.setBigDecimal(5, invoiceShipment.getTotalPrice_USD());
+                            ps.setBigDecimal(6, invoiceShipment.getTotalPrice_EUR());
+                            return ps;
+                        }
+                    },
+                    keyHolder);
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append("insert into\n");
+        sb2.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
+        sb2.append("\n(idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross)");
+        sb2.append("values (?, ?, ?, ?, ?, ?)\n");
+        System.out.println("key--> "+keyHolder.getKey().intValue());
+        final List<ProductionShipment> listProduction = invoiceShipment.getProductionShipmentList();
+        try{
+            jdbcTemplate.batchUpdate(sb2.toString(), new BatchPreparedStatementSetter(){
+                public void setValues(PreparedStatement ps, int i) throws SQLException {
+                    ProductionShipment productionInvFarm = listProduction.get(i);
+                    ps.setInt(1,keyHolder.getKey().intValue());
+                    ps.setInt(2,productionInvFarm.getIdProduct());
+                    ps.setBigDecimal(3, productionInvFarm.getPriceForStem());
+                    ps.setBigDecimal(4, productionInvFarm.getPriceForBox());
+                    ps.setBigDecimal(5, productionInvFarm.getPriceCross());
+                    ps.setBigDecimal(6, productionInvFarm.getPriceWithBoxCross());
+                }
+                public int getBatchSize() {
+                    return listProduction.size();
+                }
+            } );
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+
+        return newInvoiceShipment;
+    }
+
+
 
     public InvoiceFarm createInvoiceFarm(final InvoiceFarm invoiceFarm) {
         StringBuilder sb = new StringBuilder("insert into\n");
@@ -320,8 +378,27 @@ public class DaoCRUDImpl implements DaoCRUD {
 //        sb.append();
         return newInvoiceFarm;
     }
+    public List<InvoiceShipment> getListInvoicesShipment(InvoiceSearch invoiceSearch) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("select a.idshipment, a.shipmentName, a.shipmentDate, a.cross_usd_eur,\n");
+        sb.append("a.cross_eur_usd, a.totalprice_usd, a.totalprice_eur from ");
+        sb.append(Constants.TABLE_INVOICE_SHIPMENT);
+        sb.append(" a where a.shipmentDate between ? and ?");
+        List<InvoiceShipment> invoiceShipmentList = null;
+        try{
+            invoiceShipmentList = jdbcTemplate.query(sb.toString(), new InvoiceShipmentRowMapper(),
+                    new Object[]{invoiceSearch.getStart(), invoiceSearch.getEnd()});
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+//        select a.idshipment, a.shipmentName, a.shipmentDate, a.cross_usd_eur,
+//                a.cross_eur_usd, a.totalprice_usd, a.totalprice_eur from invoiceShipment a
+        return invoiceShipmentList;
+    }
 
-    public List<InvoiceFarm> getListInvoicesFarm(InvoiceFarmSearch invoiceFarmSearch) {
+
+
+    public List<InvoiceFarm> getListInvoicesFarm(InvoiceSearch invoiceFarmSearch) {
         StringBuilder sb = new StringBuilder();
         sb.append("select a.id,b.farmName,b.currency, a.idFarm, a.invoiceName, a.clientName, a.invoiceDate, \n" +
                 "a.crossCurs, a.totalPrice, a.totalPriceDiscount, a.totalPriceCross, a.totalPriceDiscountCross from\n");
@@ -339,7 +416,19 @@ public class DaoCRUDImpl implements DaoCRUD {
         }
         return list;
     }
-
+    public List<ProductionShipment> getListInvoiceProductionShipment(int id) {
+        List<ProductionShipment> list = null;
+        StringBuilder sb = new StringBuilder();
+        sb.append("select idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross, box from\n");
+        sb.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
+        sb.append("\n where idInvoiceShipment = ?");
+        try{
+            list = jdbcTemplate.query(sb.toString(), new InvoiceShipmentProductionRowMapper(), new Object[]{id});
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+        return list;
+    }
     public List<ProductionInvFarm> getListInvoiceFarmProduction(int[] id) {
 
         List<ProductionInvFarm> list = null;
@@ -356,12 +445,6 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb.append("join ");
         sb.append(Constants.TABLE_FARM);
         sb.append(" as d on b.idFerm = d.id\n");
-
-//        sb.append(Constants.TABLE_PRODUCTION);
-//        sb.append("\n as a left join \n");
-//
-//        sb.append("\n as b on a.idFerm=b.id\n");
-//        sb.append("where a.idFerm = ?");
 
         sb.append("where a.idInvoiceFarm in ");
         sb.append(Arrays.toString(id).replace("[","(").replace("]",")"));
@@ -387,4 +470,6 @@ public class DaoCRUDImpl implements DaoCRUD {
         }
         return finded;
     }
+
+
 }

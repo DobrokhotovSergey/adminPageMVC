@@ -69,29 +69,46 @@
                                                     </span>
                                 <i class="fa fa-caret-down"></i>
                             </button>
-                            <%--<input type="text" id="farm-name" required="required" class="form-control col-md-7 col-xs-12">--%>
                         </div>
                     </div>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="control-label col-md-4 col-sm-4 col-xs-12" for="client-name">client Name</label>--%>
-                        <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
-
-                                <%--<select class="js-data-example-ajax" id="client-name">--%>
-                                    <%--&lt;%&ndash;<option value="Test"> Test </option>&ndash;%&gt;--%>
-                                        <%--<option value="3620194" selected="selected">Select a value......</option>--%>
-                            <%--&lt;%&ndash;<select class="form-control col-md-7 col-xs-12" id="product-name-edit1">&ndash;%&gt;--%>
-
-                            <%--</select>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-
-
-
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-success" id="searchInvoicesFarm-submit">Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal modal-form fade bs-example-modal-nm" id="searchInvoicesShipment-modal"  role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-nm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel4">Search invoices for Shipment</h4>
+            </div>
+            <div class="modal-body">
+                <form id="searchInvoicesShipment-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn2">Date range button:<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn2">
+                                                    <span>
+                                                      <i class="fa fa-calendar"></i> Date range picker
+                                                    </span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="searchInvoicesShipment-submit">Search</button>
             </div>
 
         </div>
@@ -198,7 +215,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a style=" cursor: pointer;" onclick="getInvoiceFromFarm();"><i class="fa fa-circle-o text-red"></i>from farm</a></li>
-                        <li><a style=" cursor: pointer;"><i class="fa fa-circle-o text-red"></i>for shipment</a></li>
+                        <li><a style=" cursor: pointer;" onclick="getInvoiceShipment();"><i class="fa fa-circle-o text-red"></i>for shipment</a></li>
                         <li><a style=" cursor: pointer;"><i class="fa fa-circle-o text-red"></i>commercial</a></li>
 
                     </ul>
@@ -342,7 +359,6 @@
                             </button>
                             <h4 class="modal-title" id="myModalLabel1">Create invoice for Shipment</h4>
                         </div>
-                        <%--<div id="curr-invoiceFarm" style="display: none"></div>--%>
                         <div class="modal-body">
                             <div id="shipment-invoice-modal-id" style="display: none"></div>
                             <form class="form-horizontal">
@@ -356,15 +372,6 @@
                                             <input type="text" class="form-control has-feedback-left" id="shipment-invoice" placeholder="Invoice Name">
                                         </div>
                                     </div>
-                                    <%--<div class="col-md-3 col-sm-3 col-xs-12">--%>
-                                        <%--Client Name--%>
-                                        <%--<div class="input-group">--%>
-                                            <%--<div class="input-group-addon">--%>
-                                                <%--<i class="fa fa-user"></i>--%>
-                                            <%--</div>--%>
-                                            <%--<input type="text" class="form-control has-feedback-left" id="invoiceFarm-clientName" placeholder="Client Name">--%>
-                                        <%--</div>--%>
-                                    <%--</div>--%>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                         Invoice Date
                                         <div class="input-group">
@@ -411,6 +418,8 @@
                                             <th>price for Box</th>
                                             <th>Currency</th>
                                             <th>price (cross)</th>
+                                            <th>price with Box(cross)</th>
+                                            <th>id Invoice Farm</th>
                                             <%--<th style="width: 12%">product</th>--%>
                                             <%--<th style="width: 12%">grading</th>--%>
                                             <%--<th style="width: 12%">number stems in Box</th>--%>
@@ -769,45 +778,7 @@
             </div>
 
 
-            <div class="box box-primary" id="invoiceFarmDiv" class="x_panel" style="display: none">
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Invoices from Farm</h3>
 
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-
-
-                    <div class="x_content">
-
-
-                        <div class="table-responsive">
-
-                            <table id="invoiceFarm-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
-                                <thead>
-                                <tr>
-                                    <th style="width: 5%"></th>
-                                    <th style="width: 5%"></th>
-                                    <th style="width: 5%">Id</th>
-                                    <th style="width: 5%">Farm</th>
-                                    <th style="width: 5%">Client</th>
-                                    <th style="width: 5%">Name</th>
-                                    <th style="width: 5%">Date</th>
-                                    <th style="width: 5%">Currency</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
-
-
-                    </div>
-
-                </div>
-            </div>
 
             <br/>
         </div>
@@ -873,7 +844,84 @@
 
 
             <div class="row">
+                <div class="box box-primary" id="invoiceShipmentDiv" class="x_panel" style="display: none">
+                    <div class="box-header">
+                        <i class="ion ion-clipboard"></i>
+                        <h3 class="box-title">Invoices for Shipment</h3>
 
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+
+                        <div class="x_content">
+
+
+                            <div class="table-responsive">
+
+                                <table id="invoiceShipment-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 5%"></th>
+                                        <th style="width: 5%">Id</th>
+                                        <th style="width: 5%">Name</th>
+                                        <th style="width: 5%">Date</th>
+                                        <th style="width: 5%">cross usd_eur</th>
+                                        <th style="width: 5%">cross eur_usd</th>
+                                        <th style="width: 5%">total price usd</th>
+                                        <th style="width: 5%">total price eur</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box box-primary" id="invoiceFarmDiv" class="x_panel" style="display: none">
+                    <div class="box-header">
+                        <i class="ion ion-clipboard"></i>
+                        <h3 class="box-title">Invoices from Farm</h3>
+
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+
+                        <div class="x_content">
+
+
+                            <div class="table-responsive">
+
+                                <table id="invoiceFarm-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 5%"></th>
+                                        <th style="width: 5%"></th>
+                                        <th style="width: 5%">Id</th>
+                                        <th style="width: 5%">Farm</th>
+                                        <th style="width: 5%">Client</th>
+                                        <th style="width: 5%">Name</th>
+                                        <th style="width: 5%">Date</th>
+                                        <th style="width: 5%">Currency</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
                 <div class="box box-primary" id="farmTableDiv" class="x_panel" style="display: none">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>

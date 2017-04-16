@@ -1,10 +1,9 @@
 package ua.laksmi.web.jdbc;
 
 import org.springframework.jdbc.core.RowMapper;
-import ua.laksmi.web.domain.tables.InvoiceFarm;
+import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
 import ua.laksmi.web.domain.tables.Prices;
 
-import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

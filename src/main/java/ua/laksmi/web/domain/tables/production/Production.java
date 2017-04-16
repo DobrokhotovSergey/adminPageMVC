@@ -1,4 +1,4 @@
-package ua.laksmi.web.domain.tables;
+package ua.laksmi.web.domain.tables.production;
 
 import java.math.BigDecimal;
 

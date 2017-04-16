@@ -3,11 +3,13 @@ package ua.laksmi.web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.laksmi.web.dao.DaoCRUD;
-import ua.laksmi.web.domain.searchingForm.InvoiceFarmSearch;
+import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
-import ua.laksmi.web.domain.tables.InvoiceFarm;
-import ua.laksmi.web.domain.tables.Production;
-import ua.laksmi.web.domain.tables.ProductionInvFarm;
+import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
+import ua.laksmi.web.domain.tables.invoices.InvoiceShipment;
+import ua.laksmi.web.domain.tables.production.Production;
+import ua.laksmi.web.domain.tables.production.ProductionInvFarm;
+import ua.laksmi.web.domain.tables.production.ProductionShipment;
 
 import java.util.List;
 
@@ -56,7 +58,7 @@ public class ServiceCRUDImpl implements ServiceCRUD{
         return daoCRUD.createInvoiceFarm(invoiceFarm);
     }
 
-    public List<InvoiceFarm> getListInvoicesFarm(InvoiceFarmSearch invoiceFarmSearch) {
+    public List<InvoiceFarm> getListInvoicesFarm(InvoiceSearch invoiceFarmSearch) {
         return daoCRUD.getListInvoicesFarm(invoiceFarmSearch);
     }
 
@@ -66,5 +68,17 @@ public class ServiceCRUDImpl implements ServiceCRUD{
 
     public List<String> searchClientName(String searchClientName) {
         return daoCRUD.searchClientName(searchClientName);
+    }
+
+    public InvoiceShipment createInvoiceShipment(InvoiceShipment invoiceShipment) {
+        return daoCRUD.createInvoiceShipment(invoiceShipment);
+    }
+
+    public List<InvoiceShipment> getListInvoicesShipment(InvoiceSearch invoiceSearch) {
+        return daoCRUD.getListInvoicesShipment(invoiceSearch);
+    }
+
+    public List<ProductionShipment> getListInvoiceProductionShipment(int id) {
+        return daoCRUD.getListInvoiceProductionShipment(id);
     }
 }
