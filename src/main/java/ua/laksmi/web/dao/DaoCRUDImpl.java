@@ -283,8 +283,8 @@ public class DaoCRUDImpl implements DaoCRUD {
         StringBuilder sb2 = new StringBuilder();
         sb2.append("insert into\n");
         sb2.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
-        sb2.append("\n(idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross)");
-        sb2.append("values (?, ?, ?, ?, ?, ?)\n");
+        sb2.append("\n(idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross, idproductinvfarm, box)");
+        sb2.append("values (?, ?, ?, ?, ?, ?, ?,?)\n");
         System.out.println("key--> "+keyHolder.getKey().intValue());
         final List<ProductionShipment> listProduction = invoiceShipment.getProductionShipmentList();
         try{
@@ -297,6 +297,8 @@ public class DaoCRUDImpl implements DaoCRUD {
                     ps.setBigDecimal(4, productionInvFarm.getPriceForBox());
                     ps.setBigDecimal(5, productionInvFarm.getPriceCross());
                     ps.setBigDecimal(6, productionInvFarm.getPriceWithBoxCross());
+                    ps.setInt(7, productionInvFarm.getIdInvoiceFarm());
+                    ps.setInt(8,productionInvFarm.getBox());
                 }
                 public int getBatchSize() {
                     return listProduction.size();
@@ -419,9 +421,23 @@ public class DaoCRUDImpl implements DaoCRUD {
     public List<ProductionShipment> getListInvoiceProductionShipment(int id) {
         List<ProductionShipment> list = null;
         StringBuilder sb = new StringBuilder();
-        sb.append("select idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross, box from\n");
+        sb.append("select c.farmName,d.numberStemsInBox,e.clientName, a.idInvoiceShipment, a.idProduct, a.priceForStem, a.priceForBox, a.priceCross, a.priceWithBoxCross, a.box from\n");
         sb.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
-        sb.append("\n where idInvoiceShipment = ?");
+        sb.append(" a join ");
+        sb.append(Constants.TABLE_PRODUCTION);
+        sb.append(" b on a.idProduct = b.id \n");
+        sb.append(" join ");
+        sb.append(Constants.TABLE_FARM);
+        sb.append("\n c on b.idFerm = c.id \n");
+        sb.append(" join ");
+        sb.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
+        sb.append("\n d on d.idProduct = a.idProduct \n");
+        sb.append("join ");
+        sb.append(Constants.TABLE_INVOICE_FARM);
+        sb.append(" e on e.id = d.idInvoiceFarm\n");
+
+        sb.append(" where a.idInvoiceShipment = ?");
+        System.out.println(sb.toString());
         try{
             list = jdbcTemplate.query(sb.toString(), new InvoiceShipmentProductionRowMapper(), new Object[]{id});
         }catch (Exception ex){

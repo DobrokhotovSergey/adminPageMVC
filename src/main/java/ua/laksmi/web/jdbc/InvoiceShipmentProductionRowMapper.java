@@ -19,6 +19,9 @@ public class InvoiceShipmentProductionRowMapper implements RowMapper<ProductionS
         productionShipment.setPriceCross(rs.getBigDecimal("priceCross"));
         productionShipment.setPriceWithBoxCross(rs.getBigDecimal("priceWithBoxCross"));
         productionShipment.setBox(rs.getInt("box"));
+        productionShipment.setFarmName(rs.getString("farmName"));
+        productionShipment.setClientName(rs.getString("clientName"));
+        productionShipment.setNumberStemsInBox(rs.getInt("numberStemsInBox"));
         return productionShipment;
     }
 }

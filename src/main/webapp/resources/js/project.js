@@ -217,6 +217,11 @@ $(".nav-header li a").click(function(e){
     $(".main").load(url);
 //  return false;
 });
+
+
+
+
+
 var invoiceShipmentTable = $('#invoiceShipment-table').DataTable({
     autoWidth: false,
     order: [[ 1, 'asc' ]],
@@ -225,8 +230,14 @@ var invoiceShipmentTable = $('#invoiceShipment-table').DataTable({
         targets  : 'no-sort',
         //className: 'select-checkbox',
         targets:   [0],
+        class:"show-invoice"
+    },{
+        orderable: false,
+        targets  : 'no-sort',
+        //className: 'select-checkbox',
+        targets:   [1],
         class:"details-control"
-    },
+    }
     ],
 });
 var invoiceFarmTable = $('#invoiceFarm-table').DataTable({
@@ -295,7 +306,7 @@ function shipmentInvoicesModal(ids){
             var rows = [];
            $.each(data, function (i, item) {
                 rows[i] = [
-                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm
+                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm, item.idProduct
                 ];
             });
             tableShipmentInvoice.rows.add(rows).draw();
@@ -348,7 +359,7 @@ function ajaxInvoicesShipment(start, end){
 
             var rows = [];
             data.forEach(function(item, i, arr) {
-                rows[i] = ['',item.id, item.invoiceName, item.invoiceDate,item.crossUSD_EUR, item.crossEUR_USD,item.totalPrice_USD, item.totalPrice_EUR]
+                rows[i] = ['','',item.id, item.invoiceName, item.invoiceDate,item.crossUSD_EUR, item.crossEUR_USD,item.totalPrice_USD, item.totalPrice_EUR]
             });
             invoiceShipmentTable.rows.add(rows).draw();
             // drawIcheck();
@@ -483,9 +494,10 @@ $('#create-shipment-invoice-btn-save').on('click', function () {
     var data = $('#table-shipment-invoice').DataTable().rows().data().toArray();
     var tempListObj = [];
     data.forEach(function(item, i, arr) {
+        console.log(item[11]);
         tempListObj[i] = {"farmName": item[0], "box": item[1],
             "priceForStem":item[6], "priceForBox": item[7],
-            "priceCross": item[9], "priceWithBoxCross": item[10], "idInvoiceFarm":item[11]};
+            "priceCross": item[9], "priceWithBoxCross": item[10], "idInvoiceFarm":item[11],"idProduct":item[12]};
     });
     $('#shipment-invoice-modal').modal('hide');
 
@@ -1012,11 +1024,125 @@ function notifyAfterAjax(type, msg){
         styling: 'bootstrap3'
     });
 }
-$('#invoiceShipment-table').on('click', 'td.details-control', function () {
+var button='<button class="close" type="button" title="Remove this page">×</button>';
+
+function closeTabs(index){
+    var tr = invoiceShipmentTable.row(index).node();
+    $(tr).removeClass('shownInv')
+    //invoiceShipmentTable.row(index).closest('tr').removeClass('shown');
+   // console.log($(event).parent('a').attr('href'));
+}
+
+function getTableShipment(id){
+    $.ajax({
+        type: "post",
+        url: "getInvoiceProductionShipment",
+        dataType: 'json',
+        data:{"id":id},
+        mimeType: 'application/json',
+        complete: function (response) {
+            NProgress.done();
+            unblock_screen();
+            console.log(response);
+            var data = JSON.parse(response.responseText);
+
+            var tableProduction = $('#tab'+id).find('.tab-shipment-invoice-table').DataTable({
+                order: [[ 1, 'asc' ]],
+                aoColumns: [
+                    {orderable: false,
+                        visible: false,
+                        searchable:false,
+                        targets:   [0]},
+                    {
+                        visible: false,
+                        targets: [1],
+                        searchable:false
+                    },
+                    {}, {}, {}, {}, {},{},{},{}],
+                "footerCallback": function (row, data, start, end, display) {
+                    // var api = this.api();
+                    // var USD_EUR = intVal($('#shipment-invoice-USD_EUR').text());
+                    // var EUR_USD = intVal($('#shipment-invoice-EUR_USD').text());
+                    //
+                    // var total3 = 0, total4=0, total6=0,total7=0;
+                    // api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+                    //     var data = this.data();
+                    //     total3 +=intVal(data[5])*intVal(data[6])+intVal(data[7]);
+                    // });
+                    //
+                    // api.rows().every( function ( rowIdx, tableLoop, rowLoop, mult ) {
+                    //     var data = this.data();
+                    //     total6 +=intVal(data[5])*intVal(data[9])+intVal(data[7]);
+                    // });
+                    // $('#shipment-invoice-totalPrice td').eq(0).html('<span id="shipment-totalPrice_USD">'+total3+'</span>');
+                    // $('#shipment-invoice-totalPrice td').eq(1).html('<span id="shipment-totalPrice_EUR">'+total6+'</span>');
+                },
+                // dom: 'frtip',
+            }).draw();
+            var rows = [];
+            tableProduction.clear().draw();
+            // console.log();
+            $.each(data, function (i, item) {
+                // console.log(item);
+                rows[i] = [
+                    item.idInvoiceFarm, item.idProduct,item.farmName,item.box, item.clientName,item.numberStemsInBox, item.priceForStem, item.priceForBox, item.priceCross,item.priceWithBoxCross
+                ];
+            });
+            tableProduction.rows.add(rows).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        error: function () {
+            notifyAfterAjax('error','Sorry, InvoiceFarm Products can not be displayed :(');
+        }
+    });
+}
+
+$('#invoiceShipment-table').on('click', 'td.show-invoice', function () {
     var tr = $(this).closest('tr');
     var row = invoiceShipmentTable.row(tr);
-    var id = row.data()[1];
+    var index = invoiceShipmentTable.row( this ).index();
+    var id = row.data()[2];
+    var date = row.data()[4];
+    var invoiceName = row.data()[3];
     // var currency = row.data()[7];
+    if (tr.hasClass('shownInv')) {
+        // row.child.hide();
+        // tr.removeClass('shown');
+    } else {
+        $('#tab-list').append($('<li><a href="#tab' + id + '" role="tab" data-toggle="tab">Tab ' + id +
+            '<button class="close" onclick="closeTabs('+index+');" type="button" title="Remove this page">×</button></a></li>'));
+        console.log(date);
+
+        var invoiceHtml = $('#shipment-invoice-html');
+//tab-shipment-invoice
+        $('#tab-content').append($('<div class="tab-pane" id="tab' + id + '">' +
+            invoiceHtml.html()+
+            '</div>'));
+        // $('.shipment-date').html(date);
+        $('#tab'+id).find('.tab-shipment-invoice').html(invoiceName);
+        $('#tab'+id).find('.tab-shipment-date').html(date);
+        $('#tab-list a[href="#tab'+id+'"]').tab('show');
+        getTableShipment(id);
+        tr.addClass('shownInv');
+    }
+});
+
+$('#tab-list').on('click', '.close', function(event) {
+    event.preventDefault();
+    var tabID = $(this).parents('a').attr('href');
+    $(this).parents('li').remove();
+    $(tabID).remove();
+    $('#tab-list a[href="#tabInvoiceShipment"]').tab('show');
+});
+$('#invoiceShipment-table').on('click', 'td.details-control', function () {
+
+    var tr = $(this).closest('tr');
+    var row = invoiceShipmentTable.row(tr);
+    var id = row.data()[2];
+    // var currency = row.data()[8];
     if (row.child.isShown()) {
         row.child.hide();
         tr.removeClass('shown');
@@ -1065,6 +1191,7 @@ $('#invoiceFarm-crossCurs').on('keyup', function(){
     } );
     $('#table-farm-invoice').DataTable().draw();
 });
+
 function formatShipment(callback, id){
     $.ajax({
         type: "post",
@@ -1080,7 +1207,7 @@ function formatShipment(callback, id){
             callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-invoiceShipment-production-'+id+'">' +
                 '<thead>' +
-                '<th>id Shipment</th><th>id Product</th><th>price for stem</th><th>price for box</th><th>price cross</th><th>price with box cross</th><th>box</th>' +
+                '<th>id Shipment</th><th>id Product</th><th>Farm Name</th><th>box</th><th>Client Name</th><th>Number Stems in Box</th><th>price for stem</th><th>price for box</th><th>price cross</th><th>price with box cross</th>' +
                 '</thead>'+
                 '<tbody></tbody>'), 'child').show();
             var tableProduction = $('#table-invoiceShipment-production-'+id).DataTable({
@@ -1095,7 +1222,7 @@ function formatShipment(callback, id){
                         targets: [1],
                         searchable:false
                     },
-                    {}, {}, {}, {}, {},]
+                    {}, {}, {}, {}, {},{},{},{}]
                 // dom: 'frtip',
             }).draw();
             var rows = [];
@@ -1104,7 +1231,7 @@ function formatShipment(callback, id){
             $.each(data, function (i, item) {
                 // console.log(item);
                 rows[i] = [
-                    item.idInvoiceFarm, item.idProduct, item.priceForStem, item.priceForBox, item.priceCross,item.priceWithBoxCross, item.box
+                    item.idInvoiceFarm, item.idProduct,item.farmName,item.box, item.clientName,item.numberStemsInBox, item.priceForStem, item.priceForBox, item.priceCross,item.priceWithBoxCross
                 ];
             });
             tableProduction.rows.add(rows).draw();
@@ -1533,3 +1660,4 @@ $('#daterange-btn').daterangepicker(
       //  $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
     }
 );
+

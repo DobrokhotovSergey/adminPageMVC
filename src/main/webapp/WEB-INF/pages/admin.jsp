@@ -420,6 +420,7 @@
                                             <th>price (cross)</th>
                                             <th>price with Box(cross)</th>
                                             <th>id Invoice Farm</th>
+                                            <th>id Product</th>
                                             <%--<th style="width: 12%">product</th>--%>
                                             <%--<th style="width: 12%">grading</th>--%>
                                             <%--<th style="width: 12%">number stems in Box</th>--%>
@@ -841,48 +842,97 @@
         <!-- Main content -->
 
         <section class="content" id="content-main">
+            <%--<div class="box box-primary"  class="x_panel" style="display: none">--%>
+                <%--<div class="box-header">--%>
+                    <%--<i class="ion ion-clipboard"></i>--%>
+                    <%--<h3 class="box-title">Invoices for Shipment</h3>--%>
+
+                <%--</div>--%>
+                <%--<!-- /.box-header -->--%>
+
+            <%--</div>--%>
+            <%--<button id="test-btn">test</button>--%>
+            <div class="nav-tabs-custom" id="invoiceShipmentDiv" style="display: none">
+                <ul id="tab-list" class="nav nav-tabs">
+                    <li class="active"><a href="#tabInvoiceShipment" data-toggle="tab">Invoices for Shipment</a></li>
+                    <%--<li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>--%>
+                    <%--<li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>--%>
+                    <%--<li class="dropdown">--%>
+                        <%--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--%>
+                            <%--Dropdown <span class="caret"></span>--%>
+                        <%--</a>--%>
+                        <%--<ul class="dropdown-menu">--%>
+                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>--%>
+                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>--%>
+                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>--%>
+                            <%--<li role="presentation" class="divider"></li>--%>
+                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--%>
+                        <%--</ul>--%>
+                    <%--</li>--%>
+                    <%--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--%>
+                </ul>
+                <div class="tab-content" id="tab-content">
+                    <div class="tab-pane active" id="tabInvoiceShipment">
+                        <div class="box-body">
 
 
-            <div class="row">
-                <div class="box box-primary" id="invoiceShipmentDiv" class="x_panel" style="display: none">
-                    <div class="box-header">
-                        <i class="ion ion-clipboard"></i>
-                        <h3 class="box-title">Invoices for Shipment</h3>
-
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                            <div class="x_content">
 
 
-                        <div class="x_content">
+                                <div class="table-responsive">
+
+                                    <table id="invoiceShipment-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th style="width: 13%">Id</th>
+                                            <th style="width: 13%">Name</th>
+                                            <th style="width: 13%">Date</th>
+                                            <th style="width: 13%">cross usd_eur</th>
+                                            <th style="width: 13%">cross eur_usd</th>
+                                            <th style="width: 13%">total price usd</th>
+                                            <th style="width: 13%">total price eur</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
 
 
-                            <div class="table-responsive">
-
-                                <table id="invoiceShipment-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 5%"></th>
-                                        <th style="width: 5%">Id</th>
-                                        <th style="width: 5%">Name</th>
-                                        <th style="width: 5%">Date</th>
-                                        <th style="width: 5%">cross usd_eur</th>
-                                        <th style="width: 5%">cross eur_usd</th>
-                                        <th style="width: 5%">total price usd</th>
-                                        <th style="width: 5%">total price eur</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
                             </div>
 
-
                         </div>
-
                     </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                        The European languages are members of the same family. Their separate existence is a myth.
+                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                        new common language would be desirable: one could refuse to pay expensive translators. To
+                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                        words. If several languages coalesce, the grammar of the resulting language is more simple
+                        and regular than that of the individual languages.
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_3">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                        like Aldus PageMaker including versions of Lorem Ipsum.
+                    </div>
+                    <!-- /.tab-pane -->
                 </div>
+                <!-- /.tab-content -->
+            </div>
+
+            <div class="row">
+
                 <div class="box box-primary" id="invoiceFarmDiv" class="x_panel" style="display: none">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
@@ -1000,6 +1050,122 @@
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
+
+</div>
+<div id="shipment-invoice-html" style="display: none">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> Shipment Invoice
+                <small class="pull-right">Date: <span class="tab-shipment-date"></span></small>
+            </h2>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info">
+        <div class="col-sm-4 invoice-col">
+            From
+            <address>
+                <strong>Admin, Inc.</strong><br>
+                795 Folsom Ave, Suite 600<br>
+                San Francisco, CA 94107<br>
+                Phone: (804) 123-5432<br>
+                Email: info@almasaeedstudio.com
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            To
+            <address>
+                <strong>John Doe</strong><br>
+                795 Folsom Ave, Suite 600<br>
+                San Francisco, CA 94107<br>
+                Phone: (555) 539-1037<br>
+                Email: john.doe@example.com
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            <b>Invoice <span class="tab-shipment-invoice"></span></b><br>
+            <br>
+            <b>Order ID:</b> 4F3S8J<br>
+            <b>Payment Due:</b> 2/22/2014<br>
+            <b>Account:</b> 968-34567
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Table row -->
+    <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-striped tab-shipment-invoice-table">
+                <thead>
+                <tr>
+                    <th>id Shipment</th>
+                    <th>id Product</th>
+                    <th>Farm Name</th>
+                    <th>box</th>
+                    <th>Client Name</th>
+                    <th>Number Stem in Box</th>
+                    <th>price for stem</th>
+                    <th>price for box</th>
+                    <th>price cross</th>
+                    <th>price with box cross</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+
+        <!-- /.col -->
+        <div class="col-xs-6">
+            <p class="lead">Amount Due 2/22/2014</p>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th style="width:50%">Subtotal:</th>
+                        <td>$250.30</td>
+                    </tr>
+                    <tr>
+                        <th>Tax (9.3%)</th>
+                        <td>$10.34</td>
+                    </tr>
+                    <tr>
+                        <th>Shipping:</th>
+                        <td>$5.80</td>
+                    </tr>
+                    <tr>
+                        <th>Total:</th>
+                        <td>$265.24</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- this row will not appear when printing -->
+    <div class="row no-print">
+        <div class="col-xs-12">
+            <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+            <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
+            </button>
+            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                <i class="fa fa-download"></i> Generate PDF
+            </button>
+        </div>
+    </div>
 
 </div>
 <!-- ./wrapper -->
@@ -1121,11 +1287,46 @@
         color: red;
     }
     td.details-control {
-        background: url('/resources/images/chevron-circle-right.png') no-repeat center!important;
+        position:relative;
+    }
+    td.show-invoice:before {
+        content: "\f14c";
+        margin: 5px 5px 5px 5px;
+        font-family: FontAwesome;
+        font-size:150%;
+        top:0;
         cursor: pointer;
     }
-    tr.shown td.details-control {
-        background: url('/resources/images/chevron-circle-down.png') no-repeat center!important;
+    tr.shownInv td.show-invoice:before {
+        content: "\f14c";
+        margin: 5px 5px 5px 5px;
+        font-size:150%;
+        opacity: 0.5;
+        font-family: FontAwesome;
+        top:0;
+    }
+    td.details-control:before {
+        content: "\f138";
+        margin: 5px 5px 5px 5px;
+        font-family: FontAwesome;
+        font-size:150%;
+        /*left:5px;*/
+        /*right:5px;*/
+        /*position:absolute;*/
+        top:0;
+        /*background: url('/resources/images/chevron-circle-right.png') no-repeat center!important;*/
+        cursor: pointer;
+    }
+    tr.shown td.details-control:before {
+        content: "\f13a";
+        margin: 5px 5px 5px 5px;
+        font-size:150%;
+        font-family: FontAwesome;
+        /*left:5px;*/
+        /*right:5px;*/
+        /*position:absolute;*/
+        top:0;
+        /*background: url('/resources/images/chevron-circle-down.png') no-repeat center!important;*/
     }
 </style>
 
@@ -1140,6 +1341,9 @@
     }
     .doughnut-legend {
         list-style: none;
+    }
+    #tab-list .close {
+        margin-left: 7px;
     }
 </style>
 </body>
