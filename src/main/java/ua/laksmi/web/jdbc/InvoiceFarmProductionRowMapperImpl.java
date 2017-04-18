@@ -17,7 +17,7 @@ public class InvoiceFarmProductionRowMapperImpl extends AbstractProduction<Produ
         productionInvFarm.setIdInvoiceFarm(rs.getInt("idInvoiceFarm"));
         productionInvFarm.setFarmName(rs.getString("farmName"));
         productionInvFarm.setClientName(rs.getString("clientName"));
-
+        productionInvFarm.setIdProductionInvoiceFarm(rs.getInt("idProductionInvoiceFarm"));
         productionInvFarm.setPrices(new Prices(rs.getBigDecimal("crosscurs"), rs.getBigDecimal("price"),
                 rs.getBigDecimal("PriceDiscount"), rs.getBigDecimal("PriceCross"), rs.getBigDecimal("PriceDiscountCross")));
         return productionInvFarm;

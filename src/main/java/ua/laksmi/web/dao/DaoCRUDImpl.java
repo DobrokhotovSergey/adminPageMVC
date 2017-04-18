@@ -144,7 +144,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb2.append("where a.id=?");
         try{
             newProduction = (Production) jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(), new Object[]{keyHolder.getKey()});
-            System.out.println(newProduction);
+//            System.out.println(newProduction);
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -153,7 +153,7 @@ public class DaoCRUDImpl implements DaoCRUD {
     }
 
     public Production editProduction(Production production) {
-        System.out.println(production);
+//        System.out.println(production);
         StringBuilder sb = new StringBuilder();
         sb.append("update \n");
         sb.append(Constants.TABLE_PRODUCTION);
@@ -166,7 +166,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         }catch (Exception ex){
             System.out.println("--0-"+ex);
         }
-        System.out.println(sb.toString());
+//        System.out.println(sb.toString());
         StringBuilder sb2 = new StringBuilder();
         sb2.append("select a.id, a.idFerm, a.product, a.grading, a.numberStemsInBox, b.currency, a.price, a.type, a.variety  from \n");
         sb2.append(Constants.TABLE_PRODUCTION);
@@ -176,7 +176,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb2.append("where a.id=?");
 
         Production newProduction = null;
-        System.out.println(sb2.toString());
+//        System.out.println(sb2.toString());
         try{
             newProduction = (Production) jdbcTemplate.queryForObject(sb2.toString(), new ProductionRowMapperImpl(),
                     new Object[]{production.getIdProduct()});
@@ -245,7 +245,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb2.append("\n where id = ?");
         try{
             newFarm = jdbcTemplate.queryForObject(sb2.toString(), new FarmRowMapperImpl(), new Object[]{keyHolder.getKey()});
-            System.out.println(farm);
+//            System.out.println(farm);
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -260,7 +260,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         InvoiceShipment newInvoiceShipment = null;
         final String INSERT_SQL = sb.toString();
         final KeyHolder keyHolder = new GeneratedKeyHolder();
-        System.out.println(INSERT_SQL);
+//        System.out.println(INSERT_SQL);
         try {
             jdbcTemplate.update(
                     new PreparedStatementCreator() {
@@ -283,9 +283,9 @@ public class DaoCRUDImpl implements DaoCRUD {
         StringBuilder sb2 = new StringBuilder();
         sb2.append("insert into\n");
         sb2.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
-        sb2.append("\n(idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross, idproductinvfarm, box)");
-        sb2.append("values (?, ?, ?, ?, ?, ?, ?,?)\n");
-        System.out.println("key--> "+keyHolder.getKey().intValue());
+        sb2.append("\n(idInvoiceShipment, idProduct, priceForStem, priceForBox, priceCross, priceWithBoxCross, idproductinvfarm, box, idproductioninvoicefarm)");
+        sb2.append("values (?, ?, ?, ?, ?, ?, ?,?, ?)\n");
+//        System.out.println("key--> "+keyHolder.getKey().intValue());
         final List<ProductionShipment> listProduction = invoiceShipment.getProductionShipmentList();
         try{
             jdbcTemplate.batchUpdate(sb2.toString(), new BatchPreparedStatementSetter(){
@@ -299,6 +299,7 @@ public class DaoCRUDImpl implements DaoCRUD {
                     ps.setBigDecimal(6, productionInvFarm.getPriceWithBoxCross());
                     ps.setInt(7, productionInvFarm.getIdInvoiceFarm());
                     ps.setInt(8,productionInvFarm.getBox());
+                    ps.setInt(9,productionInvFarm.getIdProductionInvoiceFarm());
                 }
                 public int getBatchSize() {
                     return listProduction.size();
@@ -351,7 +352,7 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb2.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
         sb2.append("\n(idInvoiceFarm, idProduct, numberStemsInBox, price, priceDiscount, currency, priceCross, priceDiscountCross)");
         sb2.append("values (?, ?, ?, ?, ?, ?, ?, ?)\n");
-        System.out.println("key--> "+keyHolder.getKey().intValue());
+//        System.out.println("key--> "+keyHolder.getKey().intValue());
         final List<ProductionInvFarm> listProduction = invoiceFarm.getListProduction();
         try{
             jdbcTemplate.batchUpdate(sb2.toString(), new BatchPreparedStatementSetter(){
@@ -421,7 +422,7 @@ public class DaoCRUDImpl implements DaoCRUD {
     public List<ProductionShipment> getListInvoiceProductionShipment(int id) {
         List<ProductionShipment> list = null;
         StringBuilder sb = new StringBuilder();
-        sb.append("select c.farmName,d.numberStemsInBox,e.clientName, a.idInvoiceShipment, a.idProduct, a.priceForStem, a.priceForBox, a.priceCross, a.priceWithBoxCross, a.box from\n");
+        sb.append("select distinct c.farmName,d.numberStemsInBox,e.clientName, a.idInvoiceShipment, a.idProduct, a.priceForStem, a.priceForBox, a.priceCross, a.priceWithBoxCross, a.box from\n");
         sb.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
         sb.append(" a join ");
         sb.append(Constants.TABLE_PRODUCTION);
@@ -431,13 +432,13 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb.append("\n c on b.idFerm = c.id \n");
         sb.append(" join ");
         sb.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
-        sb.append("\n d on d.idProduct = a.idProduct \n");
+        sb.append("\n d on d.idProductionInvoiceFarm = a.idProductionInvoiceFarm \n");
         sb.append("join ");
         sb.append(Constants.TABLE_INVOICE_FARM);
         sb.append(" e on e.id = d.idInvoiceFarm\n");
 
         sb.append(" where a.idInvoiceShipment = ?");
-        System.out.println(sb.toString());
+//        System.out.println(sb.toString());
         try{
             list = jdbcTemplate.query(sb.toString(), new InvoiceShipmentProductionRowMapper(), new Object[]{id});
         }catch (Exception ex){
@@ -449,7 +450,7 @@ public class DaoCRUDImpl implements DaoCRUD {
 
         List<ProductionInvFarm> list = null;
         StringBuilder sb = new StringBuilder();
-        sb.append("select d.farmName,c.clientName, a.idInvoiceFarm,b.product,b.idFerm,b.grading,b.variety,b.type, a.idProduct as id,c.crossCurs, a.numberStemsInBox, a.price, a.priceDiscount, a.currency, a.priceCross, a.priceDiscountCross from\n");
+        sb.append("select a.idProductionInvoiceFarm,d.farmName,c.clientName, a.idInvoiceFarm,b.product,b.idFerm,b.grading,b.variety,b.type, a.idProduct as id,c.crossCurs, a.numberStemsInBox, a.price, a.priceDiscount, a.currency, a.priceCross, a.priceDiscountCross from\n");
         sb.append(Constants.TABLE_PRODUCTION_INVOICE_FARM);
         sb.append("\n as a left join \n");
         sb.append(Constants.TABLE_PRODUCTION);

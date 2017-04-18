@@ -306,7 +306,7 @@ function shipmentInvoicesModal(ids){
             var rows = [];
            $.each(data, function (i, item) {
                 rows[i] = [
-                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm, item.idProduct
+                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm, item.idProduct, item.idProductionInvoiceFarm
                 ];
             });
             tableShipmentInvoice.rows.add(rows).draw();
@@ -341,6 +341,21 @@ function shipmentInvoicesModal(ids){
         }
     });
 }
+
+$(document).on("click", ".editable_text", function() {
+    var original_text = $(this).text();
+    var new_input = $("<input class=\"text_editor\"/>");
+    new_input.val(original_text);
+    $(this).replaceWith(new_input);
+    new_input.focus();
+});
+
+$(document).bind("blur", ".text_editor", function() {
+    var new_input = $(this).val();
+    var updated_text = $("<span class=\"editable_text\">");
+    updated_text.text(new_input);
+    $(this).replaceWith(updated_text);
+});
 function ajaxInvoicesShipment(start, end){
     $('#invoiceFarmDiv').hide();
     $('#farmTableDiv').hide();
@@ -497,7 +512,7 @@ $('#create-shipment-invoice-btn-save').on('click', function () {
         console.log(item[11]);
         tempListObj[i] = {"farmName": item[0], "box": item[1],
             "priceForStem":item[6], "priceForBox": item[7],
-            "priceCross": item[9], "priceWithBoxCross": item[10], "idInvoiceFarm":item[11],"idProduct":item[12]};
+            "priceCross": item[9], "priceWithBoxCross": item[10], "idInvoiceFarm":item[11],"idProduct":item[12],"idProductionInvoiceFarm":item[13]};
     });
     $('#shipment-invoice-modal').modal('hide');
 
@@ -628,7 +643,7 @@ $('#shipment-invoice-USD_EUR').on('keyup', function(){
             var price =intVal(row[6]);
             var priceBox = intVal(row[7]);
             row[9] = (cross*price);
-            row[10] = (cross*(price+priceBox));
+            row[10] = (cross*(priceBox));
             this.invalidate(); // invalidate the data DataTables has cached for this row
         }
     } );
@@ -642,7 +657,7 @@ $('#shipment-invoice-EUR_USD').on('keyup', function(){
             var price =intVal(row[6]);
             var priceBox = intVal(row[7]);
             row[9] = (cross*price);
-            row[10] = (cross*(price+priceBox));
+            row[10] = (cross*(priceBox));
             this.invalidate(); // invalidate the data DataTables has cached for this row
         }
     } );

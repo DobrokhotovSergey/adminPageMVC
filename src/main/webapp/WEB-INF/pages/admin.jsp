@@ -418,9 +418,10 @@
                                             <th>price for Box</th>
                                             <th>Currency</th>
                                             <th>price (cross)</th>
-                                            <th>price with Box(cross)</th>
+                                            <th>price Box(cross)</th>
                                             <th>id Invoice Farm</th>
                                             <th>id Product</th>
+                                            <th>idProductionInvoiceFarm</th>
                                             <%--<th style="width: 12%">product</th>--%>
                                             <%--<th style="width: 12%">grading</th>--%>
                                             <%--<th style="width: 12%">number stems in Box</th>--%>
@@ -535,6 +536,7 @@
                                             <th style="width: 12%">price(discount cross), <span class="fa farm-invoice-crossCurrencyDiscount"></span></th>
                                             <th>idProduct</th>
                                             <th>idFerm</th>
+                                            <%--<th>idProductionInvoiceFarm</th>--%>
                                         </tr>
                                         </thead>
                                     </table>
@@ -1067,22 +1069,22 @@
         <div class="col-sm-4 invoice-col">
             From
             <address>
-                <strong>Admin, Inc.</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                Phone: (804) 123-5432<br>
-                Email: info@almasaeedstudio.com
+                <strong><p class="editable_text">Admin, Inc.</strong><br>
+                <p class="editable_text">795 Folsom Ave, Suite 600</p><br>
+                <p class="editable_text">San Francisco, CA 94107<br>
+                <p class="editable_text">Phone: (804) 123-5432<br>
+                <p class="editable_text">Email: info@almasaeedstudio.com
             </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
             To
             <address>
-                <strong>John Doe</strong><br>
-                795 Folsom Ave, Suite 600<br>
-                San Francisco, CA 94107<br>
-                Phone: (555) 539-1037<br>
-                Email: john.doe@example.com
+                <strong><p class="editable_text">John Doe</strong><br>
+                <p class="editable_text">795 Folsom Ave, Suite 600<br>
+                <p class="editable_text">San Francisco, CA 94107<br>
+                <p class="editable_text">Phone: (555) 539-1037<br>
+                <p class="editable_text">Email: john.doe@example.com
             </address>
         </div>
         <!-- /.col -->
@@ -1344,6 +1346,15 @@
     }
     #tab-list .close {
         margin-left: 7px;
+    }
+    .text_editor {
+        border: none;
+        /*background: #ddd;*/
+        color: #000;
+        font-size: 14px;
+        font-family: arial;
+        width: 200px;
+        cursor: text;
     }
 </style>
 </body>

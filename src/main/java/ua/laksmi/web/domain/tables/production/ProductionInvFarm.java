@@ -6,10 +6,19 @@ import ua.laksmi.web.domain.tables.Prices;
  * Created by Dobriks on 02.04.2017.
  */
 public class ProductionInvFarm extends Production {
+    private int idProductionInvoiceFarm;
     private int idInvoiceFarm;
     private Prices prices;
     private String farmName;
     private String clientName;
+
+    public int getIdProductionInvoiceFarm() {
+        return idProductionInvoiceFarm;
+    }
+
+    public void setIdProductionInvoiceFarm(int idProductionInvoiceFarm) {
+        this.idProductionInvoiceFarm = idProductionInvoiceFarm;
+    }
 
     public String getClientName() {
         return clientName;
@@ -46,7 +55,8 @@ public class ProductionInvFarm extends Production {
     @Override
     public String toString() {
         return "ProductionInvFarm{" +
-                "idInvoiceFarm=" + idInvoiceFarm +
+                "idProductionInvoiceFarm=" + idProductionInvoiceFarm +
+                ", idInvoiceFarm=" + idInvoiceFarm +
                 ", prices=" + prices +
                 ", farmName='" + farmName + '\'' +
                 ", clientName='" + clientName + '\'' +
