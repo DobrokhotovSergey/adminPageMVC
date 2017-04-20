@@ -232,10 +232,12 @@
                             <i class="fa fa-circle-o text-red"></i> graphics farms</a></li>
 
                     </ul>
-                    <%--<ul class="treeview-menu">--%>
-                    <%--<li><a style=" cursor: pointer;"><i class="fa fa-pie-chart text-red"></i> Charts</a></li>--%>
-
-                    <%--</ul>--%>
+                </li>
+                <li class="header">User Managment</li>
+                <li class="treeview">
+                    <a href="#" onclick="getPageUsers();">
+                        <i class="fa fa-users"></i> <span>Users</span>
+                    </a>
                 </li>
             </ul>
         </section>
@@ -854,24 +856,39 @@
 
             <%--</div>--%>
             <%--<button id="test-btn">test</button>--%>
+
+                    <div class="box box-primary" id="employeeDiv" class="x_panel" style="display: none">
+                        <div class="box-header">
+                            <i class="ion ion-clipboard"></i>
+                            <h3 class="box-title">Employee</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="x_content">
+                                <div class="table-responsive">
+                                    <table id="employee-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>login</th>
+                                            <th>role</th>
+                                            <th>status</th>
+                                            <th>edit</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-content -->
+
             <div class="nav-tabs-custom" id="invoiceShipmentDiv" style="display: none">
                 <ul id="tab-list" class="nav nav-tabs">
                     <li class="active"><a href="#tabInvoiceShipment" data-toggle="tab">Invoices for Shipment</a></li>
-                    <%--<li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>--%>
-                    <%--<li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>--%>
-                    <%--<li class="dropdown">--%>
-                        <%--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--%>
-                            <%--Dropdown <span class="caret"></span>--%>
-                        <%--</a>--%>
-                        <%--<ul class="dropdown-menu">--%>
-                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>--%>
-                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>--%>
-                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>--%>
-                            <%--<li role="presentation" class="divider"></li>--%>
-                            <%--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--%>
-                        <%--</ul>--%>
-                    <%--</li>--%>
-                    <%--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--%>
                 </ul>
                 <div class="tab-content" id="tab-content">
                     <div class="tab-pane active" id="tabInvoiceShipment">

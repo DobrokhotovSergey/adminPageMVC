@@ -356,6 +356,7 @@ $(document).bind("blur", ".text_editor", function() {
     updated_text.text(new_input);
     $(this).replaceWith(updated_text);
 });
+
 function ajaxInvoicesShipment(start, end){
     $('#invoiceFarmDiv').hide();
     $('#farmTableDiv').hide();
@@ -438,7 +439,44 @@ function ajaxInvoiceFromFarm(start,end){
         }
     });
 }
+function ajaxUsers(){
+    $.ajax({
+        type: "post",
+        url: "getListEmployee",
+        dataType: 'json',
+        mimeType: 'application/json',
+        success: function (data) {
+            console.log(data);
+            $('#employeeDiv').show();
+
+            var tableEmployee = $('#employee-table').DataTable();
+            tableEmployee.clear().draw();
+            var rows = [];
+            data.forEach(function(item, i, arr) {
+                rows[i] = [item.id,item.userName, item.role, item.status,
+                    '<a class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
+                    '<a class="btn btn-danger btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']
+            });
+            tableEmployee.rows.add(rows).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but not retrieve list of Users :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
 function ajaxFarm(){
+    $('#employeeDiv').hide();
     $('#invoiceFarmDiv').hide();
     $('#invoiceShipmentDiv').hide();
     $.ajax({
@@ -1004,6 +1042,8 @@ if(window.location.pathname=='/admin/getListFarm'){
     ajaxFarm();
 }else if(window.location.pathname=='/admin/getGraphicsFarm'){
     ajaxGraphicsFarm();
+}else if(window.location.pathname=='/admin/getUsers'){
+    ajaxUsers();
 }
 else if(window.location.pathname.indexOf('/admin/getListInvoicesFarm') == 0){
     var start = $.urlParam('start');
@@ -1015,6 +1055,11 @@ else if(window.location.pathname.indexOf('/admin/getListInvoicesShipment') == 0)
     var end = $.urlParam('end');
     ajaxInvoicesShipment(start, end);
 }
+function getPageUsers(){
+    history.pushState(null, null, '/admin/getListEmployee');
+    ajaxUsers();
+}
+
 function getFarm(){
     history.pushState(null, null, '/admin/getListFarm');
     ajaxFarm();

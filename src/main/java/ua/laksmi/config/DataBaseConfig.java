@@ -82,9 +82,9 @@ public class DataBaseConfig {
 
         return dataSource;
     }
-    @Bean("daoRoles")
-	public DaoRoles getDaoRoles() {
-		return new DaoRolesImpl(getDriverManagerDatasource());
+    @Bean("daoEmployee")
+	public DaoEmployee getDaoRoles() {
+		return new DaoEmployeeImpl(getDriverManagerDatasource());
 	}
 
     @Bean("daoCRUD")

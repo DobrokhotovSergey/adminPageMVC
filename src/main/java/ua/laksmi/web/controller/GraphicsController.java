@@ -26,7 +26,7 @@ public class GraphicsController {
     @RequestMapping(value = "/admin/getGraphicsFarm", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<DonutChart> getGraphicsFarm(){
-        System.out.println(serviceCharts.getGraphicsFarm());
+//        System.out.println(serviceCharts.getGraphicsFarm());
         return serviceCharts.getGraphicsFarm();
     }
 }
