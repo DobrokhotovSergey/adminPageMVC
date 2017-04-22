@@ -31,11 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.formLogin().loginPage("/login").failureUrl("/login?error")
 					.usernameParameter("username").passwordParameter("password")
-				
+
 			.and()
 				.logout().logoutSuccessUrl("/login?logout")
 			.and()
-				.csrf(); 
+				.exceptionHandling().accessDeniedPage("/403")
+			.and()
+				.csrf();
 		
 	}
 	@Autowired

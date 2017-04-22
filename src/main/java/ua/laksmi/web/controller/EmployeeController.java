@@ -7,12 +7,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import ua.laksmi.web.domain.tables.employee.Employee;
 import ua.laksmi.web.service.ServiceEmployee;
+import ua.laksmi.web.validator.UserValidator;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -31,6 +34,22 @@ public class EmployeeController {
 
     @Autowired
     private ServiceEmployee serviceEmployee;
+
+    @Autowired
+    private UserValidator userValidator;
+
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/createEmployee", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Employee createEmployee(@RequestBody Employee employee, BindingResult bindingResult){
+        userValidator.validate(employee, bindingResult);
+        if(bindingResult.hasErrors()){
+            System.out.println(bindingResult.getAllErrors());
+            System.out.println("ERROR");
+            return null;
+        }
+        return serviceEmployee.createEmployee(employee);
+    }
 
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/getListEmployee",  method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

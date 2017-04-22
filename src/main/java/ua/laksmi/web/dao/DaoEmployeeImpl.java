@@ -38,8 +38,24 @@ public class DaoEmployeeImpl implements DaoEmployee {
         return list;
     }
 
-    public boolean createEmployee(Employee employee) {
-        return false;
+    public Employee createEmployee(Employee employee) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("INSERT INTO ");
+        sb.append(Constants.TABLE_USERS);
+        sb.append(" (username,password,enabled)\n");
+        sb.append("values (?,?,?);\n");
+        sb.append("insert into ");
+        sb.append(Constants.TABLE_USER_ROLES);
+        sb.append("(username, role)\n");
+        sb.append("values(?,?) \n");
+        try{
+            jdbcTemplate.update(sb.toString(), new Object[]{employee.getUserName(), employee.getPassword(), 1, employee.getUserName(), employee.getRole()});
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+        return findByUsername(employee.getUserName());
     }
 
     public Employee editEmployee(Employee employee) {
@@ -48,5 +64,25 @@ public class DaoEmployeeImpl implements DaoEmployee {
 
     public boolean deleteEmployee() {
         return false;
+    }
+
+    public Employee findByUsername(String userName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("select a.user_role_id, a.userName, a.role, b.enabled from ");
+        sb.append(Constants.TABLE_USER_ROLES);
+        sb.append(" a join ");
+        sb.append(Constants.TABLE_USERS);
+        sb.append(" b on a.userName = b.userName\n");
+        sb.append("where a.userName = ?");
+        Employee employee = null;
+        System.out.println(sb.toString());
+        try {
+            employee = jdbcTemplate.queryForObject(sb.toString(), new EmployeeRowMapperImpl(), userName);
+        }catch (Exception ex){
+            System.out.println(ex);
+            return employee;
+
+        }
+        return employee;
     }
 }

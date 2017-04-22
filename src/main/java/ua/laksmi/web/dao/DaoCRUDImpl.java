@@ -1,5 +1,6 @@
 package ua.laksmi.web.dao;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -189,11 +190,11 @@ public class DaoCRUDImpl implements DaoCRUD {
         StringBuilder sb = new StringBuilder();
         sb.append("update \n");
         sb.append(Constants.TABLE_FARM);
-        sb.append("\n set farmName =?, currency=?\n");
+        sb.append("\n set farmName =?\n");
         sb.append("where id = ?;\n");
 
         try{
-            jdbcTemplate.update(sb.toString(), new Object[]{farm.getFarmName(),farm.getCurrency(), farm.getId()});
+            jdbcTemplate.update(sb.toString(), new Object[]{farm.getFarmName(), farm.getId()});
         }catch (Exception ex){
             System.out.println("--0-"+ex);
         }
@@ -403,6 +404,7 @@ public class DaoCRUDImpl implements DaoCRUD {
 
     public List<InvoiceFarm> getListInvoicesFarm(InvoiceSearch invoiceFarmSearch) {
         StringBuilder sb = new StringBuilder();
+        List<Object> listParam = new ArrayList<Object>();
         sb.append("select a.id,b.farmName,b.currency, a.idFarm, a.invoiceName, a.clientName, a.invoiceDate, \n" +
                 "a.crossCurs, a.totalPrice, a.totalPriceDiscount, a.totalPriceCross, a.totalPriceDiscountCross from\n");
         sb.append(Constants.TABLE_INVOICE_FARM);
@@ -410,10 +412,23 @@ public class DaoCRUDImpl implements DaoCRUD {
         sb.append(Constants.TABLE_FARM);
         sb.append("\n b\n");
         sb.append("on a.idFarm = b.id\n");
-        sb.append("where a.invoiceDate between ? and ? \n");
+        sb.append("where ");
+        if(invoiceFarmSearch.getStart()!=null&&invoiceFarmSearch.getEnd()!=null){
+            sb.append("a.invoiceDate between ? and ? \n");
+            listParam.add(invoiceFarmSearch.getStart());
+            listParam.add(invoiceFarmSearch.getEnd());
+        }
+        if(invoiceFarmSearch.getClient()!=null&&StringUtils.isNotBlank(invoiceFarmSearch.getClient())){
+            if(listParam.size()>0){
+                sb.append(" and ");
+            }
+            sb.append(" clientName = ?\n");
+            listParam.add(invoiceFarmSearch.getClient());
+        }
         List<InvoiceFarm> list = null;
+        System.out.println(invoiceFarmSearch);
         try{
-            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmRowMapperImpl(), new Object[]{invoiceFarmSearch.getStart(), invoiceFarmSearch.getEnd()});
+            list = jdbcTemplate.query(sb.toString(), new InvoiceFarmRowMapperImpl(), listParam.toArray());
         }catch(Exception ex){
             System.out.println(ex);
         }

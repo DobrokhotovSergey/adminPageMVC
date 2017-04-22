@@ -7,7 +7,6 @@ ua\laksmi\web\domain\tables\Prices.class
 ua\laksmi\web\jdbc\GraphicsFarmRowMapperImpl.class
 ua\laksmi\web\domain\test\TestDB.class
 ua\laksmi\web\jdbc\InvoiceFarmRowMapperImpl.class
-ua\laksmi\web\domain\authorization\AuthorizationUser.class
 ua\laksmi\web\dao\DaoCRUDImpl$4.class
 ua\laksmi\config\core\SpringMvcInitializer.class
 ua\laksmi\web\utils\Constants.class

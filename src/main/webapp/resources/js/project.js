@@ -306,7 +306,7 @@ function shipmentInvoicesModal(ids){
             var rows = [];
            $.each(data, function (i, item) {
                 rows[i] = [
-                    item.farmName,'',item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm, item.idProduct, item.idProductionInvoiceFarm
+                    item.farmName,1,item.variety,item.clientName,item.type,item.numberStemsInBox,item.prices.price,'',item.currency,'','',item.idInvoiceFarm, item.idProduct, item.idProductionInvoiceFarm
                 ];
             });
             tableShipmentInvoice.rows.add(rows).draw();
@@ -399,7 +399,7 @@ function ajaxInvoicesShipment(start, end){
         }
     });
 }
-function ajaxInvoiceFromFarm(start,end){
+function ajaxInvoiceFromFarm(start,end,client){
     $('#farmTableDiv').hide();
     $('#invoiceShipmentDiv').hide();
     $.ajax({
@@ -408,7 +408,7 @@ function ajaxInvoiceFromFarm(start,end){
         dataType: 'json',
         mimeType: 'application/json',
         contentType: "application/json; charset=utf-8",
-        data:JSON.stringify({start:start, end:end}),
+        data:JSON.stringify({start:start, end:end, client: client}),
         success: function (data) {
             invoiceFarmTable.clear().draw();
             $('#invoiceFarmDiv').show();
@@ -439,6 +439,35 @@ function ajaxInvoiceFromFarm(start,end){
         }
     });
 }
+$('#addEmployee-submit').on('click', function(){
+    var form = $('#addEmployee-form').serializeObject();
+    $.ajax({
+        type: "post",
+        url: "createEmployee",
+        dataType: 'json',
+        data:JSON.stringify(form),
+        contentType: "application/json; charset=utf-8",
+        mimeType: 'application/json',
+        success: function (data) {
+            console.log(data);
+
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but new User is not created :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+});
 function ajaxUsers(){
     $.ajax({
         type: "post",
@@ -449,7 +478,19 @@ function ajaxUsers(){
             console.log(data);
             $('#employeeDiv').show();
 
-            var tableEmployee = $('#employee-table').DataTable();
+            var tableEmployee = $('#employee-table').DataTable({
+                destroy: true,
+                dom: '<lBf<t>ip>',
+                buttons: [
+                    {
+                        className: "btn btn-success",
+                        text: '<i class="fa fa-plus" style="color:white"></i><span style="color:white"> Add employee</span>',
+                        action: function () {
+                            $('#addEmployee-modal').modal('show');
+                           // shipmentInvoicesModal(ids);
+
+                        }}]
+            });
             tableEmployee.clear().draw();
             var rows = [];
             data.forEach(function(item, i, arr) {
@@ -539,7 +580,7 @@ $('[data-toggle=collapse]').click(function(){
 
 var intVal = function (i) {
     return typeof i === 'string' ?
-        i.replace(/[, Rs]|(\.\d{2})/g,"")* 1 :
+        i.replace(/[, Rs]|(\.\d{5})/g,"")* 1 :
         typeof i === 'number' ?
             i : 0;
 };
@@ -811,31 +852,33 @@ var farmTable = $('#farmTable').DataTable({
     dom: '<lBf<t>ip>',
     buttons: [
         {
-            text: '<i class="fa fa-plus-circle" style="color:green"></i> farm',
+            className: "btn btn-success",
+            text: '<i class="fa fa-plus" style="color:white"></i><span style="color:white"> farm</span>',
+            // text: '<i class="fa fa-plus-circle" style="color:green"></i> farm',
             action: function ( e, dt, node, config ) {
                 $('#addFarm-modal').modal('show');
                 //   alert( 'farm add' );
             }
         },
-        {
-            text: '<i class="fa fa-file-excel-o" style="color:green"></i> excel',
-            extend: 'excelHtml5',
-            exportOptions: {
-                columns: [ 1, 2 ]
-            }
-        },
-        'csvHtml5',
-        {
-            text: '<i class="fa fa-file-pdf-o" style="color:red"></i> pdf',
-            extend: 'pdfHtml5',
-            exportOptions: {
-                columns: [ 1, 2 ]
-            }
-        },
-        {
-            text: '<i class="fa fa-print" style="color:blue"></i> Print',
-            extend: 'print',
-        },
+        // {
+        //     text: '<i class="fa fa-file-excel-o" style="color:green"></i> excel',
+        //     extend: 'excelHtml5',
+        //     exportOptions: {
+        //         columns: [ 1, 2 ]
+        //     }
+        // },
+        // 'csvHtml5',
+        // {
+        //     text: '<i class="fa fa-file-pdf-o" style="color:red"></i> pdf',
+        //     extend: 'pdfHtml5',
+        //     exportOptions: {
+        //         columns: [ 1, 2 ]
+        //     }
+        // },
+        // {
+        //     text: '<i class="fa fa-print" style="color:blue"></i> Print',
+        //     extend: 'print',
+        // },
 
     ]
 } );
@@ -921,7 +964,6 @@ $('#editFarm-submit').on('click', function(){
     var farm = {
         id:$('#id-farm-edit').val(),
         farmName:$('#edit-farm-name').val(),
-        currency: $("input:radio[name='farmEditCurrency']:checked").val(),
     };
     var pos = $('#position-farm-edit').val();
     $('#editFarm-modal').modal('hide');
@@ -937,7 +979,6 @@ $('#editFarm-submit').on('click', function(){
             notifyAfterAjax('success','Farm is edited!');
 
             farmTable.cell(farmTable.row(pos).node(), 2).data(data.farmName).draw();
-            farmTable.cell(farmTable.row(pos).node(), 3).data(data.currency).draw();
         },
         beforeSend: function(xhr) {
             xhr.setRequestHeader(header, token);
@@ -983,13 +1024,15 @@ $('#farmTable tbody ').on('click','tr td table tr td .editProduct', function(){
     $('#position-product-edit').val(position);
     $('#id-product-edit').val(data[1]);
     $('#id-farmOfProduct-edit').val(data[2]);
-    $('#product-name-edit').val(data[3]);
-    $('#product-grading-edit').val(data[4]);
-    $('#product-numberStemsInBox-edit').val(data[5]);
-    $('#product-price-edit').val(data[6]);
+    $('#product-variety-edit').val(data[3]);
+    $('#product-type-edit').val(data[4]);
+    $('#product-variety-edit').val(data[3]);
+    $('#product-type-edit').val(data[4]);
+    $('#product-grading-edit').val(data[5]);
+    $('#product-numberStemsInBox-edit').val(data[6]);
+    $('#product-name-edit').val(data[7]);
+    $('#product-price-edit').val(data[8]);
 
-    $('#product-type-edit').val(data[8]);
-    $('#product-variety-edit').val(data[9]);
     $('#editProduct-modal').modal('show');
 });
 $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
@@ -1034,9 +1077,10 @@ $('#searchInvoicesFarm-submit').on('click', function(){
     $('#searchInvoicesFarm-modal').modal('hide');
     var start = $('#invoiceFarm-search-start').text();
     var end = $('#invoiceFarm-search-end').text();
-    history.pushState(null, null, '/admin/getListInvoicesFarm?start='+start+'&end='+end);
+    var client = $('#search-invoiceFarm-client').val();
+    history.pushState(null, null, '/admin/getListInvoicesFarm?start='+start+'&end='+end+'&client='+client);
 
-    ajaxInvoiceFromFarm(start,end);
+    ajaxInvoiceFromFarm(start,end, client);
 });
 if(window.location.pathname=='/admin/getListFarm'){
     ajaxFarm();
@@ -1048,7 +1092,8 @@ if(window.location.pathname=='/admin/getListFarm'){
 else if(window.location.pathname.indexOf('/admin/getListInvoicesFarm') == 0){
     var start = $.urlParam('start');
     var end = $.urlParam('end');
-    ajaxInvoiceFromFarm(start, end);
+    var client = $.urlParam('client');
+    ajaxInvoiceFromFarm(start, end, client);
 }
 else if(window.location.pathname.indexOf('/admin/getListInvoicesShipment') == 0){
     var start = $.urlParam('start');
@@ -1375,37 +1420,52 @@ function format(callback, id, currency) {
             callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-production-'+id+'">' +
                 '<thead>' +
-                '<th></th><th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>type</th><th>variety</th><th>edit</th>' +
+                '<th></th><th>idProduct</th><th>idFarm</th><th>variety</th><th>type</th><th>grading</th><th>number stems in Box</th><th>product</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>edit</th>' +
                 '</thead>'+
                 '<tbody></tbody>'), 'child').show();
+            // targets  : 'no-sort',
+            //     visible: false,
+            //     searchable: false,
+            //     targets:   [2],
             var tableProduction = $('#table-production-'+id).DataTable({
                 order: [[ 1, 'asc' ]],
                 aoColumns: [
-                    {orderable: false,
-                        targets  : 'no-sort',
+                    {
+                        searchable: false,
                         targets:   [0]},
-                    {}, {}, {}, {}, {}, {}, {}, {}, {}, {
+                    {
+                        visible: false,
+                        searchable: false,
+                        targets:   [1]},
+                    {
+                        visible: false,
+                        searchable: false,
+                        targets:   [2]
+                    }, {}, {}, {}, {}, {}, {}, {}, {
                         orderable: false,
                         targets  : 'no-sort',
                         targets:   [11]}],
                 dom: 'Bfrtip',
                 buttons: [
                     {
-                        text: '<i class="fa fa-plus-circle" style="color:green"></i> product',
+                        className: "btn btn-success",
+                        text: '<i class="fa fa-plus" style="color:white"></i><span style="color:white"> product</span>',
                         action: function ( e, dt, node, config ) {
                             $('#addProduction-modal').modal('show');
                             $('#id-farm-foradd').val(id);
                         }
                     },
                     {
-                        text: '<i class="fa fa-file-text-o" style="color:green"></i> convert to invoice',
+                        className: "btn btn-info",
+                        text: '<i class="fa fa-file-text-o" style="color:white"></i><span style="color:white"> convert to invoice </span>',
                         action: function ( e, dt, node, config ) {
                             var objRows = $.map(dt.rows('.selected').data(), function (item) {
                                 return {a:item};
                             });
                             var rows = [];
                             $.each(objRows, function (i, item) {
-                                rows[i] = [item.a[3], item.a[4], item.a[6], item.a[5], item.a[5],'0','','',item.a[1], item.a[2]];
+
+                                rows[i] = [item.a[7], item.a[5], item.a[6], item.a[8], item.a[8],'0','','',item.a[1], item.a[2]];
                             });
                             $('#curr-invoiceFarm').val(currency);
                             if(currency=='USD'){
@@ -1468,9 +1528,12 @@ function format(callback, id, currency) {
             var rows = [];
             tableProduction.clear().draw();
             console.log(data);
+            // '<th></th><th>idProduct</th><th>idFarm</th><th>variety</th><th>type</th><th>garding</th><th>number stems in Box</th>
+            // <th>product</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>edit</th>' +
+
             $.each(data, function (i, item) {
                 rows[i] = ['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                    item.idProduct, item.idFarm, item.product, item.grading, item.numberStemsInBox, item.price, item.currency, item.type, item.variety,
+                    item.idProduct, item.idFarm, item.variety, item.type, item.grading, item.numberStemsInBox, item.product, item.price, item.currency,
                     '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                     '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>'
                 ];
@@ -1537,27 +1600,20 @@ function init_parsley() {
             $('#editProduction-modal').modal('hide');
             var idFarm = $('#id-farmOfProduct-edit').val();
             $('#editProduct-modal').modal('hide');
-
+            var form = $('#editProduction-form').serializeObject();
+            form['idProduct'] = $('#id-product-edit').val();
+            form['idFarm'] = idFarm;
             $.ajax({
                 type: "post",
                 url: "editProduction",
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 mimeType: 'application/json',
-                data: JSON.stringify({
-                    idProduct: $('#id-product-edit').val(),
-                    idFarm:idFarm,
-                    product: $('#product-name-edit').val(),
-                    grading: $('#product-grading-edit').val(),
-                    numberStemsInBox: $('#product-numberStemsInBox-edit').val(),
-                    price: $('#product-price-edit').val(),
-                    type: $('#product-type-edit').val(),
-                    variety: $('#product-variety-edit').val()
-                }),
-                success: function (data) {
+                data: JSON.stringify(form),
+                success: function (item) {
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
                     tableProduction.row($('#position-product-edit').val()).data(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                        data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
+                        item.idProduct, item.idFarm, item.variety, item.type, item.grading, item.numberStemsInBox, item.product, item.price, item.currency,
                         '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                         '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
                     drawIcheck();
@@ -1604,10 +1660,10 @@ function init_parsley() {
                     type: $('#product-type').val(),
                     variety: $('#product-variety').val()
                 }),
-                success: function (data) {
+                success: function (item) {
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
                     tableProduction.row.add(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
-                        data.idProduct, data.idFarm, data.product, data.grading, data.numberStemsInBox, data.price, data.currency, data.type,data.variety,
+                        item.idProduct, item.idFarm, item.variety, item.type, item.grading, item.numberStemsInBox, item.product, item.price, item.currency,
                         '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                         '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();
                     notifyAfterAjax('success','new product added!');
@@ -1636,7 +1692,18 @@ function init_parsley() {
             $('.bs-callout-warning').removeClass('hidden');
         }
     };
+    // $('input.flat').iCheck({
+    //     checkboxClass: 'icheckbox_flat-blue',
+    //     radioClass: 'iradio_flat-blue'
+    // });
+
+
+    $('#addFarm-modal').on('shown.bs.modal', function () {
+        $('#farm-USD').iCheck('update');
+        $('#farm-EUR').iCheck('update');
+    });
     var validateFront = function() {
+
         if (true === $('#addFarm-form').parsley().isValid()) {
             $('.bs-callout-info').removeClass('hidden');
             $('.bs-callout-warning').addClass('hidden');
@@ -1649,10 +1716,9 @@ function init_parsley() {
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 mimeType: 'application/json',
-                data:JSON.stringify({
-                    farmName:$('#farm-name').val(),
-                    currency:$("input:radio[name='farmCurrency']:checked").val()
-                }),
+                data:JSON.stringify(
+                    $('#addFarm-form').serializeObject()
+                ),
                 success: function (data) {
                     farmTable.row.add(['',data.id,data.farmName, data.currency,
                         '<a class="btn btn-info editFarm btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+

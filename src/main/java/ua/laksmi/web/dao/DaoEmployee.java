@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface DaoEmployee {
     List<Employee> getListEmployee();
-    boolean createEmployee(Employee employee);
+    Employee createEmployee(Employee employee);
     Employee editEmployee(Employee employee);
     boolean deleteEmployee();
+
+    Employee findByUsername(String userName);
 }

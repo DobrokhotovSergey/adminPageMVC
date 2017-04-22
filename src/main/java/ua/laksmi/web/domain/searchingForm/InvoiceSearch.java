@@ -9,6 +9,8 @@ import java.util.Date;
  */
 public class InvoiceSearch {
 
+    private String client;
+
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private Date start;
 
@@ -31,10 +33,19 @@ public class InvoiceSearch {
         this.end = end;
     }
 
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
+    }
+
     @Override
     public String toString() {
         return "InvoiceSearch{" +
-                "start=" + start +
+                "client='" + client + '\'' +
+                ", start=" + start +
                 ", end=" + end +
                 '}';
     }

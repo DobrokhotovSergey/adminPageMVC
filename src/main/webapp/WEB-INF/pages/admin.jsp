@@ -71,6 +71,14 @@
                             </button>
                         </div>
                     </div>
+                    <div class="form-group">
+
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="search-invoiceFarm-client">Client
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="client" id="search-invoiceFarm-client"  class="form-control col-md-8 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -109,6 +117,52 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-success" id="searchInvoicesShipment-submit">Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal modal-form fade bs-example-modal-nm" id="addEmployee-modal"  role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-nm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="addEmployeeLabel">Add new Employee</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addEmployee-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Login<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="employee-name" name="userName" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-password">Password<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="password" id="employee-password" name="password" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="employee-role">Role<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select class="form-control col-md-7 col-xs-12" name="role" id="employee-role">
+                            <option value="ROLE_ADMIN">ADMIN</option>
+                            <option value="ROLE_USER">USER</option>
+                        </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="addEmployee-submit">Create</button>
             </div>
 
         </div>
@@ -320,25 +374,11 @@
                         </div>
                         <div class="modal-body">
                             <form id="editFarm-form" data-parsley-validate class="form-horizontal form-label-left">
-
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="farm-name">Farm Name<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="edit-farm-name" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="radio-div">Currency<span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12" id="radio-div">
-                                        <label class="radio-inline">
-                                            USD:
-                                            <input type="radio" class="flat radio-inline" name="farmEditCurrency" id="farm-editUSD" value="USD" checked required="required">
-                                        </label>
-                                        <label class="radio-inline">
-                                            EUR:
-                                            <input type="radio" class="flat radio-inline" name="farmEditCurrency" id="farm-editEUR" value="EUR" required="required">
-                                        </label>
                                     </div>
                                 </div>
                             </form>
@@ -592,49 +632,56 @@
                                 </input>
                                 <input id="id-farmOfProduct-edit" style="display: none">
                                 </input>
+                                <%--idProduct: $('#id-product-edit').val(),--%>
+                                <%--idFarm:idFarm,--%>
+                                <%--product: $('#product-name-edit').val(),--%>
+                                <%--grading: $('#product-grading-edit').val(),--%>
+                                <%--numberStemsInBox: $('#product-numberStemsInBox-edit').val(),--%>
+                                <%--price: $('#product-price-edit').val(),--%>
+                                <%--type: $('#product-type-edit').val(),--%>
+                                <%--variety: $('#product-variety-edit').val()--%>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="farm-name">Product Name<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-variety">Variety<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-name-edit" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="number" id="product-grading-edit" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-numberStemsInBox">Number Stems in box<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="number" id="product-numberStemsInBox-edit" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Price<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="money" id="product-price-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input name="variety" id="product-variety-edit" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-type-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input name="type" type="text" id="product-type-edit" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-variety">Variety<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-variety-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input name="grading" type="number" id="product-grading-edit" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-numberStemsInBox">Number Stems in box<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="number" name="numberStemsInBox" id="product-numberStemsInBox-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="farm-name">Product Name<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="product" id="product-name-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Price<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="number" name="price" step="0.001" id="product-price-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -660,10 +707,17 @@
 
                                 </input>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="farm-name">Product Name<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-variety">Variety<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="product-variety" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="product-type" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -681,26 +735,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-name">Product Name<span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="product-name" required="required" class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Price<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="number" id="product-price" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="number" id="product-price" step="0.001" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-type" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-variety">Variety<span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-variety" required="required" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
+
 
                             </form>
                         </div>
@@ -755,7 +805,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="farm-name">Farm Name<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="farm-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="text" id="farm-name" name="farmName" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -763,11 +813,11 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <label class="radio-inline">
                                             USD:
-                                            <input type="radio" class="flat radio-inline" name="farmCurrency" id="farm-USD" value="USD" checked required="required">
+                                            <input type="radio" class="flat radio-inline" name="currency" id="farm-USD" value="USD" checked required="required">
                                         </label>
                                         <label class="radio-inline">
                                             EUR:
-                                            <input type="radio" class="flat radio-inline" name="farmCurrency" id="farm-EUR" value="EUR" required="required">
+                                            <input type="radio" class="flat radio-inline" name="currency" id="farm-EUR" value="EUR" required="required">
                                         </label>
                                     </div>
                                 </div>
@@ -846,16 +896,6 @@
         <!-- Main content -->
 
         <section class="content" id="content-main">
-            <%--<div class="box box-primary"  class="x_panel" style="display: none">--%>
-                <%--<div class="box-header">--%>
-                    <%--<i class="ion ion-clipboard"></i>--%>
-                    <%--<h3 class="box-title">Invoices for Shipment</h3>--%>
-
-                <%--</div>--%>
-                <%--<!-- /.box-header -->--%>
-
-            <%--</div>--%>
-            <%--<button id="test-btn">test</button>--%>
 
                     <div class="box box-primary" id="employeeDiv" class="x_panel" style="display: none">
                         <div class="box-header">
@@ -866,7 +906,7 @@
                         <div class="box-body">
                             <div class="x_content">
                                 <div class="table-responsive">
-                                    <table id="employee-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                    <table id="employee-table" class="table table-hover table-striped table-responsive table-bordered">
                                         <thead>
                                         <tr>
                                             <th>id</th>
@@ -925,27 +965,7 @@
 
                         </div>
                     </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_2">
-                        The European languages are members of the same family. Their separate existence is a myth.
-                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                        new common language would be desirable: one could refuse to pay expensive translators. To
-                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                        words. If several languages coalesce, the grammar of the resulting language is more simple
-                        and regular than that of the individual languages.
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_3">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.
-                    </div>
-                    <!-- /.tab-pane -->
+
                 </div>
                 <!-- /.tab-content -->
             </div>
@@ -1257,7 +1277,7 @@
 <script src="resources/build/js/custom.js"></script>
 
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>--%>
-
+<script src="resources/js/functions.js"></script>
 <script src="resources/js/project.js"></script>
 <script src="resources/js/dataTables.cellEdit.js"></script>
 <script src="resources/js/sum().js"></script>
