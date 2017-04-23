@@ -269,9 +269,18 @@ var invoiceFarmTable = $('#invoiceFarm-table').DataTable({
         }
     ],
     dom: 'Bfrtip',
+// {
+//     className: "btn btn-success",
+//         text: '<i class="fa fa-plus" style="color:white"></i><span style="color:white"> product</span>',
+//     action: function ( e, dt, node, config ) {
+//     $('#addProduction-modal').modal('show');
+//     $('#id-farm-foradd').val(id);
+// }
+
     buttons: [
         {
-            text: '<i class="fa fa-file-text-o" style="color:green"></i> convert to shipment ',
+            className: "btn btn-info",
+            text: '<i class="fa fa-file-text-o" style="color:white"></i><span style="color:white">convert to shipment</span>',
             action: function ( e, dt, node, config ) {
                 var ids = $.map(dt.rows('.selected').data(), function (item) {
                     return item[2];
@@ -360,6 +369,7 @@ $(document).bind("blur", ".text_editor", function() {
 function ajaxInvoicesShipment(start, end){
     $('#invoiceFarmDiv').hide();
     $('#farmTableDiv').hide();
+    $('#employeeDiv').hide();
     $.ajax({
         type: "post",
         url: "getListInvoicesShipment",
@@ -402,6 +412,7 @@ function ajaxInvoicesShipment(start, end){
 function ajaxInvoiceFromFarm(start,end,client){
     $('#farmTableDiv').hide();
     $('#invoiceShipmentDiv').hide();
+    $('#employeeDiv').hide();
     $.ajax({
         type: "post",
         url: "getListInvoicesFarm",
@@ -882,9 +893,17 @@ var farmTable = $('#farmTable').DataTable({
 
     ]
 } );
-
-
-
+function createInvoicePdf(){
+    kendo.drawing.drawDOM($("#tab-content")).then(function(group) {
+        kendo.drawing.pdf.saveAs(group, "Converted PDF.pdf");
+    });
+}
+// $('#pdf-maker1').on('click', function () {
+//     console.log('pdf make');
+//
+// });
+// var docDefinition = { content: $('#tab-content').html() };
+// pdfMake.createPdf(docDefinition).download();
 
 
 
@@ -1423,10 +1442,6 @@ function format(callback, id, currency) {
                 '<th></th><th>idProduct</th><th>idFarm</th><th>variety</th><th>type</th><th>grading</th><th>number stems in Box</th><th>product</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>edit</th>' +
                 '</thead>'+
                 '<tbody></tbody>'), 'child').show();
-            // targets  : 'no-sort',
-            //     visible: false,
-            //     searchable: false,
-            //     targets:   [2],
             var tableProduction = $('#table-production-'+id).DataTable({
                 order: [[ 1, 'asc' ]],
                 aoColumns: [

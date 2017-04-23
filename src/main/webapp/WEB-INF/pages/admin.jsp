@@ -840,9 +840,6 @@
         <section class="content" id="graphics-content" style="display: none">
             <div class="row">
                 <div class="col-md-6">
-
-
-                    <!-- DONUT CHART -->
                     <div class="box box-danger">
                         <div class="box-header with-border">
                             <h3 class="box-title">Donut Chart</h3>
@@ -857,15 +854,10 @@
                             <canvas id="pieChart" style="height:250px"></canvas>
                             <div id="legend" class="chart-legend"></div>
                         </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-
+                     </div>
                 </div>
-                <!-- /.col (LEFT) -->
-                <div class="col-md-6">
-                    <!-- LINE CHART -->
-                    <div class="box box-info">
+                 <div class="col-md-6">
+                     <div class="box box-info">
                         <div class="box-header with-border">
                             <h3 class="box-title">Line Chart</h3>
 
@@ -878,99 +870,86 @@
                         <div class="box-body">
                             <div class="chart">
                                 <canvas id="lineChart" style="height:250px"></canvas>
-
                             </div>
                         </div>
-                        <!-- /.box-body -->
                     </div>
-                    <!-- /.box -->
-
-
-
-                </div>
-                <!-- /.col (RIGHT) -->
-            </div>
-            <!-- /.row -->
-
-        </section>
+                 </div>
+             </div>
+         </section>
         <!-- Main content -->
+        <div id="content-main">
+            <section class="content">
+                <div class="box box-primary" id="employeeDiv" class="x_panel" style="display: none">
+                    <div class="box-header">
+                        <i class="ion ion-clipboard"></i>
+                        <h3 class="box-title">Employee</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table id="employee-table" class="table table-hover table-striped table-responsive table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>login</th>
+                                        <th>role</th>
+                                        <th>status</th>
+                                        <th>edit</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-        <section class="content" id="content-main">
-
-                    <div class="box box-primary" id="employeeDiv" class="x_panel" style="display: none">
-                        <div class="box-header">
-                            <i class="ion ion-clipboard"></i>
-                            <h3 class="box-title">Employee</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="x_content">
-                                <div class="table-responsive">
-                                    <table id="employee-table" class="table table-hover table-striped table-responsive table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>login</th>
-                                            <th>role</th>
-                                            <th>status</th>
-                                            <th>edit</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="nav-tabs-custom" id="invoiceShipmentDiv" style="display: none">
+                    <ul id="tab-list" class="nav nav-tabs">
+                        <li class="active"><a href="#tabInvoiceShipment" data-toggle="tab">Invoices for Shipment</a></li>
+                    </ul>
+                    <div class="tab-content" id="tab-content">
+                        <div class="tab-pane active" id="tabInvoiceShipment">
+                            <div class="box-body">
+
+
+                                <div class="x_content">
+
+
+                                    <div class="table-responsive">
+
+                                        <table id="invoiceShipment-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th style="width: 13%">Id</th>
+                                                <th style="width: 13%">Name</th>
+                                                <th style="width: 13%">Date</th>
+                                                <th style="width: 13%">cross usd_eur</th>
+                                                <th style="width: 13%">cross eur_usd</th>
+                                                <th style="width: 13%">total price usd</th>
+                                                <th style="width: 13%">total price eur</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                     <!-- /.tab-content -->
-
-            <div class="nav-tabs-custom" id="invoiceShipmentDiv" style="display: none">
-                <ul id="tab-list" class="nav nav-tabs">
-                    <li class="active"><a href="#tabInvoiceShipment" data-toggle="tab">Invoices for Shipment</a></li>
-                </ul>
-                <div class="tab-content" id="tab-content">
-                    <div class="tab-pane active" id="tabInvoiceShipment">
-                        <div class="box-body">
-
-
-                            <div class="x_content">
-
-
-                                <div class="table-responsive">
-
-                                    <table id="invoiceShipment-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th style="width: 13%">Id</th>
-                                            <th style="width: 13%">Name</th>
-                                            <th style="width: 13%">Date</th>
-                                            <th style="width: 13%">cross usd_eur</th>
-                                            <th style="width: 13%">cross eur_usd</th>
-                                            <th style="width: 13%">total price usd</th>
-                                            <th style="width: 13%">total price eur</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
-                <!-- /.tab-content -->
-            </div>
-
-            <div class="row">
 
                 <div class="box box-primary" id="invoiceFarmDiv" class="x_panel" style="display: none">
                     <div class="box-header">
@@ -1011,6 +990,7 @@
 
                     </div>
                 </div>
+
                 <div class="box box-primary" id="farmTableDiv" class="x_panel" style="display: none">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
@@ -1047,13 +1027,10 @@
 
                     </div>
                 </div>
+            </section>
+        </div>
 
-                <!-- right col -->
-            </div>
-            <!-- /.row (main row) -->
 
-        </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -1106,36 +1083,41 @@
         <div class="col-sm-4 invoice-col">
             From
             <address>
-                <strong><p class="editable_text">Admin, Inc.</strong><br>
-                <p class="editable_text">795 Folsom Ave, Suite 600</p><br>
-                <p class="editable_text">San Francisco, CA 94107<br>
-                <p class="editable_text">Phone: (804) 123-5432<br>
-                <p class="editable_text">Email: info@almasaeedstudio.com
+                <div class="form-group">
+                    <strong>
+                        <input type="text" name="invoice-from" class="form-control col-md-8 col-xs-12" autocomplete="off">
+                    </strong>
+                </div>
+
             </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
             To
             <address>
-                <strong><p class="editable_text">John Doe</strong><br>
-                <p class="editable_text">795 Folsom Ave, Suite 600<br>
-                <p class="editable_text">San Francisco, CA 94107<br>
-                <p class="editable_text">Phone: (555) 539-1037<br>
-                <p class="editable_text">Email: john.doe@example.com
-            </address>
+                <div class="form-group">
+                    <strong>
+                        <input type="text" name="invoice-to" class="form-control col-md-8 col-xs-12" autocomplete="off">
+                    </strong>
+                </div>
+           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
-            <b>Invoice <span class="tab-shipment-invoice"></span></b><br>
-            <br>
-            <b>Order ID:</b> 4F3S8J<br>
-            <b>Payment Due:</b> 2/22/2014<br>
-            <b>Account:</b> 968-34567
+            <b>Invoice <span class="tab-shipment-invoice"></span></b>
+            <address>
+
+            <div class="form-group">
+                <strong>
+                    <input type="text" name="invoice-order" class="form-control col-md-8 col-xs-12" autocomplete="off">
+                </strong>
+            </div>
+            </address>
         </div>
         <!-- /.col -->
     </div>
     <!-- /.row -->
-
+<br>
     <!-- Table row -->
     <div class="row">
         <div class="col-xs-12 table-responsive">
@@ -1198,9 +1180,7 @@
     <div class="row no-print">
         <div class="col-xs-12">
             <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-            <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
-            </button>
-            <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+            <button type="button" id="pdf-maker1" onclick="createInvoicePdf();" class="btn btn-primary pull-right" style="margin-right: 5px;">
                 <i class="fa fa-download"></i> Generate PDF
             </button>
         </div>
@@ -1276,6 +1256,12 @@
 <script src="resources/adminLTE/plugins/chartjs/Chart.js"></script>
 <script src="resources/build/js/custom.js"></script>
 
+<script src="//kendo.cdn.telerik.com/2016.3.914/js/kendo.all.min.js"></script>
+<script src="resources/js/pdf/html2canvas.js"></script>
+<script src="resources/js/pdf/jspdf.min.js"></script>
+<script src="resources/js/pdf/from_html.js"></script>
+<script src="resources/js/pdf/split_text_to_size.js"></script>
+<script src="resources/js/pdf/standard_fonts_metrics.js"></script>
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>--%>
 <script src="resources/js/functions.js"></script>
 <script src="resources/js/project.js"></script>
