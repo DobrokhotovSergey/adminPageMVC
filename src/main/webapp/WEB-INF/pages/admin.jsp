@@ -209,10 +209,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat" onclick="getProfile();">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -648,12 +648,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="product-type-edit">Type<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="type" type="text" id="product-type-edit" required="required" class="form-control col-md-7 col-xs-12">
+                                        <select class="form-control" name="type" id="product-type-edit">
+                                            <option value="STD">STD</option>
+                                            <option value="SPRAY">SPRAY</option>
+                                        </select>
                                     </div>
                                 </div>
+                                <%--<div class="form-group">--%>
+                                    <%--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>--%>
+                                    <%--</label>--%>
+                                    <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+                                        <%--<input name="type" type="text" id="product-type-edit" required="required" class="form-control col-md-7 col-xs-12">--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading<span class="required">*</span>
                                     </label>
@@ -714,12 +724,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="employee-role">Type<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="product-type" required="required" class="form-control col-md-7 col-xs-12">
+                                        <select class="form-control" name="type" id="product-type">
+                                            <option value="STD">STD</option>
+                                            <option value="SPRAY">SPRAY</option>
+                                        </select>
                                     </div>
                                 </div>
+                                <%--<div class="form-group">--%>
+                                    <%--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Type<span class="required">*</span>--%>
+                                    <%--</label>--%>
+                                    <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+                                        <%--<input type="text" id="product-type" required="required" class="form-control col-md-7 col-xs-12">--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading<span class="required">*</span>
                                     </label>
@@ -837,6 +857,125 @@
 
             <br/>
         </div>
+        <section class="content" id="profileDiv" style="display: none">
+
+            <div class="row">
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                            <img class="img-responsive" src="resources/images/serg2.png" alt="User profile picture">
+                            <h3 class="profile-username text-center"></h3>
+                            <p class="text-muted text-center" profile-username-position></p>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- About Me Box -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">About Me</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+
+                            <p class="text-muted  profile-username-education">
+
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+                            <p class="text-muted  profile-username-location"></p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+                            <p class="profile-username-skills">
+
+                            </p>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="box box-primary" id="profile" class="x_panel">
+                        <div class="box-header">
+                            <i class="fa fa-user"></i>
+                            <h3 class="box-title">Profile</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="x_content">
+                                <form id="addFarm-for1m" data-parsley-validate class="form-horizontal form-label-left">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="profile-name">Name
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="profile-name" name="profileName" class="form-control" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <p>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Last Name
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="profile-lastName" name="profileLastName" class="form-control" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <p>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Position
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="profile-position" name="profileLastName" class="form-control" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <p>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Gender
+                                        </label>
+
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select id="profile-gender" name="profileLastName" class="form-control">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </form>
+                                <%--<form method="POST" action="uploadUserImage?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">--%>
+                                    <%--File to upload: <input type="file" name="file">--%>
+
+                                    <%--Name: <input type="text" name="name">--%>
+
+
+                                    <%--<input type="submit" value="Upload"> Press here to upload the file!--%>
+                                <%--</form>--%>
+                                <input type="file" name="file" id="fileLoader" />
+                                <input type="button" id="fileSubmit" value="Upload"/>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+        </section>
+
         <section class="content" id="graphics-content" style="display: none">
             <div class="row">
                 <div class="col-md-6">

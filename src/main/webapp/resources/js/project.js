@@ -1040,13 +1040,14 @@ $('#farmTable tbody ').on('click','tr td table tr td .editProduct', function(){
     var table = $(this).closest('table').DataTable();
     var data = table.row( $(this).parents('tr') ).data();
     var position = table.cell($(this).parents('td') ).index().row;
+    // alert(position);
     $('#position-product-edit').val(position);
     $('#id-product-edit').val(data[1]);
     $('#id-farmOfProduct-edit').val(data[2]);
     $('#product-variety-edit').val(data[3]);
+
     $('#product-type-edit').val(data[4]);
-    $('#product-variety-edit').val(data[3]);
-    $('#product-type-edit').val(data[4]);
+
     $('#product-grading-edit').val(data[5]);
     $('#product-numberStemsInBox-edit').val(data[6]);
     $('#product-name-edit').val(data[7]);
@@ -1054,6 +1055,54 @@ $('#farmTable tbody ').on('click','tr td table tr td .editProduct', function(){
 
     $('#editProduct-modal').modal('show');
 });
+var files = [];
+$(document)
+    .on(
+        "change",
+        "#fileLoader",
+        function(event) {
+            files=event.target.files;
+        })
+
+$(document)
+    .on(
+        "click",
+        "#fileSubmit",
+        function() {
+            processUpload();
+        })
+
+function processUpload()
+{
+    var oMyForm = new FormData();
+    oMyForm.append("file", files[0]);
+    $
+        .ajax({dataType : 'json',
+            url : "uploadUserImage",
+            data : oMyForm,
+            type : "POST",
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType:false,
+            complete: function (response) {
+                NProgress.done();
+                unblock_screen();
+            },
+            success : function(result) {
+
+            },
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader(header, token);
+                beforeSend();
+            },
+            error : function(result){
+                //...;
+            }
+        });
+}
+function getProfile(){
+    $('#profileDiv').show();
+};
 $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
     var data = farmTable.row( $(this).parents('tr') ).data();
     var position = farmTable.cell($(this).parents('td') ).index().row;
@@ -1616,8 +1665,10 @@ function init_parsley() {
             var idFarm = $('#id-farmOfProduct-edit').val();
             $('#editProduct-modal').modal('hide');
             var form = $('#editProduction-form').serializeObject();
+            console.log(form);
             form['idProduct'] = $('#id-product-edit').val();
             form['idFarm'] = idFarm;
+            var pos = $('#position-product-edit').val();
             $.ajax({
                 type: "post",
                 url: "editProduction",
@@ -1626,8 +1677,9 @@ function init_parsley() {
                 mimeType: 'application/json',
                 data: JSON.stringify(form),
                 success: function (item) {
+
                     var tableProduction = $('#table-production-'+idFarm).DataTable();
-                    tableProduction.row($('#position-product-edit').val()).data(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
+                    tableProduction.row(pos).data(['<input type="checkbox" class="flat icheckbox1" name="table_records">',
                         item.idProduct, item.idFarm, item.variety, item.type, item.grading, item.numberStemsInBox, item.product, item.price, item.currency,
                         '<a class="btn btn-info editProduct btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                         '<a class="btn btn-danger deleteProduct btn-xs"><i class="fa fa-trash-o"></i> Delete </a>']).draw();

@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c252a53-379b-4188-85a3-e56a9be37194" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/pdf/from_html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/pdf/html2canvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/pdf/jspdf.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/pdf/split_text_to_size.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/pdf/standard_fonts_metrics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AutomatizationProject.iml" afterPath="$PROJECT_DIR$/AutomatizationProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" />
     </list>
@@ -33,86 +35,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DaoEmployeeImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#618#619#0" expanded="false" />
-                <element signature="e#678#679#0" expanded="false" />
-                <element signature="e#2060#2061#0" expanded="false" />
-                <element signature="e#2087#2088#0" expanded="false" />
-                <element signature="e#2126#2127#0" expanded="false" />
-                <element signature="e#2154#2155#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoCRUD.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="1258" column="78" lean-forward="false" selection-start-line="1258" selection-start-column="78" selection-end-line="1258" selection-end-column="78" />
+            <state relative-caret-position="278">
+              <caret line="977" column="0" lean-forward="true" selection-start-line="977" selection-start-column="0" selection-end-line="977" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="2501" column="36" lean-forward="false" selection-start-line="2501" selection-start-column="33" selection-end-line="2501" selection-end-column="36" />
-              <folding>
-                <marker date="1492878456458" expanded="true" signature="29545:29577" ph="..." />
-                <marker date="1492878456458" expanded="true" signature="31097:31104" ph="×" />
-                <marker date="1492878456458" expanded="true" signature="53705:53717" ph="..." />
               </folding>
             </state>
           </provider>
@@ -121,70 +53,80 @@
       <file leaf-file-name="project.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="896" column="41" lean-forward="false" selection-start-line="896" selection-start-column="41" selection-end-line="896" selection-end-column="41" />
+            <state relative-caret-position="306">
+              <caret line="1093" column="39" lean-forward="true" selection-start-line="1093" selection-start-column="39" selection-end-line="1093" selection-end-column="39" />
               <folding>
-                <marker date="1492972538236" expanded="true" signature="5757:5800" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="8422:8465" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="11136:11147" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="11166:11177" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="18549:18560" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="18579:18585" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="18579:18590" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="32620:32631" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="32650:32661" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="32736:32747" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="33006:33017" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="33262:33271" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="33484:33494" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="55529:55540" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="55559:55570" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="55973:55984" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="56003:56014" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="70973:70991" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="71081:71099" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="71892:71910" ph="..." />
-                <marker date="1492972538236" expanded="true" signature="71996:72014" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="5757:5800" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="8422:8465" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="11136:11147" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="11166:11177" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="18549:18560" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="18579:18585" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="18579:18590" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="32620:32631" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="32650:32661" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="32736:32747" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="33006:33017" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="33262:33271" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="33484:33494" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="56549:56560" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="56579:56590" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="56993:57004" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="57023:57034" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="72052:72070" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="72160:72178" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="72971:72989" ph="..." />
+                <marker date="1493066842476" expanded="true" signature="73075:73093" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js">
+      <file leaf-file-name="SpringSecurityInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/SpringSecurityInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoCRUDImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java">
+      <file leaf-file-name="PasswordEncoderGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoderGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6732">
-              <caret line="426" column="9" lean-forward="false" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1361#1362#0" expanded="false" />
-                <element signature="e#1417#1418#0" expanded="false" />
-                <element signature="e#13346#13347#0" expanded="false" />
-                <element signature="e#13414#13415#0" expanded="false" />
-                <element signature="e#16962#16963#0" expanded="false" />
-                <element signature="e#17030#17031#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringUtils.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar!/org/apache/commons/lang3/StringUtils.class">
+      <file leaf-file-name="AppConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+            <state relative-caret-position="153">
+              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecurityConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -193,29 +135,31 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+            <state relative-caret-position="317">
+              <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InvoiceSearch.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java">
+      <file leaf-file-name="CrudController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+            <state relative-caret-position="306">
+              <caret line="164" column="81" lean-forward="true" selection-start-line="164" selection-start-column="81" selection-end-line="164" selection-end-column="81" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#440#441#0" expanded="false" />
-                <element signature="e#468#469#0" expanded="false" />
-                <element signature="e#508#509#0" expanded="false" />
-                <element signature="e#542#543#0" expanded="false" />
-                <element signature="e#570#571#0" expanded="false" />
-                <element signature="e#596#597#0" expanded="false" />
-                <element signature="e#632#633#0" expanded="false" />
-                <element signature="e#662#663#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="69" column="51" lean-forward="false" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -235,20 +179,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Create invoice from Farm</find>
-      <find>farm-invoice-modal</find>
-      <find>shipment-invoice-modal</find>
-      <find>bootstrap</find>
-      <find>css/bootstrap</find>
-      <find>awesome</find>
-      <find>npr</find>
-      <find>custom</find>
-      <find>jquery.</find>
-      <find>bootstrap.js</find>
-      <find>bootstrap.min</find>
-      <find>fastcl</find>
-      <find>nprogres</find>
-      <find>daterange-btn</find>
       <find>searchInvoicesFarm-submit</find>
       <find>search in</find>
       <find>getListInvoicesFarm</find>
@@ -265,6 +195,20 @@
       <find>Shipment In</find>
       <find>submit</find>
       <find>pdf</find>
+      <find>editProduction-form</find>
+      <find>posit</find>
+      <find>position-product-edit</find>
+      <find>add p</find>
+      <find>#position-product-edit</find>
+      <find>edit p</find>
+      <find>product-variety-edit</find>
+      <find>profile-username</find>
+      <find>&lt;form</find>
+      <find>editProduct-modal</find>
+      <find>select</find>
+      <find>uploadUserImage</find>
+      <find>toke</find>
+      <find>Profile</find>
     </findStrings>
     <dirStrings>
       <dir>D:\IdeaProjects\AutomatizationProject</dir>
@@ -281,7 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/invoices/InvoiceShipment.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/production/ProductionShipment.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceShipmentRowMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" />
@@ -307,8 +250,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/UserValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/auth/UserValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" />
@@ -326,10 +267,13 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/403.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
       </list>
@@ -500,11 +444,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdf" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1191,8 +1131,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1741,12 +1681,13 @@
       <workItem from="1492709636114" duration="9813000" />
       <workItem from="1492721056394" duration="1767000" />
       <workItem from="1492840809508" duration="38649000" />
-      <workItem from="1492928526542" duration="14437000" />
+      <workItem from="1492928526542" duration="14717000" />
+      <workItem from="1493047104474" duration="12975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212424000" />
+    <option name="totallyTimeSpent" value="225679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1054" extended-state="6" />
@@ -1754,7 +1695,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18479408" sideWeight="0.41302082" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3220697" sideWeight="0.4390625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1765,13 +1706,13 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28616685" sideWeight="0.30520833" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28616685" sideWeight="0.28958333" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18479408" sideWeight="0.58697915" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3220697" sideWeight="0.5609375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1846,13 +1787,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/RolesRowMapperImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/test/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1873,20 +1807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="65" column="19" lean-forward="false" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoderGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/SpringMvcInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1978,37 +1898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/SpringSecurityInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="69" column="45" lean-forward="true" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/403.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -2024,39 +1913,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="106" column="46" lean-forward="false" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4249#4250#0" expanded="false" />
-            <element signature="e#4311#4312#0" expanded="false" />
-            <element signature="e#5226#5227#0" expanded="false" />
-            <element signature="e#5274#5275#0" expanded="false" />
-            <element signature="e#5548#5549#0" expanded="false" />
-            <element signature="e#5596#5597#0" expanded="false" />
-            <element signature="e#6144#6145#0" expanded="false" />
-            <element signature="e#6192#6193#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2074,15 +1935,9 @@
             <element signature="e#596#597#0" expanded="false" />
             <element signature="e#632#633#0" expanded="false" />
             <element signature="e#662#663#0" expanded="false" />
+            <element signature="e#768#769#0" expanded="false" />
+            <element signature="e#804#805#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2096,17 +1951,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
+        <state relative-caret-position="17">
           <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#618#619#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2087#2088#0" expanded="false" />
-            <element signature="e#2126#2127#0" expanded="false" />
-            <element signature="e#2154#2155#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2119,33 +1966,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6732">
+        <state relative-caret-position="6596">
           <caret line="426" column="9" lean-forward="false" selection-start-line="426" selection-start-column="9" selection-end-line="426" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="e#1361#1362#0" expanded="false" />
             <element signature="e#1417#1418#0" expanded="false" />
+            <element signature="e#4146#5019#0" expanded="false" />
+            <element signature="e#5018#5019#0" expanded="false" />
+            <element signature="e#9022#9537#0" expanded="false" />
+            <element signature="e#9536#9537#0" expanded="false" />
+            <element signature="e#10781#11699#0" expanded="false" />
+            <element signature="e#11698#11699#0" expanded="false" />
             <element signature="e#13346#13347#0" expanded="false" />
             <element signature="e#13414#13415#0" expanded="false" />
+            <element signature="e#14169#15392#0" expanded="false" />
+            <element signature="e#15391#15392#0" expanded="false" />
             <element signature="e#16962#16963#0" expanded="false" />
             <element signature="e#17030#17031#0" expanded="false" />
+            <element signature="e#18340#18348#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding>
+            <marker date="1493049176815" expanded="true" signature="33:465" ph="{...}" />
+            <marker date="1493049176815" expanded="true" signature="111:447" ph="{...}" />
+            <marker date="1493049176815" expanded="true" signature="221:380" ph="{...}" />
+            <marker date="1493049176815" expanded="true" signature="386:441" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
+        <state relative-caret-position="17">
           <caret line="2501" column="36" lean-forward="false" selection-start-line="2501" selection-start-column="33" selection-end-line="2501" selection-end-column="36" />
           <folding>
             <marker date="1492878456458" expanded="true" signature="29545:29577" ph="..." />
@@ -2155,71 +2024,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/SpringMvcInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#407#408#0" expanded="false" />
+            <element signature="e#473#474#0" expanded="false" />
+            <element signature="e#535#536#0" expanded="false" />
+            <element signature="e#553#554#0" expanded="false" />
+            <element signature="e#608#609#0" expanded="false" />
+            <element signature="e#642#643#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/SpringSecurityInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoderGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="69" column="51" lean-forward="false" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="164" column="81" lean-forward="true" selection-start-line="164" selection-start-column="81" selection-end-line="164" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="1258" column="78" lean-forward="false" selection-start-line="1258" selection-start-column="78" selection-end-line="1258" selection-end-column="78" />
+        <state relative-caret-position="278">
+          <caret line="977" column="0" lean-forward="true" selection-start-line="977" selection-start-column="0" selection-end-line="977" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="896" column="41" lean-forward="false" selection-start-line="896" selection-start-column="41" selection-end-line="896" selection-end-column="41" />
+        <state relative-caret-position="306">
+          <caret line="1093" column="39" lean-forward="true" selection-start-line="1093" selection-start-column="39" selection-end-line="1093" selection-end-column="39" />
           <folding>
-            <marker date="1492972538236" expanded="true" signature="5757:5800" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="8422:8465" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="11136:11147" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="11166:11177" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="18549:18560" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="18579:18585" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="18579:18590" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="32620:32631" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="32650:32661" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="32736:32747" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="33006:33017" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="33262:33271" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="33484:33494" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="55529:55540" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="55559:55570" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="55973:55984" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="56003:56014" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="70973:70991" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="71081:71099" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="71892:71910" ph="..." />
-            <marker date="1492972538236" expanded="true" signature="71996:72014" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="5757:5800" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="8422:8465" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="11136:11147" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="11166:11177" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="18549:18560" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="18579:18585" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="18579:18590" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="32620:32631" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="32650:32661" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="32736:32747" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="33006:33017" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="33262:33271" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="33484:33494" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="56549:56560" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="56579:56590" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="56993:57004" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="57023:57034" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="72052:72070" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="72160:72178" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="72971:72989" ph="..." />
+            <marker date="1493066842476" expanded="true" signature="73075:73093" ph="..." />
           </folding>
         </state>
       </provider>

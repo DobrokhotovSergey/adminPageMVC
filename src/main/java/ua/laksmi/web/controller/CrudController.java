@@ -5,7 +5,9 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
 import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
@@ -153,5 +155,21 @@ public class CrudController {
         return model;
 
     }
+    @RequestMapping(value = "/admin/uploadUserImage",headers = "content-type=multipart/*",  method = RequestMethod.POST)
+    public @ResponseBody
+    void uploadFileHandler(@RequestParam("file") MultipartFile multipartFile) {
 
+        System.out.println(multipartFile);
+    }
+
+//    @RequestMapping(value = "/admin/uploadUserImage", method = RequestMethod.POST)
+//    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+//                                   RedirectAttributes redirectAttributes) {
+//        System.out.println(file);
+//        //storageService.store(file);
+//        redirectAttributes.addFlashAttribute("message",
+//                "You successfully uploaded " + file.getOriginalFilename() + "!");
+//
+//        return "redirect:/";
+//    }
 }
