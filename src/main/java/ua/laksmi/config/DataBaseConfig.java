@@ -58,17 +58,17 @@ import java.net.URISyntaxException;
 public class DataBaseConfig {
     @Bean
     public DriverManagerDataSource getDriverManagerDatasource() {
-//        URI dbUri = null;
-//        try {
-//            dbUri = new URI(System.getenv("DATABASE_URL"));
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
+        URI dbUri = null;
+        try {
+            dbUri = new URI(System.getenv("DATABASE_URL"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
 
-//        String username = dbUri.getUserInfo().split(":")[0];
-//        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/d9s122lkd6dc5c?sslmode=require";
-
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+//        String dbUrl = "jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/d9s122lkd6dc5c?sslmode=require";
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         try {
