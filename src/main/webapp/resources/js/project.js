@@ -716,9 +716,10 @@ function myCallbackFunction (updatedCell, updatedRow, oldValue, columnIndex) {
     if(columnIndex==5){//
         var oldPrice = intVal(tableFarmInvoice.row($(updatedRow)).data()[3]);
         var discount = intVal(updatedCell.data());
-        var priceWithDiscount = oldPrice - oldPrice*discount/100;
+        var priceWithDiscount = (oldPrice - oldPrice*discount/100).toFixed(3);
         var cross = intVal($('#invoiceFarm-crossCurs').val());
-        var priceDiscountCross = cross*priceWithDiscount;
+        var priceDiscountCross = (cross*priceWithDiscount).toFixed(3);
+        console.log(priceDiscountCross);
         tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),4).data(isNaN(priceWithDiscount) ? 0 : priceWithDiscount).draw();
         tableFarmInvoice.cell( tableFarmInvoice.row($(updatedRow)).node(),7).data(isNaN(priceDiscountCross) ? 0 : priceDiscountCross).draw();
 
@@ -818,10 +819,10 @@ var tableFarmInvoice = $('#table-farm-invoice').DataTable({
         });
 
         // console.log(api.column(2).data());
-        $('#farm-invoice-totalPrice td').eq(0).html('<span id="totalPrice">'+total3+'</span>');
-        $('#farm-invoice-totalPrice td').eq(1).html('<span id="totalPriceDiscount">'+total4+'</span>');
-        $('#farm-invoice-totalPrice td').eq(2).html('<span id="totalPriceCross">'+total6+'</span>');
-        $('#farm-invoice-totalPrice td').eq(3).html('<span id="totalPriceDiscountCross">'+total7+'</span>');
+        $('#farm-invoice-totalPrice td').eq(0).html('<span id="totalPrice">'+total3.toFixed(3)+'</span>');
+        $('#farm-invoice-totalPrice td').eq(1).html('<span id="totalPriceDiscount">'+total4.toFixed(3)+'</span>');
+        $('#farm-invoice-totalPrice td').eq(2).html('<span id="totalPriceCross">'+total6.toFixed(3)+'</span>');
+        $('#farm-invoice-totalPrice td').eq(3).html('<span id="totalPriceDiscountCross">'+total7.toFixed(3)+'</span>');
      },
 });
 
@@ -1358,8 +1359,8 @@ $('#invoiceFarm-crossCurs').on('keyup', function(){
         var discount = intVal(row[5]);
         var price =intVal(row[3]);
 
-        row[6] = (cross*price);
-        row[7] = (price*cross-(isNaN(discount) ? 0 : discount)*cross*price/100);
+        row[6] = (cross*price).toFixed(3);
+        row[7] = (price*cross-(isNaN(discount) ? 0 : discount)*cross*price/100).toFixed(3);
         this.invalidate(); // invalidate the data DataTables has cached for this row
     } );
     $('#table-farm-invoice').DataTable().draw();
@@ -1432,7 +1433,7 @@ function formatInvoiceFarm(callback, id, currency) {
             callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-invoiceFarm-production-'+id+'">' +
                 '<thead>' +
-                '<th>idProduct</th><th>idFarm</th><th>product</th><th>grading</th><th>number stems in Box</th><th>currency</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>total Price Discount</th><th>cross Curs</th><th>total price cross</th><th>total price cross discount</th><th>type</th><th>variety</th><th>edit</th>' +
+                '<th>idProduct</th><th>idFarm</th><th>product</th><th>grading, sm</th><th>number stems in Box</th><th>currency</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>total Price Discount</th><th>cross Curs</th><th>total price cross</th><th>total price cross discount</th><th>type</th><th>variety</th><th>edit</th>' +
                 '</thead>'+
                 '<tbody></tbody>'), 'child').show();
             var tableProduction = $('#table-invoiceFarm-production-'+id).DataTable({
@@ -1488,7 +1489,7 @@ function format(callback, id, currency) {
             callback($('<table class="table-hover table table-striped table-responsive jambo_table bulk_action table-bordered"' +
                 ' id="table-production-'+id+'">' +
                 '<thead>' +
-                '<th></th><th>idProduct</th><th>idFarm</th><th>variety</th><th>type</th><th>grading</th><th>number stems in Box</th><th>product</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>edit</th>' +
+                '<th></th><th>idProduct</th><th>idFarm</th><th>variety</th><th>type</th><th>grading, sm</th><th>number stems in Box</th><th>product</th><th>price,<span class="fa fa-'+currency.toLowerCase()+'"></span></th><th>currency</th><th>edit</th>' +
                 '</thead>'+
                 '<tbody></tbody>'), 'child').show();
             var tableProduction = $('#table-production-'+id).DataTable({

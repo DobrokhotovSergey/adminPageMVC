@@ -557,7 +557,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa" id="invoiceFarm-currencyOther"></i>
                                             </div>
-                                            <input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" placeholder="Cross Curs">
+                                            <input type="text" class="form-control has-feedback-left" id="invoiceFarm-crossCurs" maxlength="6"  placeholder="Cross Curs">
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -569,7 +569,7 @@
                                         <thead>
                                         <tr>
                                             <th style="width: 12%">product</th>
-                                            <th style="width: 12%">grading</th>
+                                            <th style="width: 12%">grading, sm</th>
                                             <th style="width: 12%">number stems in Box</th>
                                             <th style="width: 12%">price, <span class="fa farm-invoice-mainCurrency"></span></th>
                                             <th style="width: 12%">price(discount), <span class="fa farm-invoice-mainCurrencyDiscount"></span></th>
@@ -665,7 +665,7 @@
                                     <%--</div>--%>
                                 <%--</div>--%>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading, sm<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input name="grading" type="number" id="product-grading-edit" required="required" class="form-control col-md-7 col-xs-12">
@@ -741,7 +741,7 @@
                                     <%--</div>--%>
                                 <%--</div>--%>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading<span class="required">*</span>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-grading">Grading, sm<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="number" id="product-grading" required="required" class="form-control col-md-7 col-xs-12">

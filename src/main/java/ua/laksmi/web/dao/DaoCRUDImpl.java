@@ -422,7 +422,7 @@ public class DaoCRUDImpl implements DaoCRUD {
             if(listParam.size()>0){
                 sb.append(" and ");
             }
-            sb.append(" clientName = ?\n");
+            sb.append(" upper(clientName) = upper(?)\n");
             listParam.add(invoiceFarmSearch.getClient());
         }
         List<InvoiceFarm> list = null;
@@ -437,7 +437,7 @@ public class DaoCRUDImpl implements DaoCRUD {
     public List<ProductionShipment> getListInvoiceProductionShipment(int id) {
         List<ProductionShipment> list = null;
         StringBuilder sb = new StringBuilder();
-        sb.append("select distinct c.farmName,d.numberStemsInBox,e.clientName, a.idInvoiceShipment, a.idProduct, a.priceForStem, a.priceForBox, a.priceCross, a.priceWithBoxCross, a.box from\n");
+        sb.append("select distinct c.farmName,d.numberStemsInBox,e.clientName, a.idInvoiceShipment, a.idProduct, d.priceDiscount as priceForStem, a.priceForBox, d.priceDiscountCross as priceCross, a.priceWithBoxCross, a.box from\n");
         sb.append(Constants.TABLE_PRODUCTION_INVOICE_SHIPMENT);
         sb.append(" a join ");
         sb.append(Constants.TABLE_PRODUCTION);
