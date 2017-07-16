@@ -2,9 +2,14 @@ package ua.laksmi.web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import ua.laksmi.web.dao.DaoCRUD;
+import ua.laksmi.web.domain.searchingForm.InvoiceCommerceSearch;
 import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.export.CommercialFile;
+import ua.laksmi.web.domain.tables.export.ExportCommercial;
+import ua.laksmi.web.domain.tables.invoices.CommerceInvoice;
 import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
 import ua.laksmi.web.domain.tables.invoices.InvoiceShipment;
 import ua.laksmi.web.domain.tables.production.Production;
@@ -81,4 +86,36 @@ public class ServiceCRUDImpl implements ServiceCRUD{
     public List<ProductionShipment> getListInvoiceProductionShipment(int id) {
         return daoCRUD.getListInvoiceProductionShipment(id);
     }
+
+    public byte[] exportCommercial(ExportCommercial exportCommercial) {
+       return daoCRUD.exportCommercial(exportCommercial);
+    }
+
+    public CommercialFile getCommercialFile(ExportCommercial exportCommercial) {
+        CommercialFile commercialFile = new CommercialFile();
+        commercialFile.setBytes(daoCRUD.exportCommercial(exportCommercial));
+        commercialFile.setFileName(exportCommercial.getTableH1().getNameInvoice()+"___"+exportCommercial.getTableH1().getDate()+".xlsx");
+        return commercialFile;
+    }
+
+    public List<CommerceInvoice> getListCommercialIvoice(int id) {
+        return daoCRUD.getListCommercialIvoice(id);
+    }
+
+    @Override
+    public boolean saveCommercialInvoice(ExportCommercial exportCommercial) {
+        return daoCRUD.saveCommercialInvoice(exportCommercial);
+    }
+
+    @Override
+    public List<ExportCommercial> getListCommercial(InvoiceCommerceSearch invoiceCommerceSearch) {
+        return daoCRUD.getListCommercial(invoiceCommerceSearch);
+    }
+
+    @Override
+    public ExportCommercial getExporCommercial(int id) {
+        return daoCRUD.getExporCommercial(id);
+    }
+
+
 }

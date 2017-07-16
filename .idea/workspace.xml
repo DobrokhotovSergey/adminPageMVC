@@ -2,8 +2,112 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c252a53-379b-4188-85a3-e56a9be37194" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/CommercialExcel.xlsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/admin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/AbstractSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceCommerceSearch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/CommercialFile.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/ExportCommercial.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/TableH1.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/TableH2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/invoices/CommerceInvoice.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/CommerceInvoiceRowMapperImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceCommerceRowMapperImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/FileSaver.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/img.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/vendors/autosize/src/autosize.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/launch/Main.class" afterPath="$PROJECT_DIR$/target/classes/launch/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/AppConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/AppConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/SecurityConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/SecurityConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/PasswordEncoderGenerator.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/PasswordEncoderGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringMvcInitializer.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringMvcInitializer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringSecurityInitializer.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringSecurityInitializer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/EmployeeController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/EmployeeController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/ExceptionController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/ExceptionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/GraphicsController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/GraphicsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUD.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUD.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$1.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$2.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$3.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$4.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$5.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$6.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCharts.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCharts.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoChartsImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoChartsImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployee.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployeeImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployeeImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/Test.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/AbstractChart.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/AbstractChart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/DonutChart.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/DonutChart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/searchingForm/InvoiceSearch.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/searchingForm/InvoiceSearch.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Farm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Farm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Prices.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Prices.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/Employee.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/Employee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/EnumRole.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/EnumRole.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/AbstractInvoice.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/AbstractInvoice.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceFarm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceFarm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceShipment.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceShipment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/Production.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/Production.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionInvFarm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionInvFarm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionShipment.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionShipment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/test/TestDB.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/test/TestDB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/exception/MyAccessDeniedHandler.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/exception/MyAccessDeniedHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/AbstractProduction.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/AbstractProduction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/FarmRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/FarmRowMapperImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/GraphicsFarmRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/GraphicsFarmRowMapperImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmProductionRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmProductionRowMapperImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentProductionRowMapper.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentProductionRowMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentRowMapper.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentRowMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/ProductionRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/ProductionRowMapperImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUD.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUD.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUDImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCharts.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCharts.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceChartsImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceChartsImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployee.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployeeImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployeeImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/utils/Constants.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/utils/Constants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/validator/UserValidator.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/validator/UserValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AutomatizationProject.iml" afterPath="$PROJECT_DIR$/AutomatizationProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +118,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AutomatizationProject$Main.coverage" NAME="Main Coverage Results" MODIFIED="1492857321485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/AutomatizationProject$Main.coverage" NAME="Main Coverage Results" MODIFIED="1500056645212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>launch.*</FILTER>
     </SUITE>
   </component>
@@ -24,129 +128,142 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10829">
-              <caret line="637" column="43" lean-forward="false" selection-start-line="637" selection-start-column="36" selection-end-line="637" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoCRUDImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="454" column="52" lean-forward="false" selection-start-line="454" selection-start-column="52" selection-end-line="454" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyAccessDeniedHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/exception/MyAccessDeniedHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24565">
-              <caret line="1445" column="21" lean-forward="false" selection-start-line="1445" selection-start-column="21" selection-end-line="1445" selection-end-column="21" />
-              <folding>
-                <marker date="1495292176119" expanded="true" signature="5757:5800" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="8422:8465" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="11136:11147" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="11166:11177" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="18549:18560" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="18579:18585" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="18579:18590" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="32731:32742" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="32761:32772" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="32847:32858" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="33117:33128" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="33373:33382" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="33595:33605" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="56690:56701" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="56720:56731" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="57134:57145" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="57164:57175" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="72193:72211" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="72301:72319" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="73112:73130" ph="..." />
-                <marker date="1495292176119" expanded="true" signature="73216:73234" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExceptionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ExceptionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sum().js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/sum().js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataBaseConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
-              <folding>
-                <element signature="e#2797#2798#0" expanded="true" />
-                <element signature="e#2860#2861#0" expanded="true" />
-                <element signature="e#2916#2917#0" expanded="true" />
-                <element signature="e#2984#2985#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CrudController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="42" column="84" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="84" />
+            <state relative-caret-position="-102">
+              <caret line="117" column="58" lean-forward="true" selection-start-line="117" selection-start-column="58" selection-end-line="117" selection-end-column="58" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceEmployeeImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1362#1363#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DaoEmployeeImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="117" column="35" lean-forward="false" selection-start-line="117" selection-start-column="35" selection-end-line="117" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="221" column="55" lean-forward="false" selection-start-line="221" selection-start-column="55" selection-end-line="221" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#4;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#4;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#5;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#5;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="1216" column="57" lean-forward="false" selection-start-line="1216" selection-start-column="57" selection-end-line="1216" selection-end-column="57" />
+              <folding>
+                <marker date="1500237521924" expanded="true" signature="5725:5768" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="8390:8433" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="11520:11531" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="11550:11561" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="18185:18196" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="21528:21539" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="21558:21569" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="36011:36022" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="36041:36052" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="36127:36138" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="65838:65849" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="65868:65879" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="66282:66293" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="66312:66323" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="81345:81363" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="81455:81473" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="82272:82290" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="82380:82398" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="83191:83209" ph="..." />
+                <marker date="1500237521924" expanded="true" signature="83295:83313" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecurityConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="76" column="37" lean-forward="true" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="156" column="48" lean-forward="false" selection-start-line="156" selection-start-column="36" selection-end-line="156" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeRowMapperImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#595#596#0" expanded="true" />
+                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,36 +283,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Shipment In</find>
-      <find>submit</find>
-      <find>pdf</find>
-      <find>editProduction-form</find>
-      <find>posit</find>
+      <find>display</find>
+      <find>employee</find>
+      <find>edit</find>
+      <find>employee-t</find>
+      <find>editem</find>
+      <find>editEmplo</find>
+      <find>edit-employ</find>
+      <find>pos</find>
+      <find>position-farm-delete</find>
+      <find>position-farm</find>
+      <find>position-product-ed</find>
+      <find>tableEmployee</find>
+      <find>employee-table</find>
+      <find>editEmployee</find>
+      <find>getListFa</find>
+      <find>edit-employee-positions</find>
+      <find>edit-employee-pos</find>
+      <find>edit-employee-login</find>
+      <find>farm</find>
+      <find>editfar</find>
+      <find>farmTab</find>
+      <find>position-farm-edit</find>
+      <find>farm-t</find>
+      <find>farmTa</find>
+      <find>farmProduct</find>
+      <find>position</find>
       <find>position-product-edit</find>
-      <find>add p</find>
-      <find>#position-product-edit</find>
-      <find>edit p</find>
-      <find>product-variety-edit</find>
-      <find>profile-username</find>
-      <find>&lt;form</find>
-      <find>editProduct-modal</find>
-      <find>select</find>
-      <find>uploadUserImage</find>
-      <find>toke</find>
-      <find>Profile</find>
-      <find>table-far</find>
-      <find>callb</find>
-      <find>tableFarmInvoice</find>
-      <find>invoiceFarm-crossCurs</find>
-      <find>curr-invoiceFarm</find>
-      <find>sea</find>
-      <find>grading</find>
-      <find>shipment</find>
-      <find>invoiceshipment</find>
-      <find>invoicesshipment</find>
-      <find>getListInvoicesShipment</find>
-      <find>invoicepr</find>
-      <find>getListInvoiceProductionShipment</find>
+      <find>delete</find>
+      <find>edit-empl</find>
+      <find>editEmpl</find>
     </findStrings>
     <dirStrings>
       <dir>D:\IdeaProjects\AutomatizationProject</dir>
@@ -212,56 +329,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/production/ProductionShipment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceShipmentRowMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/project.css" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceShipmentProductionRowMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/production/ProductionInvFarm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceFarmProductionRowMapperImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoderGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/GraphicsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/EnumRole.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoRoles.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoRolesImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/EmployeeDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/EmployeeDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/EmployeeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/EmployeeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/UserValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/auth/UserValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ErrorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/exception/MyAccessDeniedHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ExceptionController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/403.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/Test.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" />
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/Test2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/formatAsTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ImageTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/Imeges2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/TableH2.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/FileSaver.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/CommercialFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/invoices/CommerceInvoice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/CommerceInvoiceRowMapperImpl.java" />
+        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/AbstractSearch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceCommerceSearch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/invoices/Commercial.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/TableH1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/ExportCommercial.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/build/css/custom.css" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceCommerceRowMapperImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" />
+        <option value="$PROJECT_DIR$/AutomatizationProject.iml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/MyUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/uploader/jquery-iframe-transport.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/uploader/jquery.fileupload.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/uploader/dropzone.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/uploader/myuploadfunction.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/vendors/nprogress/nprogress.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/BCrypPasswordEncoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" />
       </list>
     </option>
@@ -278,6 +395,28 @@
     <option name="width" value="1936" />
     <option name="height" value="1054" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Since15</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -293,7 +432,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -432,104 +571,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutomatizationProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutomatizationProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutomatizationProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutomatizationProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutomatizationProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutomatizationProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="adminLTE" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -549,6 +590,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -878,6 +923,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="export" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laksmi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="employee" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1116,24 +1203,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IdeaProjects\AutomatizationProject\src\main\webapp\resources\js\pdf" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\AutomatizationProject\src\main\webapp\resources\images" />
+      <recent name="D:\IdeaProjects\AutomatizationProject\src\main\resources" />
       <recent name="D:\IdeaProjects\AutomatizationProject\src\main\webapp\resources\js\pdf" />
       <recent name="D:\IdeaProjects\AutomatizationProject\src\main\webapp\resources\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\AutomatizationProject\src\main\webapp\resources\js\pdf" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -1157,66 +1264,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="sd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.laksmi.web.validator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="ua.laksmi.web.dao.sd" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="AutomatizationProject" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.laksmi.web.validator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="ua.laksmi.web.dao.TestMain" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="AutomatizationProject" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="PasswordEncoderGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.laksmi.config.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="ua.laksmi.config.core.PasswordEncoderGenerator" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="AutomatizationProject" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1225,6 +1272,66 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="ua.laksmi.web.dao.Test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AutomatizationProject" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ImageTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.laksmi.web.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="ua.laksmi.web.controller.ImageTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AutomatizationProject" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="formatAsTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.laksmi.web.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="ua.laksmi.web.controller.formatAsTable" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="AutomatizationProject" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Imeges2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.laksmi.web.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="ua.laksmi.web.controller.Imeges2" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1630,18 +1737,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.sd" />
-      <item index="2" class="java.lang.String" itemvalue="Application.TestMain" />
-      <item index="3" class="java.lang.String" itemvalue="Application.PasswordEncoderGenerator" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="2" class="java.lang.String" itemvalue="Application.ImageTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.formatAsTable" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Imeges2" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Test" />
-        <item index="2" class="java.lang.String" itemvalue="Application.PasswordEncoderGenerator" />
-        <item index="3" class="java.lang.String" itemvalue="Application.TestMain" />
-        <item index="4" class="java.lang.String" itemvalue="Application.sd" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Imeges2" />
+        <item index="2" class="java.lang.String" itemvalue="Application.ImageTest" />
+        <item index="3" class="java.lang.String" itemvalue="Application.formatAsTable" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -1679,12 +1786,29 @@
       <workItem from="1495558148196" duration="473000" />
       <workItem from="1496080279415" duration="3202000" />
       <workItem from="1496160779388" duration="288000" />
-      <workItem from="1496162832492" duration="1129000" />
+      <workItem from="1496162832492" duration="2333000" />
+      <workItem from="1497454801979" duration="586000" />
+      <workItem from="1497540487304" duration="2642000" />
+      <workItem from="1497715003382" duration="595000" />
+      <workItem from="1497766303938" duration="17110000" />
+      <workItem from="1498655811178" duration="30376000" />
+      <workItem from="1498756809098" duration="11168000" />
+      <workItem from="1498846577404" duration="5917000" />
+      <workItem from="1498852838073" duration="6548000" />
+      <workItem from="1498892755069" duration="10835000" />
+      <workItem from="1498928557475" duration="17621000" />
+      <workItem from="1498976275641" duration="17695000" />
+      <workItem from="1499886518106" duration="1868000" />
+      <workItem from="1500051829534" duration="5696000" />
+      <workItem from="1500097910870" duration="8340000" />
+      <workItem from="1500120749287" duration="32372000" />
+      <workItem from="1500190791791" duration="22447000" />
+      <workItem from="1500227684560" duration="10097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252283000" />
+    <option name="totallyTimeSpent" value="455400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1054" extended-state="6" />
@@ -1692,7 +1816,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36747625" sideWeight="0.46770832" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32629356" sideWeight="0.10625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1703,15 +1827,16 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28616685" sideWeight="0.3828125" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36747625" sideWeight="0.53229165" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32629356" sideWeight="0.89375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1720,7 +1845,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28616685" sideWeight="0.28385416" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16354166" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.49166667" order="1" side_tool="false" content_ui="tabs" />
@@ -1743,9 +1867,154 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoRolesImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceRolesImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceRoles.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.3.RELEASE/spring-security-core-3.2.3.RELEASE.jar!/org/springframework/security/core/Authentication.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/images/img.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/images/serg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/images/serg2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutomatizationProject.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/18.0/guava-18.0.jar!/com/google/common/cache/Cache.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.3.RELEASE/spring-security-core-3.2.3.RELEASE.jar!/org/springframework/security/core/userdetails/jdbc/JdbcDaoImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="26" column="72" lean-forward="false" selection-start-line="26" selection-start-column="72" selection-end-line="26" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/vendors/autosize/src/autosize.js" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.3.RELEASE/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/core/authority/SimpleGrantedAuthority.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.3.RELEASE/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/authentication/AuthenticationProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.3.RELEASE/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/MyUser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/EnumRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceCommerceRowMapperImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoderGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ExceptionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/3.2.3.RELEASE/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/authentication/configurers/provisioning/JdbcUserDetailsManagerConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="127" column="41" lean-forward="false" selection-start-line="127" selection-start-column="41" selection-end-line="127" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.3.RELEASE/spring-security-core-3.2.3.RELEASE-sources.jar!/org/springframework/security/core/userdetails/jdbc/JdbcDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4080">
+          <caret line="278" column="33" lean-forward="false" selection-start-line="278" selection-start-column="33" selection-end-line="278" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/3.2.3.RELEASE/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="154" column="74" lean-forward="false" selection-start-line="154" selection-start-column="74" selection-end-line="154" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceChartsImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1753,190 +2022,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCharts.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/uploader/jquery.iframe-transport.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/uploader/dropzone.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/uploader/myuploadfunction.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/uploader/jquery.fileupload.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="225">
+          <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/EnumRole.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/charts/AbstractChart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoChartsImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/charts/DonutChart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="72" lean-forward="false" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/RolesRowMapperImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/test/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="39" column="45" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/3.2.3.RELEASE/spring-security-config-3.2.3.RELEASE-sources.jar!/org/springframework/security/config/annotation/web/configurers/FormLoginConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="65" column="19" lean-forward="false" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/GraphicsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/authorization/AuthorizationUser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.4.RELEASE/spring-context-4.3.4.RELEASE.jar!/org/springframework/validation/Errors.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/launch/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ErrorController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/build/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/404.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/403.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar!/org/apache/commons/lang3/StringUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/adminLTE/dist/js/pages/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/build/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2501" column="36" lean-forward="false" selection-start-line="2501" selection-start-column="33" selection-end-line="2501" selection-end-column="36" />
+        <state relative-caret-position="272">
+          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1944,6 +2059,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1954,144 +2070,273 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/PasswordEncoderGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/vendors/nprogress/nprogress.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="17">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/launch/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        <state relative-caret-position="119">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/core/BCrypPasswordEncoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="69" column="51" lean-forward="false" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/sum().js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/ExceptionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10829">
-          <caret line="637" column="43" lean-forward="false" selection-start-line="637" selection-start-column="36" selection-end-line="637" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24565">
-          <caret line="1445" column="21" lean-forward="false" selection-start-line="1445" selection-start-column="21" selection-end-line="1445" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
-            <marker date="1495292176119" expanded="true" signature="5757:5800" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="8422:8465" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="11136:11147" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="11166:11177" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="18549:18560" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="18579:18585" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="18579:18590" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="32731:32742" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="32761:32772" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="32847:32858" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="33117:33128" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="33373:33382" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="33595:33605" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="56690:56701" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="56720:56731" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="57134:57145" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="57164:57175" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="72193:72211" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="72301:72319" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="73112:73130" ph="..." />
-            <marker date="1495292176119" expanded="true" signature="73216:73234" ph="..." />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2924">
+          <caret line="211" column="25" lean-forward="false" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1968#1969#0" expanded="false" />
+            <element signature="e#2024#2025#0" expanded="false" />
+            <element signature="e#13953#13954#0" expanded="false" />
+            <element signature="e#14021#14022#0" expanded="false" />
+            <element signature="e#17510#17511#0" expanded="false" />
+            <element signature="e#17584#17585#0" expanded="false" />
+            <element signature="e#23523#23524#0" expanded="false" />
+            <element signature="e#23591#23592#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="42" column="84" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="84" />
+        <state relative-caret-position="-102">
+          <caret line="117" column="58" lean-forward="true" selection-start-line="117" selection-start-column="58" selection-end-line="117" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="92" />
+        <state relative-caret-position="302">
+          <caret line="156" column="48" lean-forward="false" selection-start-line="156" selection-start-column="36" selection-end-line="156" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="30" lean-forward="false" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="454" column="52" lean-forward="false" selection-start-line="454" selection-start-column="52" selection-end-line="454" selection-end-column="52" />
-          <folding />
+          <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/exception/MyAccessDeniedHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="466">
+          <caret line="117" column="35" lean-forward="false" selection-start-line="117" selection-start-column="35" selection-end-line="117" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        <state relative-caret-position="289">
+          <caret line="76" column="37" lean-forward="true" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="221" column="55" lean-forward="false" selection-start-line="221" selection-start-column="55" selection-end-line="221" selection-end-column="55" />
           <folding>
-            <element signature="e#2797#2798#0" expanded="true" />
-            <element signature="e#2860#2861#0" expanded="true" />
-            <element signature="e#2916#2917#0" expanded="true" />
-            <element signature="e#2984#2985#0" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#4;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#4;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#5;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#5;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="1216" column="57" lean-forward="false" selection-start-line="1216" selection-start-column="57" selection-end-line="1216" selection-end-column="57" />
+          <folding>
+            <marker date="1500237521924" expanded="true" signature="5725:5768" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="8390:8433" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="11520:11531" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="11550:11561" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="18185:18196" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="21528:21539" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="21558:21569" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="36011:36022" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="36041:36052" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="36127:36138" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="65838:65849" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="65868:65879" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="66282:66293" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="66312:66323" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="81345:81363" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="81455:81473" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="82272:82290" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="82380:82398" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="83191:83209" ph="..." />
+            <marker date="1500237521924" expanded="true" signature="83295:83313" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>AutomatizationProject:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>AutomatizationProject</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

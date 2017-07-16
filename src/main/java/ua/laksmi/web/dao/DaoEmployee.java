@@ -1,5 +1,6 @@
 package ua.laksmi.web.dao;
 
+import org.springframework.web.multipart.MultipartFile;
 import ua.laksmi.web.domain.tables.employee.Employee;
 
 import java.util.List;
@@ -14,4 +15,10 @@ public interface DaoEmployee {
     boolean deleteEmployee();
 
     Employee findByUsername(String userName);
+    boolean uploadUserImage(MultipartFile multipartFile, String user);
+
+    byte[] getAvatar(String userName);
+
+
+    boolean updateProfile(Employee employee);
 }

@@ -48,6 +48,91 @@
     <![endif]-->
 
 </head>
+<div class="modal modal-form fade" id="savedCommercial-modal"  role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel7">Saved Commercial Invoice</h4>
+            </div>
+            <div class="modal-body" id="savedCommercial-body">
+                <%--<form id="searchCommercial-form" data-parsley-validate class="form-horizontal form-label-left">--%>
+                    <%--<div class="form-group">--%>
+                        <%--<label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn3">Date range button:<span class="required">*</span>--%>
+                        <%--</label>--%>
+                        <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+                            <%--<button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right daterange-btn" id="daterange-btn3">--%>
+                                                    <%--<span>--%>
+                                                      <%--<i class="fa fa-calendar"></i> Date range picker--%>
+                                                    <%--</span>--%>
+                                <%--<i class="fa fa-caret-down"></i>--%>
+                            <%--</button>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group">--%>
+
+                        <%--<label class="control-label col-md-4 col-sm-4 col-xs-12" for="search-name-commercial">Invoice Name--%>
+                        <%--</label>--%>
+                        <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+                            <%--<input type="text" name="client" id="search-name-commercial"  class="form-control col-md-8 col-xs-12" autocomplete="off">--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</form>--%>
+            </div>
+            <%--<div class="modal-footer">--%>
+                <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+                <%--<button type="submit" class="btn btn-success" id="searchCommercialInvoice-submit">Search</button>--%>
+            <%--</div>--%>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal modal-form fade bs-example-modal-nm" id="searchCommercial-modal"  role="dialog" aria-hidden="true" style="display: none;">
+
+    <div class="modal-dialog modal-nm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel6">Search Commercial Invoices</h4>
+            </div>
+            <div class="modal-body">
+                <form id="searchCommercial-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn3">Date range button:<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right daterange-btn" id="daterange-btn3">
+                                                    <span>
+                                                      <i class="fa fa-calendar"></i> Date range picker
+                                                    </span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="search-name-commercial">Invoice Name
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="client" id="search-name-commercial"  class="form-control col-md-8 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="searchCommercialInvoice-submit">Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="modal modal-form fade bs-example-modal-nm" id="searchInvoicesFarm-modal"  role="dialog" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-nm">
         <div class="modal-content">
@@ -63,7 +148,7 @@
                         <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn">Date range button:<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn">
+                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right daterange-btn" id="daterange-btn">
                                                     <span>
                                                       <i class="fa fa-calendar"></i> Date range picker
                                                     </span>
@@ -104,7 +189,7 @@
                         <label class="control-label col-md-4 col-sm-4 col-xs-12" for="daterange-btn2">Date range button:<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right" id="daterange-btn2">
+                            <button type="button" class="form-control col-md-8 col-xs-12 btn btn-default pull-right daterange-btn" id="daterange-btn2">
                                                     <span>
                                                       <i class="fa fa-calendar"></i> Date range picker
                                                     </span>
@@ -117,6 +202,103 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-success" id="searchInvoicesShipment-submit">Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal modal-form fade bs-example-modal-nm" id="deleteEmployee-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-nm">
+        <div class="modal-content">
+            <input id="user-employee-delete" style="display: none">
+
+            </input>
+            <input id="pos-employee-delete" style="display: none">
+
+            </input>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Delete Employee</h4>
+            </div>
+            <div class="modal-body">
+                <form id="deleteEmployee-form" data-parsley-validate class="form-horizontal form-label-left">
+                    Are you sure delete this Employee?
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="deleteEmployee-submit">Confirm</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal modal-form fade bs-example-modal-nm" id="editEmployee-modal"  role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-nm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="editEmployeeLabel">Edit Employee</h4>
+            </div>
+            <input id="edit-employee-pos" style="display: none">
+            <div class="modal-body">
+                <form id="editEmployee-form" data-parsley-validate class="form-horizontal form-label-left">
+
+                    <input id="edit-employee-login" style="display: none">
+                    <%--<div class="form-group">--%>
+                        <%--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Login<span class="required">*</span>--%>
+                        <%--</label>--%>
+                        <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+                            <%--<input type="text" id="edit-employee-name" name="username" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group">--%>
+
+                        <%--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-password">Password<span class="required">*</span>--%>
+                        <%--</label>--%>
+                        <%--<div class="col-md-6 col-sm-6 col-xs-12">--%>
+                            <%--<input type="password" id="edit-employee-password" name="password" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit-employee-firstname">First Name<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="edit-employee-firstname" name="firstname" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit-employee-lastname">Last Name<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="edit-employee-lastname" name="lastname" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edit-employee-position">Position<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="edit-employee-position" name="position" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="edit-employee-role">Role<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control col-md-7 col-xs-12" name="role" id="edit-employee-role">
+                                <option value="ROLE_ADMIN">ADMIN</option>
+                                <option value="ROLE_USER">USER</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success" id="editEmployee-submit">Change</button>
             </div>
 
         </div>
@@ -137,7 +319,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Login<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="employee-name" name="userName" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                            <input type="text" id="employee-name" name="username" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
@@ -146,6 +328,27 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="password" id="employee-password" name="password" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-firstname">First Name<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="employee-firstname" name="firstname" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-lastname">Last Name<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="employee-lastname" name="lastname" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-position">Position<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="employee-position" name="position" required="required" class="form-control col-md-7 col-xs-12" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group">
@@ -192,16 +395,16 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="resources/images/serg2.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Sergey Dobrokhotov</span>
+                            <img src="/admin/getAvatar/${login}"  onerror="this.src='/resources/images/admin.png'" class="user-image" alt="User Image">
+                            <span class="hidden-xs">${firstname} ${lastname}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="resources/images/serg2.png" class="img-circle" alt="User Image">
+                                <img src="/admin/getAvatar/${login}"  onerror="this.src='/resources/images/admin.png'" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Sergey Dobrokhotov - Web Developer
+                                    ${firstname} ${lastname} - ${position}
 
                                 </p>
                             </li>
@@ -232,10 +435,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="resources/images/serg2.png" class="img-circle" alt="User Image">
+                    <img src="/admin/getAvatar/${login}"  onerror="this.src='/resources/images/admin.png'" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Sergey Dobrokhotov</p>
+                    <p>${firstname} ${lastname}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -270,7 +473,7 @@
                     <ul class="treeview-menu">
                         <li><a style=" cursor: pointer;" onclick="getInvoiceFromFarm();"><i class="fa fa-circle-o text-red"></i>from farm</a></li>
                         <li><a style=" cursor: pointer;" onclick="getInvoiceShipment();"><i class="fa fa-circle-o text-red"></i>for shipment</a></li>
-                        <li><a style=" cursor: pointer;"><i class="fa fa-circle-o text-red"></i>commercial</a></li>
+                        <li><a style=" cursor: pointer;" onclick="getCommercialInvoice();"><i class="fa fa-circle-o text-red"></i>commercial</a></li>
 
                     </ul>
                 </li>
@@ -702,6 +905,9 @@
                     </div>
                 </div>
             </div>
+
+
+
             <div class="modal modal-form fade bs-example-modal-nm" id="addProduction-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-nm">
                     <div class="modal-content">
@@ -857,124 +1063,90 @@
 
             <br/>
         </div>
-        <section class="content" id="profileDiv" style="display: none">
+        <div class="modal modal-form fade bs-example-modal-nm" id="update-profile-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-nm">
+                <div class="modal-content">
 
-            <div class="row">
-                <div class="col-md-3">
-
-                    <!-- Profile Image -->
-                    <div class="box box-primary">
-                        <div class="box-body box-profile">
-                            <img class="img-responsive" src="resources/images/serg2.png" alt="User profile picture">
-                            <h3 class="profile-username text-center"></h3>
-                            <p class="text-muted text-center" profile-username-position></p>
-                        </div>
-                        <!-- /.box-body -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" class="place-progress" id="update-profile">Update Profile</h4>
                     </div>
-                    <!-- /.box -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
 
-                    <!-- About Me Box -->
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">About Me</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+                                <!-- Profile Image -->
+                                <div class="box box-primary">
+                                    <div class="box-body box-profile">
+                                        <img class="img-responsive" id="preload-profile" src="/admin/getAvatar/${login}"  onerror="this.src='/resources/images/admin.png'" alt="User profile picture">
 
-                            <p class="text-muted  profile-username-education">
-
-                            </p>
-
-                            <hr>
-
-                            <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-
-                            <p class="text-muted  profile-username-location"></p>
-
-                            <hr>
-
-                            <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-
-                            <p class="profile-username-skills">
-
-                            </p>
-
-
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!-- /.col -->
-                <div class="col-md-9">
-                    <div class="box box-primary" id="profile" class="x_panel">
-                        <div class="box-header">
-                            <i class="fa fa-user"></i>
-                            <h3 class="box-title">Profile</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="x_content">
-                                <form id="addFarm-for1m" data-parsley-validate class="form-horizontal form-label-left">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="profile-name">Name
-                                        </label>
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <input type="text" id="profile-name" name="profileName" class="form-control" autocomplete="off">
-                                        </div>
+                                        <h3 class="profile-username text-center"></h3>
+                                        <p class="text-muted text-center" profile-username-position></p>
                                     </div>
-                                    <p>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Last Name
-                                        </label>
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <input type="text" id="profile-lastName" name="profileLastName" class="form-control" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <p>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Position
-                                        </label>
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <input type="text" id="profile-position" name="profileLastName" class="form-control" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <p>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Gender
-                                        </label>
+                                    <input type="file"  name="file" id="fileLoader"  value="browse" onchange="readURL(this);" />
+                                    <input type="button" id="fileSubmit" value="change image"/>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-9">
+                                <div class="box box-primary" id="profile" class="x_panel">
+                                    <div class="box-header">
+                                        <i class="fa fa-user"></i>
+                                        <h3 class="box-title">Profile</h3>
 
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <select id="profile-gender" name="profileLastName" class="form-control">
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                            </select>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="x_content">
+                                            <form id="update-profile-form" data-parsley-validate class="form-horizontal form-label-left">
+                                                <%--<input id="update-profile-login" style="display: none" value="${login}">--%>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="profile-name">Name
+                                                    </label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" id="profile-name" name="firstname" value ="${firstname}"name="profileName" class="form-control" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Last Name
+                                                    </label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" id="profile-lastName" name="lastname" value ="${lastname}" name="profileLastName" class="form-control" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="employee-name">Position
+                                                    </label>
+                                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                                        <input type="text" id="profile-position" name="position" value ="${position}" name="profileLastName" class="form-control" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <p>
+
+                                            </form>
 
                                         </div>
                                     </div>
-                                </form>
-                                <%--<form method="POST" action="uploadUserImage?${_csrf.parameterName}=${_csrf.token}" enctype="multipart/form-data">--%>
-                                    <%--File to upload: <input type="file" name="file">--%>
-
-                                    <%--Name: <input type="text" name="name">--%>
-
-
-                                    <%--<input type="submit" value="Upload"> Press here to upload the file!--%>
-                                <%--</form>--%>
-                                <input type="file" name="file" id="fileLoader" />
-                                <input type="button" id="fileSubmit" value="Upload"/>
-
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.nav-tabs-custom -->
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="update-profile-submit">Submit</button>
+                    </div>
 
-        </section>
+                </div>
+            </div>
+        </div>
+
+        <%--<section class="content" id="profileDiv" style="display: none">--%>
+
+            <%----%>
+        <%--</section>--%>
 
         <section class="content" id="graphics-content" style="display: none">
             <div class="row">
@@ -1032,6 +1204,9 @@
                                     <tr>
                                         <th>id</th>
                                         <th>login</th>
+                                        <th>first name</th>
+                                        <th>last name</th>
+                                        <th>position</th>
                                         <th>role</th>
                                         <th>status</th>
                                         <th>edit</th>
@@ -1129,7 +1304,46 @@
 
                     </div>
                 </div>
+                <div class="box box-primary" id="invoiceCommercialDiv" class="x_panel" style="display: none">
+                    <div class="box-header">
+                        <i class="ion ion-clipboard"></i>
+                        <h3 class="box-title">Commercial Invoices</h3>
 
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+
+
+                        <div class="x_content">
+
+
+                            <div class="table-responsive">
+
+                                <table id="invoiceCommerce-table" class="table table-hover table-striped table-responsive jambo_table bulk_action table-bordered">
+                                    <thead>
+                                    <tr>
+
+                                        <th style="width: 5%"></th>
+
+                                        <th style="width: 5%">id</th>
+                                        <th style="width: 5%">name</th>
+                                        <th style="width: 5%">date</th>
+                                        <th style="width: 5%">terms net</th>
+                                        <th style="width: 5%">agent</th>
+                                        <th style="width: 5%">mod of transport</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
                 <div class="box box-primary" id="farmTableDiv" class="x_panel" style="display: none">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
@@ -1211,68 +1425,144 @@
     <div class="row">
         <div class="col-xs-12">
             <h2 class="page-header">
-                <i class="fa fa-globe"></i> Shipment Invoice
-                <small class="pull-right">Date: <span class="tab-shipment-date"></span></small>
+               <i class="fa fa-globe"></i> Commercial Invoice
+                <a type="button" id="generate-commercial" onClick="a_onClick()" href="#" class="btn btn-primary pull-right" style="margin-right: 5px;">
+                <i class="fa fa-file-excel-o"></i> generate Commercial
+                </a>
+                    <%--<small class="pull-right">Date: <span class="tab-shipment-date"></span></small>--%>
             </h2>
         </div>
         <!-- /.col -->
     </div>
     <!-- info row -->
     <div class="row invoice-info">
-        <div class="col-sm-4 invoice-col">
-            From
-            <address>
-                <div class="form-group">
-                    <strong>
-                        <input type="text" name="invoice-from" class="form-control col-md-8 col-xs-12" autocomplete="off">
-                    </strong>
-                </div>
+        <div class="col-sm-6 invoice-col">
 
-            </address>
+            <table id="consigne" class="table table-striped">
+                <thead>
+                <tr>
+                <th>Consigne:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                </tbody>
+
+            </table>
         </div>
         <!-- /.col -->
-        <div class="col-sm-4 invoice-col">
-            To
-            <address>
-                <div class="form-group">
-                    <strong>
-                        <input type="text" name="invoice-to" class="form-control col-md-8 col-xs-12" autocomplete="off">
-                    </strong>
-                </div>
-           </address>
-        </div>
-        <!-- /.col -->
-        <div class="col-sm-4 invoice-col">
-            <b>Invoice <span class="tab-shipment-invoice"></span></b>
-            <address>
+        <div class="col-sm-6">
+            <div class="table-responsive">
 
-            <div class="form-group">
-                <strong>
-                    <input type="text" name="invoice-order" class="form-control col-md-8 col-xs-12" autocomplete="off">
-                </strong>
+                <table id="commercial-tableH1" class="table table-striped">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <th>Date:</th>
+                        <td><input class="form-control col-md-8 col-xs-12 tab-shipment-date"></td>
+                    </tr>
+                    <tr>
+                        <th>COMMERCIAL INVOICE NO.:</th>
+                        <td><input class="form-control col-md-8 col-xs-12 tab-shipment-invoice"></td>
+                    </tr>
+                    <tr>
+                        <th>TERMS NET</th>
+                        <td><input class="form-control col-md-8 col-xs-12"></td>
+                    </tr>
+                    <tr>
+                        <th>AGENT</th>
+                        <td><input class="form-control col-md-8 col-xs-12"></td>
+                    </tr>
+                    <tr>
+                        <th>MOD OF TRANSPORT</th>
+                        <td><input class="form-control col-md-8 col-xs-12"></td>
+                    </tr>
+                    </tbody>
+
+                </table>
             </div>
-            </address>
+            <div class="table-responsive">
+            <table id="commercial-tableH2" class="table table-striped">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <th>FLT NO.:</th>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <th>MAWB:</th>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                <tr>
+                    <th>AWB:</th>
+                    <td><input class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <th>Commision per Stem:</th>
+                    <td><input id="commisionPerStem" class="form-control col-md-8 col-xs-12"></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+
+
         </div>
         <!-- /.col -->
     </div>
     <!-- /.row -->
 <br>
     <!-- Table row -->
+
     <div class="row">
         <div class="col-xs-12 table-responsive">
             <table class="table table-striped tab-shipment-invoice-table">
                 <thead>
                 <tr>
-                    <th>id Shipment</th>
-                    <th>id Product</th>
-                    <th>Farm Name</th>
-                    <th>box</th>
-                    <th>Client Name</th>
-                    <th>Number Stem in Box</th>
-                    <th>price for stem</th>
-                    <th>price for box</th>
-                    <th>price cross</th>
-                    <th>price with box cross</th>
+                    <th data-override="variety">variety</th>
+                    <th data-override="countBox">boxes</th>
+                    <th data-override="count">stems</th>
+                    <th data-override="total">total</th>
+                    <th data-override="totalCross">total Cross</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -1280,50 +1570,7 @@
                 </tbody>
             </table>
         </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
-
-    <div class="row">
-
-        <!-- /.col -->
-        <div class="col-xs-6">
-            <p class="lead">Amount Due 2/22/2014</p>
-
-            <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <th style="width:50%">Subtotal:</th>
-                        <td>$250.30</td>
-                    </tr>
-                    <tr>
-                        <th>Tax (9.3%)</th>
-                        <td>$10.34</td>
-                    </tr>
-                    <tr>
-                        <th>Shipping:</th>
-                        <td>$5.80</td>
-                    </tr>
-                    <tr>
-                        <th>Total:</th>
-                        <td>$265.24</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
-
-    <!-- this row will not appear when printing -->
-    <div class="row no-print">
-        <div class="col-xs-12">
-            <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-            <button type="button" id="pdf-maker1" onclick="createInvoicePdf();" class="btn btn-primary pull-right" style="margin-right: 5px;">
-                <i class="fa fa-download"></i> Generate PDF
-            </button>
-        </div>
-    </div>
+     </div>
 
 </div>
 <!-- ./wrapper -->
@@ -1403,6 +1650,7 @@
 <script src="resources/js/pdf/standard_fonts_metrics.js"></script>
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>--%>
 <script src="resources/js/functions.js"></script>
+<script src="resources/js/FileSaver.js"></script>
 <script src="resources/js/project.js"></script>
 <script src="resources/js/dataTables.cellEdit.js"></script>
 <script src="resources/js/sum().js"></script>
@@ -1411,7 +1659,19 @@
 
 <%--<script src="resources/adminLTE/plugins/chartjs/dist/Chart.js"></script>--%>
 <%--<script src="resources/vendors/select2/dist/js/select2.js"></script>--%>
+<script>function readURL(input){
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            $('#preload-profile')
+                .attr('src', e.target.result);
+
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}</script>
 <style type="text/css">
     .blockDiv {
         position: absolute;

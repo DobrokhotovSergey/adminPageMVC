@@ -1,15 +1,23 @@
 package ua.laksmi.web.controller;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ua.laksmi.web.domain.searchingForm.InvoiceCommerceSearch;
 import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.export.CommercialFile;
+import ua.laksmi.web.domain.tables.export.ExportCommercial;
+import ua.laksmi.web.domain.tables.invoices.CommerceInvoice;
 import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
 import ua.laksmi.web.domain.tables.invoices.InvoiceShipment;
 import ua.laksmi.web.domain.tables.production.Production;
@@ -17,6 +25,12 @@ import ua.laksmi.web.domain.tables.production.ProductionInvFarm;
 import ua.laksmi.web.domain.tables.production.ProductionShipment;
 import ua.laksmi.web.service.ServiceCRUD;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -37,6 +51,14 @@ public class CrudController {
     }
     //getInvoiceShipment
     @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/getCommercialInvoice", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<CommerceInvoice> getCommercialInvoice(@RequestParam int id){
+        List<CommerceInvoice> list = serviceCRUD.getListCommercialIvoice(id);
+        return list;
+    }
+
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/getInvoiceProductionShipment", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<ProductionShipment> getInvoiceProductionShipment(@RequestParam int id){
@@ -50,6 +72,35 @@ public class CrudController {
         List<ProductionInvFarm> list = serviceCRUD.getListInvoiceFarmProduction(id);
         return list;
     }
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/downloadSavedCommercial", method =  RequestMethod.POST)
+    @ResponseBody
+    public CommercialFile downloadCommercialExcel(HttpServletResponse response, @RequestParam int id){
+        System.out.println(id);
+        ExportCommercial exportCommercial = serviceCRUD.getExporCommercial(id);
+        System.out.println(exportCommercial);
+        CommercialFile commercialFile = serviceCRUD.getCommercialFile(exportCommercial);
+        System.out.println(commercialFile);
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+
+        response.setHeader("Content-disposition", "attachment; filename=" + commercialFile.getFileName());
+    return commercialFile;
+    }
+
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/generateCommercialExcel", method =  RequestMethod.POST)
+    @ResponseBody
+    public CommercialFile generateCommercialExcel(HttpServletResponse response, @RequestBody ExportCommercial exportCommercial){
+        CommercialFile commercialFile = serviceCRUD.getCommercialFile(exportCommercial);
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        response.setHeader("Content-disposition", "attachment; filename=" + commercialFile.getFileName());
+        boolean isSaveDB = serviceCRUD.saveCommercialInvoice(exportCommercial);
+        System.out.println(isSaveDB);
+        return commercialFile;
+       // return serviceCRUD.createInvoiceShipment(invoiceShipment);
+    }
+
+
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/createInvoiceShipment", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -88,6 +139,7 @@ public class CrudController {
     public Production editProduction(@RequestBody Production production){
         return serviceCRUD.editProduction(production);
     }
+
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/deleteProduct", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -108,7 +160,12 @@ public class CrudController {
     public List<InvoiceFarm> getListInvoicesFarm(@RequestBody InvoiceSearch invoiceFarmSearch){
         return serviceCRUD.getListInvoicesFarm(invoiceFarmSearch);
     }
-
+    @Secured({"ROLE_ADMIN"})
+    @RequestMapping(value = "/admin/getListCommercial", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<ExportCommercial> getListCommercial(@RequestBody InvoiceCommerceSearch invoiceCommerceSearch){
+        return serviceCRUD.getListCommercial(invoiceCommerceSearch);
+    }
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/getListFarm", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -155,21 +212,5 @@ public class CrudController {
         return model;
 
     }
-    @RequestMapping(value = "/admin/uploadUserImage",headers = "content-type=multipart/*",  method = RequestMethod.POST)
-    public @ResponseBody
-    void uploadFileHandler(@RequestParam("file") MultipartFile multipartFile) {
 
-        System.out.println(multipartFile);
-    }
-
-//    @RequestMapping(value = "/admin/uploadUserImage", method = RequestMethod.POST)
-//    public String handleFileUpload(@RequestParam("file") MultipartFile file,
-//                                   RedirectAttributes redirectAttributes) {
-//        System.out.println(file);
-//        //storageService.store(file);
-//        redirectAttributes.addFlashAttribute("message",
-//                "You successfully uploaded " + file.getOriginalFilename() + "!");
-//
-//        return "redirect:/";
-//    }
 }

@@ -1,5 +1,6 @@
 package ua.laksmi.web.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import ua.laksmi.web.domain.tables.employee.Employee;
 
 import java.util.List;
@@ -13,4 +14,9 @@ public interface ServiceEmployee {
     Employee editEmployee(Employee employee);
     boolean deleteEmployee();
     Employee findByUsername(String userName);
+    boolean uploadUserImage(MultipartFile multipartFile, String user);
+
+    byte[] getAvatar(String userName);
+
+    boolean updateProfile(Employee employee);
 }

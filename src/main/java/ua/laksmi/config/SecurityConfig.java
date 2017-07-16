@@ -1,6 +1,7 @@
 package ua.laksmi.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +11,11 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+import ua.laksmi.config.core.BCrypPasswordEncoder;
 
 /**
  * Created by Dobriks on 9.03.2017.
@@ -22,6 +26,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @ComponentScan({ "ua.laksmi.*" })
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	@Autowired
+	private BCrypPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -37,24 +43,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.exceptionHandling().accessDeniedPage("/403")
 			.and()
-				.csrf();
+				.csrf()
+		.and()
+		.headers().frameOptions().disable();
 		
 	}
 	@Autowired
 	DriverManagerDataSource getDriverManagerDatasource;
 	@Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth)
-			throws Exception {
-
-		auth.jdbcAuthentication().dataSource(getDriverManagerDatasource)
-				.passwordEncoder(passwordEncoder())
-				.usersByUsernameQuery("select username,password, enabled from users where username=?")
-				.authoritiesByUsernameQuery("select username, role from user_roles where username=?");
+	private UserDetailsService userDetailsService;
+	@Autowired
+	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder.passwordEncoder());
 	}
 
-	@Bean
-	public PasswordEncoder passwordEncoder(){
-		PasswordEncoder encoder = new BCryptPasswordEncoder();
-		return encoder;
-	}
 }

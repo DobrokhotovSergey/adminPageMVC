@@ -1,7 +1,11 @@
 package ua.laksmi.web.dao;
 
+import org.springframework.web.multipart.MultipartFile;
+import ua.laksmi.web.domain.searchingForm.InvoiceCommerceSearch;
 import ua.laksmi.web.domain.searchingForm.InvoiceSearch;
 import ua.laksmi.web.domain.tables.Farm;
+import ua.laksmi.web.domain.tables.export.ExportCommercial;
+import ua.laksmi.web.domain.tables.invoices.CommerceInvoice;
 import ua.laksmi.web.domain.tables.invoices.InvoiceFarm;
 import ua.laksmi.web.domain.tables.invoices.InvoiceShipment;
 import ua.laksmi.web.domain.tables.production.Production;
@@ -36,4 +40,13 @@ public interface DaoCRUD {
     List<InvoiceShipment> getListInvoicesShipment(InvoiceSearch invoiceSearch);
 
     List<ProductionShipment> getListInvoiceProductionShipment(int id);
+    byte[] exportCommercial(ExportCommercial exportCommercial);
+    List<CommerceInvoice> getListCommercialIvoice(int id);
+    boolean saveCommercialInvoice(final ExportCommercial exportCommercial);
+
+    List<ExportCommercial> getListCommercial(InvoiceCommerceSearch invoiceCommerceSearch);
+
+    ExportCommercial getExporCommercial(int id);
+
+
 }

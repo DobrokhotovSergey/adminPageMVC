@@ -3,6 +3,8 @@ package ua.laksmi.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import ua.laksmi.web.dao.*;
 
 import java.net.URI;
@@ -67,14 +69,16 @@ public class DataBaseConfig {
 
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
-//        String dbUrl = "jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/d9s122lkd6dc5c?sslmode=require";
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+        String dbUrl = "jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/d9s122lkd6dc5c?sslmode=require";
+
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         try {
             dataSource.setUrl(dbUrl);
-            dataSource.setUsername("yefzqnfdvaghvd");
-            dataSource.setPassword("3fc956464fdc3567b06c26160334e92fd16f90df302849bd596548717d4dd865");
+            dataSource.setUsername(username);
+            dataSource.setPassword(password);
+//            dataSource.setUsername("yefzqnfdvaghvd");
+//            dataSource.setPassword("3fc956464fdc3567b06c26160334e92fd16f90df302849bd596548717d4dd865");
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -82,6 +86,7 @@ public class DataBaseConfig {
 
         return dataSource;
     }
+
     @Bean("daoEmployee")
 	public DaoEmployee getDaoRoles() {
 		return new DaoEmployeeImpl(getDriverManagerDatasource());

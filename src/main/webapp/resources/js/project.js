@@ -30,7 +30,7 @@ var header = $("meta[name='_csrf_header']").attr("content");
 //
 //     return repo;
 // }
-// $(document).ready(function(){
+
 //
 //     $("#client-name").select2({
 //         dropdownParent: $("#searchInvoicesFarm-modal"),
@@ -220,7 +220,24 @@ $(".nav-header li a").click(function(e){
 
 
 
+var invoiceCommerce = $('#invoiceCommerce-table').DataTable({
+    autoWidth: false,
+    order: [[ 1, 'asc' ]],
+    columnDefs: [ {
+        orderable: false,
+        targets  : 'no-sort',
+        targets:   [0],
+    },{
+        orderable: false,
+        targets  : 'no-sort',
+        //className: 'select-checkbox',
+        targets:   [1],
+        visible: false,
 
+        //  class:"details-control"
+    }
+    ],
+});
 
 var invoiceShipmentTable = $('#invoiceShipment-table').DataTable({
     autoWidth: false,
@@ -370,6 +387,7 @@ function ajaxInvoicesShipment(start, end){
     $('#invoiceFarmDiv').hide();
     $('#farmTableDiv').hide();
     $('#employeeDiv').hide();
+    $('#invoiceCommercialDiv').hide();
     $.ajax({
         type: "post",
         url: "getListInvoicesShipment",
@@ -409,10 +427,90 @@ function ajaxInvoicesShipment(start, end){
         }
     });
 }
-function ajaxInvoiceFromFarm(start,end,client){
+$('#invoiceCommerce-table tbody').on( 'click', 'td', function () {
+
+   var id =  invoiceCommerce.row( this ).data()[1];
+    $.ajax({
+        type: "post",
+        url: "downloadSavedCommercial",
+       // contentType: "application/json; charset=utf-8",
+        data:{id:id},
+        success: function(data1){
+            var data = data1.bytes;
+            var binary = atob(data);
+            var array = new Uint8Array(binary.length)
+            for( var i = 0; i < binary.length; i++ ) { array[i] = binary.charCodeAt(i) }
+
+            var blob = new Blob([array], {type: 'application/octet-stream'});
+            var link=document.createElement('a');
+            link.href=window.URL.createObjectURL(blob);
+            link.download=data1.fileName;
+            link.click();
+
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but Commercial Invoice Excel file is not created :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+} );
+function ajaxInvoiceCommercial(start,end,name){
+    $('#invoiceFarmDiv').hide();
     $('#farmTableDiv').hide();
-    $('#invoiceShipmentDiv').hide();
     $('#employeeDiv').hide();
+
+    $.ajax({
+        type: "post",
+        url: "getListCommercial",
+        dataType: 'json',
+        mimeType: 'application/json',
+        contentType: "application/json; charset=utf-8",
+        data:JSON.stringify({start:start, end:end, name: name==0?'':name}),
+        success: function (data) {
+            console.log(JSON.stringify(data));
+            invoiceCommerce.clear().draw();
+            $('#invoiceCommercialDiv').show();
+
+            var rows = [];
+            data.forEach(function(item, i, arr) {
+                //<i class="fa fa-file-excel-o" style="color:green"></i>
+                rows[i] = ['<a class="btn btn-social-icon btn-download-xls"><i class="fa fa-file-excel-o" style="color:green"></i></a>',item.id, item.tableH1.nameInvoice, item.tableH1.date,item.tableH1.termNet, item.tableH1.agent,item.tableH1.modOfTransport]
+            });
+            invoiceCommerce.rows.add(rows).draw();
+
+
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        complete: function () {
+            NProgress.done();
+            unblock_screen();
+        },
+        error: function (xhr, status, error) {
+            notifyAfterAjax('error','Sorry, but not retrieve list of Commercial Invoices  :(');
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
+function ajaxInvoiceFromFarm(start,end,client){
+    $('#invoiceShipmentDiv').hide();
+    $('#farmTableDiv').hide();
+    $('#employeeDiv').hide();
+    $('#invoiceCommercialDiv').hide();
     $.ajax({
         type: "post",
         url: "getListInvoicesFarm",
@@ -479,6 +577,20 @@ $('#addEmployee-submit').on('click', function(){
         }
     });
 });
+var tableEmployee = $('#employee-table').DataTable({
+    destroy: true,
+    dom: '<lBf<t>ip>',
+    // "ordering": false,
+    buttons: [
+        {
+            className: "btn btn-success",
+            text: '<i class="fa fa-plus" style="color:white"></i><span style="color:white"> Add employee</span>',
+            action: function () {
+                $('#addEmployee-modal').modal('show');
+                // shipmentInvoicesModal(ids);
+
+            }}]
+});
 function ajaxUsers(){
     $.ajax({
         type: "post",
@@ -489,25 +601,13 @@ function ajaxUsers(){
             console.log(data);
             $('#employeeDiv').show();
 
-            var tableEmployee = $('#employee-table').DataTable({
-                destroy: true,
-                dom: '<lBf<t>ip>',
-                buttons: [
-                    {
-                        className: "btn btn-success",
-                        text: '<i class="fa fa-plus" style="color:white"></i><span style="color:white"> Add employee</span>',
-                        action: function () {
-                            $('#addEmployee-modal').modal('show');
-                           // shipmentInvoicesModal(ids);
 
-                        }}]
-            });
             tableEmployee.clear().draw();
             var rows = [];
             data.forEach(function(item, i, arr) {
-                rows[i] = [item.id,item.userName, item.role, item.status,
-                    '<a class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
-                    '<a class="btn btn-danger btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']
+                rows[i] = [item.id,item.username,item.firstname, item.lastname,item.position, item.role, item.status,
+                    '<a class="btn btn-info edit-employee btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
+                    '<a class="btn btn-danger delete-employee  btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']
             });
             tableEmployee.rows.add(rows).draw();
         },
@@ -847,7 +947,8 @@ function beforeSend(){
 
 var farmTable = $('#farmTable').DataTable({
     autoWidth: false,
-    order: [[ 1, 'asc' ]],
+    // order: [[ 1, 'asc' ]],
+    "ordering": false,
     columnDefs: [ {
         orderable: false,
         targets  : 'no-sort',
@@ -872,40 +973,109 @@ var farmTable = $('#farmTable').DataTable({
                 //   alert( 'farm add' );
             }
         },
-        // {
-        //     text: '<i class="fa fa-file-excel-o" style="color:green"></i> excel',
-        //     extend: 'excelHtml5',
-        //     exportOptions: {
-        //         columns: [ 1, 2 ]
-        //     }
-        // },
-        // 'csvHtml5',
-        // {
-        //     text: '<i class="fa fa-file-pdf-o" style="color:red"></i> pdf',
-        //     extend: 'pdfHtml5',
-        //     exportOptions: {
-        //         columns: [ 1, 2 ]
-        //     }
-        // },
-        // {
-        //     text: '<i class="fa fa-print" style="color:blue"></i> Print',
-        //     extend: 'print',
-        // },
+
 
     ]
 } );
-function createInvoicePdf(){
-    kendo.drawing.drawDOM($("#tab-content")).then(function(group) {
-        kendo.drawing.pdf.saveAs(group, "Converted PDF.pdf");
-    });
-}
-// $('#pdf-maker1').on('click', function () {
-//     console.log('pdf make');
-//
-// });
-// var docDefinition = { content: $('#tab-content').html() };
-// pdfMake.createPdf(docDefinition).download();
 
+
+function button_onClick() {
+    $('#generate-commercial').click();
+}
+function a_onClick() {
+    generateCommercial();
+}
+
+function generateCommercial(){
+    // console.log('generate commercial');
+    var consigneRows = $('table#consigne').find('tbody').find('tr');
+    var consigneArr = [];
+    for (var i = 0; i < consigneRows.length; i++) {
+        var MyIndexValue = $(consigneRows[i]).find('td:eq(0) input').val();
+        if(MyIndexValue!=''){
+           consigneArr.push(MyIndexValue);
+        }
+    }
+
+    var tableCommerceInvoice = $('.tab-shipment-invoice-table');
+    console.log(tableCommerceInvoice);
+
+    var tableH1Rows = $('table#commercial-tableH1').find('tbody').find('tr');
+
+    var date = $(tableH1Rows[0]).find('td:eq(0) input').val();
+    var nameInvoice = $(tableH1Rows[1]).find('td:eq(0) input').val();
+    var termNet = $(tableH1Rows[2]).find('td:eq(0) input').val();
+    var agent = $(tableH1Rows[3]).find('td:eq(0) input').val();
+    var modOfTransport = $(tableH1Rows[4]).find('td:eq(0) input').val();
+    var tableH1 = {};
+    tableH1['date'] = date;
+    tableH1['nameInvoice'] = nameInvoice;
+    tableH1['termNet'] = termNet;
+    tableH1['agent'] = agent;
+    tableH1['modOfTransport'] = modOfTransport;
+
+    var tableH2Rows = $('table#commercial-tableH2').find('tbody').find('tr');
+    var fltNumber =  $(tableH2Rows[0]).find('td:eq(0) input').val();
+    var mawb =  $(tableH2Rows[1]).find('td:eq(0) input').val();
+    var awb =  $(tableH2Rows[2]).find('td:eq(0) input').val();
+
+
+
+    var tableH2 = {};
+    tableH2['fltNumber'] = fltNumber;
+    tableH2['mawb'] = mawb;
+    tableH2['awb'] = awb;
+    var commerceInvoice = $('.tab-shipment-invoice-table').tableToJSON();
+    console.log(JSON.stringify({
+        consigne:consigneArr,
+        tableH1:tableH1,
+        tableH2:tableH2,
+        commerceInvoice: commerceInvoice
+    }));
+    // alert($('#commisionPerStem').val());
+    $.ajax({
+        url: "generateCommercialExcel",
+        data:JSON.stringify({
+             consigne:consigneArr,
+             tableH1:tableH1,
+             tableH2:tableH2,
+             commerceInvoice: commerceInvoice,
+             commisionPerStem: $('#commisionPerStem').val()
+            }),
+        contentType: "application/json; charset=utf-8",
+        type: "post",
+
+        success: function(data1){
+            var data = data1.bytes;
+            var binary = atob(data);
+            var array = new Uint8Array(binary.length)
+            for( var i = 0; i < binary.length; i++ ) { array[i] = binary.charCodeAt(i) }
+
+            var blob = new Blob([array], {type: 'application/octet-stream'});
+            var link=document.createElement('a');
+            link.href=window.URL.createObjectURL(blob);
+            link.download=data1.fileName;
+            link.click();
+
+        },
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader(header, token);
+                beforeSend();
+            },
+            complete: function () {
+                NProgress.done();
+                unblock_screen();
+            },
+            error: function (xhr, status, error) {
+                notifyAfterAjax('error','Sorry, but Commercial Invoice Excel file is not created :(');
+                console.log(xhr);
+                console.log(status);
+                console.log(error);
+            }
+    });
+
+
+}
 
 
 $('#deleteProduct-submit').on('click', function(){
@@ -985,7 +1155,7 @@ $('#editFarm-submit').on('click', function(){
         id:$('#id-farm-edit').val(),
         farmName:$('#edit-farm-name').val(),
     };
-    var pos = $('#position-farm-edit').val();
+
     $('#editFarm-modal').modal('hide');
     $.ajax({
         type: "post",
@@ -997,7 +1167,7 @@ $('#editFarm-submit').on('click', function(){
         success: function (data) {
 
             notifyAfterAjax('success','Farm is edited!');
-
+            var pos = $('#position-farm-edit').text();
             farmTable.cell(farmTable.row(pos).node(), 2).data(data.farmName).draw();
         },
         beforeSend: function(xhr) {
@@ -1017,6 +1187,68 @@ $('#editFarm-submit').on('click', function(){
     });
 });
 
+$('#editEmployee-submit').on('click', function(){
+    var form = $('#editEmployee-form').serializeObject();
+    form['user'] = $('#edit-employee-login').val();
+
+    $('#editEmployee-modal').modal('hide');
+
+    $.ajax({
+        type: "post",
+        url: "editEmployee",
+        dataType: 'json',
+        data:JSON.stringify(form),
+        contentType: "application/json; charset=utf-8",
+        complete: function (item) {
+            if(item){
+                notifyAfterAjax('success','employee edited!');
+            }
+
+            NProgress.done();
+            unblock_screen();
+
+
+        },
+        success: function(item){
+            var pos = $('#edit-employee-pos').text();
+
+            tableEmployee.row(pos).data( [item.id,item.username,item.firstname, item.lastname,item.position, item.role, item.status,
+                '<a class="btn btn-info edit-employee btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
+                '<a class="btn btn-danger delete-employee btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']).draw();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        error: function () {
+            notifyAfterAjax('error','Sorry, but employee is not edited :(');
+        }
+    });
+});
+$('#employee-table tbody').on('click', 'tr td .edit-employee', function(){
+    $('#editEmployee-modal').modal('show');
+    var data = tableEmployee.row( $(this).parents('tr') ).data();
+    var position = tableEmployee.cell($(this).parents('td') ).index().row;
+
+
+
+    $('#edit-employee-pos').text(position);
+
+    $('#edit-employee-login').val(data[1]);
+    $('#edit-employee-firstname').val(data[2]);
+    $('#edit-employee-lastname').val(data[3]);
+    $('#edit-employee-position').val(data[4]);
+    $('#edit-employee-role').val(data[5]).change();
+});
+
+$('#employee-table tbody').on('click', 'tr td .delete-employee', function(){
+    $('#deleteEmployee-modal').modal('show');
+    var position = table.cell($(this).parents('td') ).index().row;
+    var data = farmTable.row( $(this).parents('tr') ).data();
+    $('#pos-employee-delete').text(position);
+    $('#user-employee-delete').text(data[1]);
+
+});
 $('#farmTable tbody ').on('click','tr td table tr td .deleteProduct', function(){
     //tr td .deleteProduct
     var table = $(this).closest('table').DataTable();
@@ -1042,7 +1274,7 @@ $('#farmTable tbody ').on('click','tr td table tr td .editProduct', function(){
     var data = table.row( $(this).parents('tr') ).data();
     var position = table.cell($(this).parents('td') ).index().row;
     // alert(position);
-    $('#position-product-edit').val(position);
+    $('#position-product-edit').text(position);
     $('#id-product-edit').val(data[1]);
     $('#id-farmOfProduct-edit').val(data[2]);
     $('#product-variety-edit').val(data[3]);
@@ -1057,12 +1289,17 @@ $('#farmTable tbody ').on('click','tr td table tr td .editProduct', function(){
     $('#editProduct-modal').modal('show');
 });
 var files = [];
+
+
+
 $(document)
     .on(
         "change",
         "#fileLoader",
         function(event) {
             files=event.target.files;
+
+
         })
 
 $(document)
@@ -1072,7 +1309,32 @@ $(document)
         function() {
             processUpload();
         })
+$('#update-profile-submit').on('click', function(){
+    var form = $('#update-profile-form').serializeObject();
+    $('#update-profile-modal').modal('hide');
+    $.ajax({
+        type: "post",
+        url: "updateProfile",
+        dataType: 'json',
+        data:JSON.stringify(form),
+        contentType: "application/json; charset=utf-8",
+        complete: function (response) {
+          if(response){
+              notifyAfterAjax('success','profie updated!');
+          }
 
+            NProgress.done();
+            unblock_screen();
+        },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader(header, token);
+            beforeSend();
+        },
+        error: function () {
+            notifyAfterAjax('error','Sorry, but profile is not updated :(');
+        }
+    });
+});
 function processUpload()
 {
     var oMyForm = new FormData();
@@ -1088,25 +1350,30 @@ function processUpload()
             complete: function (response) {
                 NProgress.done();
                 unblock_screen();
-            },
-            success : function(result) {
+                NProgress.configure({ parent:"body"});
+             },
+            success: function(s,x){
 
             },
             beforeSend: function(xhr) {
+                NProgress.configure({ parent:"#update-profile"});
                 xhr.setRequestHeader(header, token);
                 beforeSend();
+
             },
             error : function(result){
+        console.log(result);
                 //...;
             }
         });
 }
 function getProfile(){
-    $('#profileDiv').show();
+    $('#update-profile-modal').modal('show');
 };
 $('#farmTable tbody  ').on( 'click', 'tr td .editFarm',  function (e) {
     var data = farmTable.row( $(this).parents('tr') ).data();
     var position = farmTable.cell($(this).parents('td') ).index().row;
+    $('#position-farm-edit').text(position);
     $('#editFarm-modal').modal('show');
     $('#edit-farm-name').val(data[2]);
     $('#id-farm-edit').val(data[1]);
@@ -1120,6 +1387,9 @@ $.urlParam = function(name){
     else{
         return results[1] || 0;
     }
+}
+function getCommercialInvoice(){
+    $('#searchCommercial-modal').modal('show');
 }
 function getInvoiceShipment(){
     $('#searchInvoicesShipment-modal').modal('show');
@@ -1151,6 +1421,15 @@ $('#searchInvoicesFarm-submit').on('click', function(){
 
     ajaxInvoiceFromFarm(start,end, client);
 });
+$('#searchCommercialInvoice-submit').on('click', function(){
+    $('#searchCommercial-modal').modal('hide');
+    var start = $('#invoiceCommercial-search-start').text();
+    var end = $('#invoiceCommercial-search-end').text();
+    var name = $('#search-name-commercial').val();
+    history.pushState(null, null, '/admin/getListCommercial?start='+start+'&end='+end+'&name='+name);
+
+   ajaxInvoiceCommercial(start,end, name);
+});
 if(window.location.pathname=='/admin/getListFarm'){
     ajaxFarm();
 }else if(window.location.pathname=='/admin/getGraphicsFarm'){
@@ -1164,7 +1443,15 @@ else if(window.location.pathname.indexOf('/admin/getListInvoicesFarm') == 0){
     var client = $.urlParam('client');
     ajaxInvoiceFromFarm(start, end, client);
 }
+else if(window.location.pathname.indexOf('/admin/getListCommercial') == 0){
+
+    var start = $.urlParam('start');
+    var end = $.urlParam('end');
+    var name = $.urlParam('name');
+    ajaxInvoiceCommercial(start, end, name);
+}
 else if(window.location.pathname.indexOf('/admin/getListInvoicesShipment') == 0){
+
     var start = $.urlParam('start');
     var end = $.urlParam('end');
     ajaxInvoicesShipment(start, end);
@@ -1210,7 +1497,7 @@ function closeTabs(index){
 function getTableShipment(id){
     $.ajax({
         type: "post",
-        url: "getInvoiceProductionShipment",
+        url: "getCommercialInvoice",
         dataType: 'json',
         data:{"id":id},
         mimeType: 'application/json',
@@ -1223,16 +1510,7 @@ function getTableShipment(id){
             var tableProduction = $('#tab'+id).find('.tab-shipment-invoice-table').DataTable({
                 order: [[ 1, 'asc' ]],
                 aoColumns: [
-                    {orderable: false,
-                        visible: false,
-                        searchable:false,
-                        targets:   [0]},
-                    {
-                        visible: false,
-                        targets: [1],
-                        searchable:false
-                    },
-                    {}, {}, {}, {}, {},{},{},{}],
+                      {}, {},{},{},{}],
                 "footerCallback": function (row, data, start, end, display) {
                     // var api = this.api();
                     // var USD_EUR = intVal($('#shipment-invoice-USD_EUR').text());
@@ -1259,7 +1537,7 @@ function getTableShipment(id){
             $.each(data, function (i, item) {
                 // console.log(item);
                 rows[i] = [
-                    item.idInvoiceFarm, item.idProduct,item.farmName,item.box, item.clientName,item.numberStemsInBox, item.priceForStem, item.priceForBox, item.priceCross,item.priceWithBoxCross
+                    item.variety, item.countBox,item.count,item.total, item.totalCross
                 ];
             });
             tableProduction.rows.add(rows).draw();
@@ -1296,8 +1574,8 @@ $('#invoiceShipment-table').on('click', 'td.show-invoice', function () {
             invoiceHtml.html()+
             '</div>'));
         // $('.shipment-date').html(date);
-        $('#tab'+id).find('.tab-shipment-invoice').html(invoiceName);
-        $('#tab'+id).find('.tab-shipment-date').html(date);
+        $('#tab'+id).find('.tab-shipment-invoice').val(invoiceName);
+        $('#tab'+id).find('.tab-shipment-date').val(date);
         $('#tab-list a[href="#tab'+id+'"]').tab('show');
         getTableShipment(id);
         tr.addClass('shownInv');
@@ -1669,7 +1947,7 @@ function init_parsley() {
             console.log(form);
             form['idProduct'] = $('#id-product-edit').val();
             form['idFarm'] = idFarm;
-            var pos = $('#position-product-edit').val();
+            var pos = $('#position-product-edit').text();
             $.ajax({
                 type: "post",
                 url: "editProduction",
@@ -1819,6 +2097,24 @@ function init_parsley() {
     } catch (err) {}
 
 };
+
+$('#daterange-btn3').daterangepicker(
+    {
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate: moment()
+    },
+    function (start, end) {
+        $('#daterange-btn3 span').html('from <span id="invoiceCommercial-search-start" style="font-weight: bold;">'+start.format('DD-MM-YYYY') + '</span> to <span id="invoiceCommercial-search-end" style="font-weight: bold;">' + end.format('DD-MM-YYYY')+'</span>');
+    }
+);
 $('#daterange-btn2').daterangepicker(
     {
         ranges: {

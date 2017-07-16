@@ -21,7 +21,7 @@ public class UserValidator implements Validator {
 
     public void validate(Object o, Errors errors) {
         Employee employee = (Employee) o;
-        if (serviceEmployee.findByUsername(employee.getUserName()) != null) {
+        if (serviceEmployee.findByUsername(employee.getUsername()) != null) {
             errors.rejectValue("userName", "Duplicate.userForm.userName");
         }
 
