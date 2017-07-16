@@ -2,112 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c252a53-379b-4188-85a3-e56a9be37194" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/CommercialExcel.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/AbstractSearch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceCommerceSearch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/CommercialFile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/ExportCommercial.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/TableH1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/export/TableH2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/invoices/CommerceInvoice.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/CommerceInvoiceRowMapperImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/InvoiceCommerceRowMapperImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/FileSaver.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/images/img.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/vendors/autosize/src/autosize.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/launch/Main.class" afterPath="$PROJECT_DIR$/target/classes/launch/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/AppConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/AppConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/DataBaseConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/SecurityConfig.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/SecurityConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/PasswordEncoderGenerator.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/PasswordEncoderGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringMvcInitializer.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringMvcInitializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringSecurityInitializer.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/config/core/SpringSecurityInitializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/CrudController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/EmployeeController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/EmployeeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/ExceptionController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/ExceptionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/GraphicsController.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/controller/GraphicsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUD.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUD.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$1.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$2.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$3.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$4.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$5.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$6.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCRUDImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCharts.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoCharts.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoChartsImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoChartsImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployee.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployeeImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/DaoEmployeeImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/Test.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/dao/Test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/AbstractChart.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/AbstractChart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/DonutChart.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/charts/DonutChart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/searchingForm/InvoiceSearch.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/searchingForm/InvoiceSearch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Farm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Farm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Prices.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/Prices.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/Employee.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/Employee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/EnumRole.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/employee/EnumRole.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/AbstractInvoice.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/AbstractInvoice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceFarm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceFarm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceShipment.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/invoices/InvoiceShipment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/Production.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/Production.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionInvFarm.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionInvFarm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionShipment.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/tables/production/ProductionShipment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/test/TestDB.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/domain/test/TestDB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/exception/MyAccessDeniedHandler.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/exception/MyAccessDeniedHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/AbstractProduction.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/AbstractProduction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/FarmRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/FarmRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/GraphicsFarmRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/GraphicsFarmRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmProductionRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmProductionRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceFarmRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentProductionRowMapper.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentProductionRowMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentRowMapper.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/InvoiceShipmentRowMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/ProductionRowMapperImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/jdbc/ProductionRowMapperImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUD.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUD.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUDImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCRUDImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCharts.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceCharts.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceChartsImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceChartsImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployee.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployeeImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/service/ServiceEmployeeImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/utils/Constants.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/utils/Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ua/laksmi/web/validator/UserValidator.class" afterPath="$PROJECT_DIR$/target/classes/ua/laksmi/web/validator/UserValidator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AutomatizationProject.iml" afterPath="$PROJECT_DIR$/AutomatizationProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/AppConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/DataBaseConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/config/SecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/CrudController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/controller/EmployeeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoCRUDImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/dao/DaoEmployeeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/searchingForm/InvoiceSearch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/domain/tables/employee/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/jdbc/EmployeeRowMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUD.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceCRUDImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/service/ServiceEmployeeImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/utils/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java" afterPath="$PROJECT_DIR$/src/main/java/ua/laksmi/web/validator/UserValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/project.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" afterPath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/org/apache/jsp/WEB_002dINF/pages/admin_jsp.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000001.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000002.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000003.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000004.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000005.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000006.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000008.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000009.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000010.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000011.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000012.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000014.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000015.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_13267fc7_3789_49fa_9e20_244e10a307e2_00000016.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_194cbd3e_f5c2_4c50_9ee0_642d8fb6076a_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_194cbd3e_f5c2_4c50_9ee0_642d8fb6076a_00000001.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_194cbd3e_f5c2_4c50_9ee0_642d8fb6076a_00000002.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_2fd54ae6_1f06_47a2_9792_7cd9167a2d38_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_2fd54ae6_1f06_47a2_9792_7cd9167a2d38_00000001.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_2fd54ae6_1f06_47a2_9792_7cd9167a2d38_00000002.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_2fd54ae6_1f06_47a2_9792_7cd9167a2d38_00000003.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_3176d2d1_fe83_46ae_ba4b_e3a37fe8f227_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_40d59016_22a5_43fd_bb86_c4f2347b05c3_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_48082498_9832_488b_a2e3_3590170e9772_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000001.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000002.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000003.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000004.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000005.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000006.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000007.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000008.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000009.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000010.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000011.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000012.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000013.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000015.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000016.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000017.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_5163ddf9_85e0_4cb1_9de2_80c63120b3a3_00000036.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_6699483f_05b9_4f99_9fc1_3a63399555c3_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_7b2849bd_2d35_455c_86c6_2b821f795426_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_c5f33042_ebcc_4d1d_9bbf_fdc18f56694f_00000001.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_c5f33042_ebcc_4d1d_9bbf_fdc18f56694f_00000003.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_c5f6c5b1_17ca_40ef_b06b_9834a127b691_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_d0348b5c_1a5d_48bd_aed3_542c320f02e5_00000000.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_d4778533_ff4d_4422_9b0f_01fb7d01eb0f_00000001.tmp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tomcat.8080/work/Tomcat/localhost/ROOT/upload_e9f5740f_e862_4c76_94fd_68793bd82217_00000000.tmp" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -442,6 +387,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomatizationProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tomcat.8080" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="work" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tomcat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="localhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ROOT" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1803,20 +1778,20 @@
       <workItem from="1500097910870" duration="8340000" />
       <workItem from="1500120749287" duration="32372000" />
       <workItem from="1500190791791" duration="22447000" />
-      <workItem from="1500227684560" duration="10097000" />
+      <workItem from="1500227684560" duration="10916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455400000" />
+    <option name="totallyTimeSpent" value="456219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1054" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32629356" sideWeight="0.10625" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09186906" sideWeight="0.10625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1833,10 +1808,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32629356" sideWeight="0.89375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09186906" sideWeight="0.89375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
