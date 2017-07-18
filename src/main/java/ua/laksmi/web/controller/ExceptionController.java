@@ -1,39 +1,33 @@
 package ua.laksmi.web.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 /**
  * Created by Dobriks on 23.04.2017.
  */
-@Controller
+@ControllerAdvice
 public class ExceptionController {
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(value = HttpStatus.CONFLICT)
+    public ModelAndView handleError405(HttpServletRequest request, Exception e)   {
+        ModelAndView model = new ModelAndView("redirect:/404");
+
+        return model;
+    }
+//    @ExceptionHandler(NoHandlerFoundException.class)
+//    @ResponseStatus(value = HttpStatus.CONFLICT)
+//    public String handle(Exception ex) {
+//        return "forward:404";
+//    }
+
     // for 403 access denied page
-    @RequestMapping(value = "/403", method = RequestMethod.GET)
-    public ModelAndView accesssDenied(Principal user) {
 
-        ModelAndView model = new ModelAndView();
-
-        if (user != null) {
-            model.addObject("msg", "Hi " + user.getName()
-                    + ", you do not have permission to access this page!");
-        } else {
-            model.addObject("msg",
-                    "You do not have permission to access this page!");
-        }
-
-        model.setViewName("403");
-        return model;
-
-    }
-    @RequestMapping(value = "/404", method = RequestMethod.GET)
-    public ModelAndView notExists(Principal user) {
-        ModelAndView model = new ModelAndView();
-        model.setViewName("404");
-        return model;
-    }
 }

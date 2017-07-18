@@ -10,6 +10,9 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.session.SessionInformation;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,13 +25,16 @@ import ua.laksmi.web.domain.tables.employee.Employee;
 import ua.laksmi.web.service.ServiceEmployee;
 import ua.laksmi.web.validator.UserValidator;
 
+import javax.annotation.Resource;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.ShortBufferException;
 import javax.servlet.http.HttpServletResponse;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.Principal;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -73,7 +79,7 @@ public class EmployeeController {
     @RequestMapping(value = "/admin/getListEmployee",  method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<Employee> getListEmployee(){
-        System.out.println(serviceEmployee.getListEmployee());
+//        System.out.println(serviceEmployee.getListEmployee());
         return  serviceEmployee.getListEmployee();
     }
     @RequestMapping(value = {"/admin/uploadUserImage","uploadUserImage"},headers = "content-type=multipart/*",  method = RequestMethod.POST)
@@ -127,7 +133,29 @@ public class EmployeeController {
         return model;
 
     }
+    @RequestMapping(value = "/403", method = RequestMethod.GET)
+    public ModelAndView accesssDenied(Principal user) {
 
+        ModelAndView model = new ModelAndView();
+
+        if (user != null) {
+            model.addObject("msg", "Hi " + user.getName()
+                    + ", you do not have permission to access this page!");
+        } else {
+            model.addObject("msg",
+                    "You do not have permission to access this page!");
+        }
+
+        model.setViewName("403");
+        return model;
+
+    }
+    @RequestMapping(value = "/404", method = RequestMethod.GET)
+    public ModelAndView  notExists(Principal user) {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("404");
+        return model;
+    }
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = {"/admin**","/admin/getAvatar/**", "/admin/getListFarm**",  "/admin/getListInvoicesFarm**",
             "/admin/getListInvoicesShipment**", "/admin/getGraphicsFarm**", "/admin/getListEmployee**","/admin/getListCommercial**"}, method = RequestMethod.GET)
@@ -141,9 +169,11 @@ public class EmployeeController {
         model.addObject("firstname", emp.getFirstname());
         model.addObject("lastname", emp.getLastname());
         model.addObject("position", emp.getPosition());
+
         return model;
 
     }
+
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/updateProfile",  method = RequestMethod.POST
             , produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE

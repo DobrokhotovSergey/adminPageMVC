@@ -5,5 +5,8 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  * Created by Dobriks on 9.03.2017.
  */
 public class SpringSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
-
+    @Override
+    protected boolean enableHttpSessionEventPublisher() {
+        return true;
+    }
 }

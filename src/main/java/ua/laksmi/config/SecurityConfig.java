@@ -1,7 +1,6 @@
 package ua.laksmi.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,10 +10,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import ua.laksmi.config.core.BCrypPasswordEncoder;
 
 /**
@@ -37,16 +36,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 				.formLogin().loginPage("/login").failureUrl("/login?error")
 					.usernameParameter("username").passwordParameter("password")
+				.and()
 
-			.and()
-				.logout().logoutSuccessUrl("/login?logout")
+
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
 			.and()
 				.exceptionHandling().accessDeniedPage("/403")
 			.and()
 				.csrf()
-		.and()
-		.headers().frameOptions().disable();
+			.and()
+			.headers().frameOptions().disable()
+				.sessionManagement().maximumSessions(1).expiredUrl("/admin").maxSessionsPreventsLogin(true).sessionRegistry(sessionRegistry())
+				;
 		
+	}
+	@Bean
+	public SessionRegistry sessionRegistry() {
+		SessionRegistry sessionRegistry = new SessionRegistryImpl();
+		return sessionRegistry;
 	}
 	@Autowired
 	DriverManagerDataSource getDriverManagerDatasource;

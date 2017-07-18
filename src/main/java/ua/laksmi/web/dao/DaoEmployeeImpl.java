@@ -66,7 +66,7 @@ public class DaoEmployeeImpl implements DaoEmployee {
 
     public Employee editEmployee(Employee employee) {
 
-        System.out.println(employee);
+//        System.out.println(employee);
         boolean isUpdated = false;
         StringBuilder sb = new StringBuilder();
         sb.append("update ");
@@ -115,7 +115,7 @@ public class DaoEmployeeImpl implements DaoEmployee {
 
 
         }
-        System.out.println(employee);
+//        System.out.println(employee);
         return employee;
     }
 
@@ -165,7 +165,7 @@ public class DaoEmployeeImpl implements DaoEmployee {
 
     @Override
     public boolean updateProfile(Employee employee) {
-        System.out.println(employee);
+//        System.out.println(employee);
         boolean isUpdated = false;
         StringBuilder sb = new StringBuilder();
         sb.append("update ");

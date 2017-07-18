@@ -1,16 +1,15 @@
-package ua.laksmi.web.exception;
+package ua.laksmi.config.core;
 
-import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.web.access.AccessDeniedHandler;
-
+/**
+ * Created by Dobriks on 18.07.2017.
+ */
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
-/**
- * Created by Dobriks on 23.04.2017.
- */
 public class MyAccessDeniedHandler implements AccessDeniedHandler {
 
     private String errorPage;

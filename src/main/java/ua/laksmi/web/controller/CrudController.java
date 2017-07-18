@@ -99,7 +99,10 @@ public class CrudController {
         return commercialFile;
        // return serviceCRUD.createInvoiceShipment(invoiceShipment);
     }
-
+    @RequestMapping("/admin/refresh")
+    @ResponseBody public boolean refresh(){
+        return true;
+    }
 
     @Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/createInvoiceShipment", method =  RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,

@@ -60,25 +60,25 @@ import java.net.URISyntaxException;
 public class DataBaseConfig {
     @Bean
     public DriverManagerDataSource getDriverManagerDatasource() {
-        URI dbUri = null;
-        try {
-            dbUri = new URI(System.getenv("DATABASE_URL"));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+//        URI dbUri = null;
+//        try {
+//            dbUri = new URI(System.getenv("DATABASE_URL"));
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
 
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
+//        String username = dbUri.getUserInfo().split(":")[0];
+//        String password = dbUri.getUserInfo().split(":")[1];
         String dbUrl = "jdbc:postgresql://ec2-23-21-96-70.compute-1.amazonaws.com:5432/d9s122lkd6dc5c?sslmode=require";
 
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         try {
             dataSource.setUrl(dbUrl);
-            dataSource.setUsername(username);
-            dataSource.setPassword(password);
-//            dataSource.setUsername("yefzqnfdvaghvd");
-//            dataSource.setPassword("3fc956464fdc3567b06c26160334e92fd16f90df302849bd596548717d4dd865");
+//            dataSource.setUsername(username);
+//            dataSource.setPassword(password);
+            dataSource.setUsername("yefzqnfdvaghvd");
+            dataSource.setPassword("3fc956464fdc3567b06c26160334e92fd16f90df302849bd596548717d4dd865");
         }catch (Exception ex){
             System.out.println(ex);
         }

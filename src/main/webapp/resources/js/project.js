@@ -619,11 +619,14 @@ function ajaxUsers(){
             NProgress.done();
             unblock_screen();
         },
+
         error: function (xhr, status, error) {
+
             notifyAfterAjax('error','Sorry, but not retrieve list of Users :(');
             console.log(xhr);
             console.log(status);
             console.log(error);
+
         }
     });
 }
@@ -1186,7 +1189,29 @@ $('#editFarm-submit').on('click', function(){
         }
     });
 });
+function refreshSession(){
+    $.ajax({
+        type: "get",
+        url: "refresh",
 
+        complete: function (item) {
+
+
+
+
+        },
+        success: function(item){
+
+        },
+        beforeSend: function(xhr) {
+
+        },
+        error: function (xhr, status, error) {
+
+
+        }
+    });
+}
 $('#editEmployee-submit').on('click', function(){
     var form = $('#editEmployee-form').serializeObject();
     form['user'] = $('#edit-employee-login').val();
@@ -1200,9 +1225,7 @@ $('#editEmployee-submit').on('click', function(){
         data:JSON.stringify(form),
         contentType: "application/json; charset=utf-8",
         complete: function (item) {
-            if(item){
-                notifyAfterAjax('success','employee edited!');
-            }
+
 
             NProgress.done();
             unblock_screen();
@@ -1211,17 +1234,22 @@ $('#editEmployee-submit').on('click', function(){
         },
         success: function(item){
             var pos = $('#edit-employee-pos').text();
-
+            if(item!=null){
+                notifyAfterAjax('success','employee edited!');
+            }
             tableEmployee.row(pos).data( [item.id,item.username,item.firstname, item.lastname,item.position, item.role, item.status,
                 '<a class="btn btn-info edit-employee btn-xs"><i class="fa fa-pencil"></i> Edit </a>'+
                 '<a class="btn btn-danger delete-employee btn-xs"><i class="fa  fa-trash-o"></i> Delete </a>']).draw();
         },
         beforeSend: function(xhr) {
+            refreshSession();
             xhr.setRequestHeader(header, token);
             beforeSend();
         },
-        error: function () {
+        error: function (xhr, status, error) {
+
             notifyAfterAjax('error','Sorry, but employee is not edited :(');
+
         }
     });
 });
